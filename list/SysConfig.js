@@ -46,18 +46,18 @@ const SysConfig = {
     // },
     inproduct: {
       name: '产品成果',
-      path: '/demo/inproduct',
-      config: '/public/config/menuConfig_product.js'
+      path: './inproduct',
+      config: '../config/menuConfig_product.js'
     },
     online: {
       name: '在线工具',
-      path: '/demo/online',
-      config: '/public/config/menuConfig_online.js'
+      path: './online',
+      config: '../config/menuConfig_online.js'
     },
     resource: {
       name: '学习资源',
-      path: '/demo/resource',
-      config: '/public/config/menuConfig_resource.js'
+      path: './resource',
+      config: '../config/menuConfig_resource.js'
     }
   }
   //#endregion

@@ -42,8 +42,7 @@ const SysConfig = {
     /**
      * 默认HproseAPI的服务地址
      */
-    DefaultHproseAPI: '' //http://192.168.1.109:1002/ImageAdmin
-
+    DefaultHproseAPI: '' 
   },
   //#endregion
 
@@ -52,6 +51,7 @@ const SysConfig = {
    * 地图Key
    */
   MapKeys: {
+
   },
   //#endregion
 
