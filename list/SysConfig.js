@@ -43,20 +43,20 @@ const SysConfig = {
     // default: {
     //   name: '首页',
     //   path: '/'
-    // },
+    // },   
+	online: {
+      name: '在线工具',
+      path: '/demo/online',
+      config: '../config/menuConfig_online.js'
+    },
     inproduct: {
       name: '产品成果',
-      path: './inproduct',
+      path: '/demo/inproduct',
       config: '../config/menuConfig_product.js'
-    },
-    online: {
-      name: '在线工具',
-      path: './online',
-      config: '../config/menuConfig_online.js'
     },
     resource: {
       name: '学习资源',
-      path: './resource',
+      path: '/demo/resource',
       config: '../config/menuConfig_resource.js'
     }
   }
