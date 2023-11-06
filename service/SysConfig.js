@@ -5,7 +5,7 @@ const SysConfig = {
   //#region ********系统界面相关配置
   UI: {
     /*必须，系统配置标题，必须 */
-    SiteTitle: '后台业务服务平台',
+    SiteTitle: '后台API服务平台',
     CopyRight: 'Copyright ©XX  2022-2026',
     WebSite: 'http://www.xxxx.com',
     /**是否是能访问互联网，还是内网部署应用*/
@@ -42,7 +42,18 @@ const SysConfig = {
     /**
      * 默认HproseAPI的服务地址
      */
-    DefaultHproseAPI: '' 
+    DefaultHproseAPI: '' //http://192.168.1.109:1002/ImageAdmin
+
+    //*********其他Hprose或API服务***********/
+    // //数据管理
+    // DataHproseAPI: 'http://192.168.1.109:1003/DataManage',
+    // //数据集管理
+    // DatasetHproseAPI: 'http://192.168.1.109:1001/DataSource',
+    // //父级网站地址
+    // ParentWebsiteURL: 'http://localhost:3001'
+
+    //统一登录界面
+    // UILoginURL: 'http://192.168.1.5:180#/userlogin'
   },
   //#endregion
 
@@ -51,7 +62,25 @@ const SysConfig = {
    * 地图Key
    */
   MapKeys: {
-
+    /**
+     * 天地图服务的授权Key
+     */
+    TDTKey: '5d27dc75ca0c3bdf34f657ffe1e9881d',
+    /**
+     * MapboxKey
+     * pk.eyJ1IjoiemdlbyIsImEiOiJja3E2MGE2NmIxbm45Mm5vNHpnOWZlZ3BlIn0.lDaMkti77XPv0_so0J9apQ
+     */
+    MapboxKey:
+      'pk.eyJ1IjoiY2hyaXNuaW5nIiwiYSI6ImNrZzk3dmNveTA2cGUycXAyNXJ3bWNsOHMifQ._4oFj3iqj5yWWvbuONDYnw',
+    /**
+     * Cesium Key
+     */
+    CesiumKey:
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZjdkOGRkYi1hYzIxLTQ4MDMtYjZiMC0zODg5YjI2ZTRlZjIiLCJpZCI6MjgyLCJzY29wZXMiOlsiYXNsIiwiYXNyIiwiYXN3IiwiZ2MiXSwiaWF0IjoxNTYyMDEyNTIyfQ.aVsGtowVeK_5C25G5-WCK7bZHyfXUl_zQ5Ud7TKsq0U'
+    /**
+     * Google地图Key
+     */
+    // GoogleKe?: string;
   },
   //#endregion
 
