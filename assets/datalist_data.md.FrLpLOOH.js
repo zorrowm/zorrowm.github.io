@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as e}from"./chunks/framework.Ei4ruKHh.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"datalist/data.md","filePath":"datalist/data.md","lastUpdated":null}'),s={name:"datalist/data.md"};function d(r,o,n,c,i,l){return a(),e("div")}const m=t(s,[["render",d]]);export{_ as __pageData,m as default};
