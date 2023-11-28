@@ -57,12 +57,12 @@ const SysConfig = {
 	cesium: {
       name: '三维开发',
       path: '/demo/cesium',
-      config: '/config/menuConfig_cesium.js'
+      config: '../config/menuConfig_cesium.js'
     },
     babylon: {
       name: '游戏引擎学习',
       path: '/demo/babylon',
-      config: '/config/menuConfig_babylon.js'
+      config: '../config/menuConfig_babylon.js'
     },
 	
   }
