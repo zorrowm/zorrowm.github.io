@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<head>
+  <title>地形效果</title>
+  <script src="./cesium/Cesium.js"></script>
+  <link href="./cesium/Widgets/widgets.css" rel="stylesheet" />
+  <style>
+    html,
+    body,
+    #cesiumContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .choose{
+      width: 130px;
+      position: absolute;
+      top: 0px;
+      background-color: gray;
+      z-index: 1000;
+     color: white;
+    }
+    .choose label{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer">
+  <div class="choose">
+   <label ><input type="checkbox" onclick="showearth(event)" checked="true">显示地球(默认)</label> 
+   <label ><input type="checkbox"   onclick="light(event)" >地形光照</label> 
+   <label ><input type="checkbox"   onclick="deep(event)" >深度检测</label>
+   <label ><input type="checkbox"   onclick="underground(event)" >地下模式</label>
+   <label ><input type="checkbox"   onclick="triangulation(event)" >三角网</label>
+   <label ><input type="checkbox"   onclick="transparent(event)" >地表透明</label>
+  </div>
+  
+
+  </div>
+  <script>
+     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NDk0NmNlOC1kMDdhLTRlNjgtYjg3Zi0wOGYyNWFjOTU0NjUiLCJpZCI6NzU1NDksImlhdCI6MTYzODc1NDAyOH0.IPls6racTvZH_Rd3h_Ycp1wP1lnxypcqGcEu8SObB6k';
+    var viewer = new Cesium.Viewer("cesiumContainer", {
+      animation: false, // 动画小组件
+      baseLayerPicker: false, // 底图组件，选择三维数字地球的底图（imagery and terrain）。
+      fullscreenButton: false, // 全屏组件
+      vrButton: false, // VR模式
+      geocoder: false, // 地理编码（搜索）组件
+      homeButton: false, // 首页，点击之后将视图跳转到默认视角
+      infoBox: false, // 信息框
+      sceneModePicker: false, // 场景模式，切换2D、3D 和 Columbus View (CV) 模式。
+      selectionIndicator: false, //是否显示选取指示器组件
+      timeline: false, // 时间轴
+      navigationHelpButton: false, // 帮助提示，如何操作数字地球。
+      navigationInstructionsInitiallyVisible: false, // 如果最初应该看到导航说明，则为true；如果直到用户明确单击该按钮，则该提示不显示，否则为false。
+      terrainProvider: Cesium.createWorldTerrain({
+        requestVertexNormals: true //Needed to visualize slope
+    })
+    });
+     // 隐藏logo
+     viewer._cesiumWidget._creditContainer.style.display = "none";
+    window.onload=function(){
+    viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            339907.1874329616,
+            5654554.279066735,
+            2936259.008266917
+        ),
+        orientation: new Cesium.HeadingPitchRoll(
+            9.473742192009368,
+            -1.2225518333236931,
+            6.28274245960864
+        ),
+      });
+      }
+      //显示地球
+      function showearth(e){
+        if(e.target.checked==true){
+          viewer.scene.globe.show = true;
+        }else{
+          viewer.scene.globe.show = false;
+        }
+      }
+     
+  //地形光照
+     function light(e){
+      if(e.target.checked==true){
+          viewer.scene.globe.enableLighting = true;
+        }else{
+          viewer.scene.globe.enableLighting = false;
+        }
+     }
+       //深度检测
+       function deep(e){
+        if(e.target.checked==true){
+          viewer.scene.globe.depthTestAgainstTerrain = true;
+          console.log("开启了深度检测");
+        }else{
+          viewer.scene.globe.depthTestAgainstTerrain = false;
+          console.log("关闭了深度检测");
+        }
+       }
+     //地下模式
+       function underground(e){
+        if(e.target.checked==true){
+          viewer.scene.screenSpaceCameraController.enableCollisionDetection =false;
+          console.log("开启了地下模式");
+        }else{
+          viewer.scene.screenSpaceCameraController.enableCollisionDetection = true;
+          console.log("关闭了地下模式");
+        }
+       }
+     //三角网
+       function triangulation(e){
+        if(e.target.checked==true){
+      var globe = viewer.scene.globe;
+      var material;
+      material = new Cesium.Material.fromType("Grid");
+      material.uniforms.color = new Cesium.Color(0, 0, 0, 1.0);
+      globe.material = material;
+        }else{
+          viewer.scene.globe.material =
+          viewer.scene.globe.material &&
+          viewer.scene.globe.material.destroy();
+        }
+       }
+       //地表透明
+       function transparent(e){
+        if(e.target.checked==true){
+          viewer.scene.globe.translucency.enabled = true;
+          viewer.scene.globe.translucency.frontFaceAlphaByDistance =
+        new Cesium.NearFarScalar(400.0, 0.5, 8000, 0.9);
+      console.log("开启地表透明");
+        }else{
+          viewer.scene.globe.translucency.enabled = false;
+      console.log("关闭地表透明");
+        }
+       }
+
+
+  </script>
+</body>

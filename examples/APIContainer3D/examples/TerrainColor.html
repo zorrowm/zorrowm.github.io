@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<head>
+  <title>地形着色</title>
+  <script src="./cesium/Cesium.js"></script>
+  <link href="./cesium/Widgets/widgets.css" rel="stylesheet" />
+  <style>
+    html,
+    body,
+    #cesiumContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    #toolbar{
+      position: absolute;
+      top:0;
+      background-color: gray;
+      opacity:0.7;
+      z-index: 1000;
+    }
+    .demo1 .demo-container{
+   
+        width: 200px;
+        height: 100px;
+        border-bottom: 1px black solid;
+        color: aliceblue;
+    }
+    .demo2 .demo-container{
+        width: 200px;
+        height: 100px; 
+        color: aliceblue;
+    }
+    .demo1 label{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer">
+    <div id="toolbar" >
+      <div id="zoomButtons"></div>
+      <div class="demo1">
+      <div class="demo-container">
+          <label><input type="radio" name="shadingMaterials" value="none" data-bind="checked: selectedShading">无效果</label>
+          <label><input type="radio" name="shadingMaterials" value="elevation" data-bind="checked: selectedShading"> 高程</label>
+          <label><input type="radio" name="shadingMaterials" value="slope" data-bind="checked: selectedShading"> 坡度</label>
+          <label><input type="radio" name="shadingMaterials" value="aspect" data-bind="checked: selectedShading"> 坡向</label>
+      </div>
+  </div>
+  <div class="demo2">
+      <div class="demo-container">
+          <div>
+              <label><input type="checkbox" data-bind="checked: enableContour">等高线</label>
+          </div>
+          <div>
+              间距 <input style="width: 136px" type="range" min="1.0" max="500.0" step="1.0" data-bind="value: contourSpacing, valueUpdate: 'input', enable: enableContour"> </span>
+          </div>
+          <div>
+              宽度 <input style="width: 125px" type="range" min="1.0" max="10.0" step="1.0" data-bind="value: contourWidth, valueUpdate: 'input', enable: enableContour"></span>
+          </div>
+          <div>
+              <button type="button" data-bind="click: changeColor, enable: enableContour">切换颜色</button>
+          </div>
+      </div>
+  </div>
+
+
+  </div>
+  <script>
+     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NDk0NmNlOC1kMDdhLTRlNjgtYjg3Zi0wOGYyNWFjOTU0NjUiLCJpZCI6NzU1NDksImlhdCI6MTYzODc1NDAyOH0.IPls6racTvZH_Rd3h_Ycp1wP1lnxypcqGcEu8SObB6k';
+    var viewer = new Cesium.Viewer("cesiumContainer", {
+        animation: false, // 动画小组件
+      baseLayerPicker: false, // 底图组件，选择三维数字地球的底图（imagery and terrain）。
+      fullscreenButton: false, // 全屏组件
+      vrButton: false, // VR模式
+      geocoder: false, // 地理编码（搜索）组件
+      homeButton: false, // 首页，点击之后将视图跳转到默认视角
+      infoBox: false, // 信息框
+      sceneModePicker: false, // 场景模式，切换2D、3D 和 Columbus View (CV) 模式。
+      selectionIndicator: false, //是否显示选取指示器组件
+      timeline: false, // 时间轴
+      navigationHelpButton: false, // 帮助提示，如何操作数字地球。
+      navigationInstructionsInitiallyVisible: false, // 如果最初应该看到导航说明，则为true；如果直到用户明确单击该按钮，则该提示不显示，否则为false。
+      terrainProvider: Cesium.createWorldTerrain({
+        requestVertexNormals: true //Needed to visualize slope
+    })
+    });
+ // 隐藏logo
+ viewer._cesiumWidget._creditContainer.style.display = "none";
+  window.onload=function(){
+    viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            339907.1874329616,
+            5654554.279066735,
+            2936259.008266917
+        ),
+        orientation: new Cesium.HeadingPitchRoll(
+            9.473742192009368,
+            -1.2225518333236931,
+            6.28274245960864
+        ),
+      });
+    function getElevationContourMaterial() {
+    // Creates a composite material with both elevation shading and contour lines
+    return new Cesium.Material({
+        fabric: {
+            type: 'ElevationColorContour',
+            materials: {
+                contourMaterial: {
+                    type: 'ElevationContour'
+                },
+                elevationRampMaterial: {
+                    type: 'ElevationRamp'
+                }
+            },
+            components: {
+                diffuse: 'contourMaterial.alpha == 0.0 ? elevationRampMaterial.diffuse : contourMaterial.diffuse',
+                alpha: 'max(contourMaterial.alpha, elevationRampMaterial.alpha)'
+            }
+        },
+        translucent: false
+    });
+}
+
+function getSlopeContourMaterial() {
+    // Creates a composite material with both slope shading and contour lines
+    return new Cesium.Material({
+        fabric: {
+            type: 'SlopeColorContour',
+            materials: {
+                contourMaterial: {
+                    type: 'ElevationContour'
+                },
+                slopeRampMaterial: {
+                    type: 'SlopeRamp'
+                }
+            },
+            components: {
+                diffuse: 'contourMaterial.alpha == 0.0 ? slopeRampMaterial.diffuse : contourMaterial.diffuse',
+                alpha: 'max(contourMaterial.alpha, slopeRampMaterial.alpha)'
+            }
+        },
+        translucent: false
+    });
+}
+
+function getAspectContourMaterial() {
+    // Creates a composite material with both aspect shading and contour lines
+    return new Cesium.Material({
+        fabric: {
+            type: 'AspectColorContour',
+            materials: {
+                contourMaterial: {
+                    type: 'ElevationContour'
+                },
+                aspectRampMaterial: {
+                    type: 'AspectRamp'
+                }
+            },
+            components: {
+                diffuse: 'contourMaterial.alpha == 0.0 ? aspectRampMaterial.diffuse : contourMaterial.diffuse',
+                alpha: 'max(contourMaterial.alpha, aspectRampMaterial.alpha)'
+            }
+        },
+        translucent: false
+    });
+}
+
+var elevationRamp = [0.0, 0.045, 0.1, 0.15, 0.37, 0.54, 1.0];
+var slopeRamp = [0.0, 0.29, 0.5, Math.sqrt(2)/2, 0.87, 0.91, 1.0];
+var aspectRamp = [0.0, 0.2, 0.4, 0.6, 0.8, 0.9, 1.0];
+function getColorRamp(selectedShading) {
+    var ramp = document.createElement('canvas');
+    ramp.width = 100;
+    ramp.height = 1;
+    var ctx = ramp.getContext('2d');
+
+    var values;
+    if (selectedShading === 'elevation') {
+        values = elevationRamp;
+    } else if (selectedShading === 'slope') {
+        values = slopeRamp;
+    } else if (selectedShading === 'aspect') {
+        values = aspectRamp;
+    }
+
+    var grd = ctx.createLinearGradient(0, 0, 100, 0);
+    grd.addColorStop(values[0], '#000000'); //black
+    grd.addColorStop(values[1], '#2747E0'); //blue
+    grd.addColorStop(values[2], '#D33B7D'); //pink
+    grd.addColorStop(values[3], '#D33038'); //red
+    grd.addColorStop(values[4], '#FF9742'); //orange
+    grd.addColorStop(values[5], '#ffd700'); //yellow
+    grd.addColorStop(values[6], '#ffffff'); //white
+
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, 100, 1);
+
+    return ramp;
+}
+
+var minHeight = -414.0; // approximate dead sea elevation
+var maxHeight = 8777.0; // approximate everest elevation
+var contourColor = Cesium.Color.RED.clone();
+var contourUniforms = {};
+var shadingUniforms = {};
+
+// The viewModel tracks the state of our mini application.
+var viewModel = {
+    enableContour: false,
+    contourSpacing: 150.0,
+    contourWidth: 2.0,
+    selectedShading: 'none',
+    changeColor: function() {
+        contourUniforms.color = Cesium.Color.fromRandom({alpha: 1.0}, contourColor);
+    }
+};
+console.log(viewModel.enableContour,"kaikaikaiakai")
+// Convert the viewModel members into knockout observables.
+Cesium.knockout.track(viewModel);
+
+// Bind the viewModel to the DOM elements of the UI that call for it.
+var toolbar = document.getElementById('toolbar');
+Cesium.knockout.applyBindings(viewModel, toolbar);
+
+function updateMaterial() {
+    var hasContour = viewModel.enableContour;
+    var selectedShading = viewModel.selectedShading;
+    var globe = viewer.scene.globe;
+    var material;
+    if (hasContour) {
+        if (selectedShading === 'elevation') {
+            material = getElevationContourMaterial();
+            shadingUniforms = material.materials.elevationRampMaterial.uniforms;
+            shadingUniforms.minimumHeight = minHeight;
+            shadingUniforms.maximumHeight = maxHeight;
+            contourUniforms = material.materials.contourMaterial.uniforms;
+        } else if (selectedShading === 'slope') {
+            material = getSlopeContourMaterial();
+            shadingUniforms = material.materials.slopeRampMaterial.uniforms;
+            contourUniforms = material.materials.contourMaterial.uniforms;
+        } else if (selectedShading === 'aspect') {
+            material = getAspectContourMaterial();
+            shadingUniforms = material.materials.aspectRampMaterial.uniforms;
+            contourUniforms = material.materials.contourMaterial.uniforms;
+        } else {
+            material = Cesium.Material.fromType('ElevationContour');
+            contourUniforms = material.uniforms;
+        }
+        contourUniforms.width = viewModel.contourWidth;
+        contourUniforms.spacing = viewModel.contourSpacing;
+        contourUniforms.color = contourColor;
+    } else if (selectedShading === 'elevation') {
+        material = Cesium.Material.fromType('ElevationRamp');
+        shadingUniforms = material.uniforms;
+        shadingUniforms.minimumHeight = minHeight;
+        shadingUniforms.maximumHeight = maxHeight;
+    } else if (selectedShading === 'slope') {
+        material = Cesium.Material.fromType('SlopeRamp');
+        shadingUniforms = material.uniforms;
+    } else if (selectedShading === 'aspect') {
+        material = Cesium.Material.fromType('AspectRamp');
+        shadingUniforms = material.uniforms;
+    }
+    if (selectedShading !== 'none') {
+        shadingUniforms.image = getColorRamp(selectedShading);
+    }
+
+    globe.material = material;
+}
+
+updateMaterial();
+
+Cesium.knockout.getObservable(viewModel, 'enableContour').subscribe(function(newValue) {
+    updateMaterial();
+});
+
+Cesium.knockout.getObservable(viewModel, 'contourWidth').subscribe(function(newValue) {
+    contourUniforms.width = parseFloat(newValue);
+});
+
+Cesium.knockout.getObservable(viewModel, 'contourSpacing').subscribe(function(newValue) {
+    contourUniforms.spacing = parseFloat(newValue);
+});
+
+Cesium.knockout.getObservable(viewModel, 'selectedShading').subscribe(function(value) {
+    updateMaterial();
+});
+
+  }
+
+  </script>
+</body>

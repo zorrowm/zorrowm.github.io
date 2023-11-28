@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+  <title>雨</title>
+  <script src="./cesium/Cesium.js"></script>
+  <link href="./cesium/Widgets/widgets.css" rel="stylesheet" />
+  <style>
+    html,
+    body,
+    #cesiumContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+   
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer">
+
+  </div>
+  <script>
+     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NDk0NmNlOC1kMDdhLTRlNjgtYjg3Zi0wOGYyNWFjOTU0NjUiLCJpZCI6NzU1NDksImlhdCI6MTYzODc1NDAyOH0.IPls6racTvZH_Rd3h_Ycp1wP1lnxypcqGcEu8SObB6k';
+    var viewer = new Cesium.Viewer("cesiumContainer", {
+      animation: false, // 动画小组件
+      baseLayerPicker: false, // 底图组件，选择三维数字地球的底图（imagery and terrain）。
+      fullscreenButton: false, // 全屏组件
+      vrButton: false, // VR模式
+      geocoder: false, // 地理编码（搜索）组件
+      homeButton: false, // 首页，点击之后将视图跳转到默认视角
+      infoBox: false, // 信息框
+      sceneModePicker: false, // 场景模式，切换2D、3D 和 Columbus View (CV) 模式。
+      selectionIndicator: false, //是否显示选取指示器组件
+      timeline: false, // 时间轴
+      navigationHelpButton: false, // 帮助提示，如何操作数字地球。
+      navigationInstructionsInitiallyVisible: false, // 如果最初应该看到导航说明，则为true；如果直到用户明确单击该按钮，则该提示不显示，否则为false。
+    
+    });
+ // 隐藏logo
+ viewer._cesiumWidget._creditContainer.style.display = "none";
+      window.onload=function (){
+        function FS_Rain() {
+          return 'uniform sampler2D colorTexture;\n' +
+            'varying vec2 v_textureCoordinates;\n' +
+            '	float hash(float x){\n' +
+            '	     return fract(sin(x*133.3)*13.13);\n' +
+            '	 }\n' +
+            '	void main(void){\n' +
+            '	     float time = czm_frameNumber / 600.0;\n' +
+            '	     vec2 resolution = czm_viewport.zw; \n' +
+            '	     vec2 uv=(gl_FragCoord.xy*2.-resolution.xy)/min(resolution.x,resolution.y);\n' +
+            '	     vec3 c=vec3(.6,.7,.8); \n' +
+            '	     float a=-.4;\n' +
+            '	     float si=sin(a),co=cos(a);\n' +
+            '	     uv*=mat2(co,-si,si,co);\n' +
+            '	     uv*=length(uv+vec2(0,4.9))*.3+1.;\n' +
+            '	     float v=1.-sin(hash(floor(uv.x*100.))*2.);\n' +
+            '	     float b=clamp(abs(sin(20.*time*v+uv.y*(5./(2.+v))))-.95,0.,1.)*20.;\n' +
+            '	     c*=v*b; \n' +
+            '	     gl_FragColor = mix(texture2D(colorTexture, v_textureCoordinates), vec4(c,1), 0.5); \n' +
+            '	}';
+
+      }
+     
+       var fs_rain = FS_Rain();
+      var rain = new Cesium.PostProcessStage({
+        name: 'czm_rain',
+        fragmentShader: fs_rain
+      });
+      viewer.scene.postProcessStages.add(rain);
+     
+      }
+
+
+  </script>
+</body>

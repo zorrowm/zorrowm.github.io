@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BABYLON 第一个例子Hello World</title>
+    <link rel="stylesheet" href="./css/default.css" />
+    <script src="./lib/pep.js" async></script>
+    <!-- Dependencies -->
+    <script src="./lib/ammo.js" async></script>
+    <script src="./lib/recast.js" async></script>
+    <script src="./lib/cannon.js" async></script>
+    <script src="./lib/Oimo.js" async></script>
+    <script src="./lib/earcut.min.js" async></script>
+  </head>
+
+  <body>
+    <canvas id="renderCanvas" touch-action="none"></canvas>
+    <canvas id="canvas2" style="position: absolute; left: 0; top: 0; z-index: 2"></canvas>
+    <script>
+      const target = templatecode;
+      if (target.CreateScene) {
+        //默认的运行环境
+        import('./js/playground.js').then(env => {
+          const play = env.play;
+          play(target.CreateScene);
+          // import('./js/01.js').then(demo => {
+          //   const createScene = demo.default;
+          //   play(createScene);
+          // });
+        });
+      }
+    </script>
+  </body>
+</html>

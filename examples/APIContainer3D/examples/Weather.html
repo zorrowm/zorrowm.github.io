@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<head>
+  <title>天气</title>
+  <script src="./cesium/Cesium.js"></script>
+  <link href="./cesium/Widgets/widgets.css" rel="stylesheet" />
+  <style>
+    html,
+    body,
+    #cesiumContainer {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .choose{
+      width: 130px;
+      position: absolute;
+      top: 0px;
+      background-color: gray;
+      z-index: 1000;
+     color: white;
+    }
+    .choose label{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer">
+  <div class="choose">
+   <label ><input type="checkbox" onclick="allfog(event)" >全屏雾</label> 
+   <label ><input type="checkbox" onclick="fog(event)" >雾</label> 
+   <label ><input type="checkbox" onclick="sun(event)" >太阳</label> 
+   <label ><input type="checkbox" onclick="star(event)" >星空</label> 
+   <label ><input type="checkbox" onclick="air(event)" >大气</label> 
+  </div>
+  
+
+  </div>
+  <script>
+     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NDk0NmNlOC1kMDdhLTRlNjgtYjg3Zi0wOGYyNWFjOTU0NjUiLCJpZCI6NzU1NDksImlhdCI6MTYzODc1NDAyOH0.IPls6racTvZH_Rd3h_Ycp1wP1lnxypcqGcEu8SObB6k';
+    var viewer = new Cesium.Viewer("cesiumContainer", {
+      animation: false, // 动画小组件
+      baseLayerPicker: false, // 底图组件，选择三维数字地球的底图（imagery and terrain）。
+      fullscreenButton: false, // 全屏组件
+      vrButton: false, // VR模式
+      geocoder: false, // 地理编码（搜索）组件
+      homeButton: false, // 首页，点击之后将视图跳转到默认视角
+      infoBox: false, // 信息框
+      sceneModePicker: false, // 场景模式，切换2D、3D 和 Columbus View (CV) 模式。
+      selectionIndicator: false, //是否显示选取指示器组件
+      timeline: false, // 时间轴
+      navigationHelpButton: false, // 帮助提示，如何操作数字地球。
+      navigationInstructionsInitiallyVisible: false, // 如果最初应该看到导航说明，则为true；如果直到用户明确单击该按钮，则该提示不显示，否则为false。
+      terrainProvider: Cesium.createWorldTerrain({
+        requestVertexNormals: true //Needed to visualize slope
+    })
+    });
+     // 隐藏logo
+     viewer._cesiumWidget._creditContainer.style.display = "none";
+
+     //全屏雾
+      function allfog(e){
+        if(e.target.checked==true){
+          function FS_Allfog() {
+          return "  uniform sampler2D colorTexture;\n" +
+        "  uniform sampler2D depthTexture;\n" +
+        "  varying vec2 v_textureCoordinates;\n" +
+        "  void main(void)\n" +
+        "  {\n" +
+        "      vec4 origcolor=texture2D(colorTexture, v_textureCoordinates);\n" +
+        "      vec4 fogcolor=vec4(0.8,0.8,0.8,0.5);\n" +
+        "\n" +
+        "      float depth = czm_readDepth(depthTexture, v_textureCoordinates);\n" +
+        "      vec4 depthcolor=texture2D(depthTexture, v_textureCoordinates);\n" +
+        "\n" +
+        "      float f=(depthcolor.r-0.22)/0.2;\n" +
+        "      if(f<0.0) f=0.0;\n" +
+        "      else if(f>1.0) f=1.0;\n" +
+        "      gl_FragColor = mix(origcolor,fogcolor,f);\n" +
+        "   }"
+      }
+     
+       var fs_allfog = FS_Allfog();
+      var allfog = new Cesium.PostProcessStage({
+        name: 'czm_allfog',
+        fragmentShader: fs_allfog
+      });
+      viewer.scene.postProcessStages.add(allfog);
+        }else{
+          viewer.scene.postProcessStages.removeAll();
+        }
+      }
+      //雾
+        function fog(e){
+          if(e.target.checked==true){
+        viewer.camera.flyTo({
+        destination: Cesium.Cartesian3.fromDegrees(116.19, 46.25, 10000.0),
+        orientation: {
+          heading:Cesium.Math.toRadians(10.0),
+          pitch:Cesium.Math.toRadians(-15.0),
+          roll: 0.0,
+        },
+      });
+      viewer.scene.fog.enabled = true;
+          }else{
+            viewer.camera.flyHome()
+            viewer.scene.fog.enabled = false;
+          }
+        }
+      //太阳
+      function sun(e){
+        if(e.target.checked==true){
+      var camera = viewer.scene.camera;
+      camera.position = new Cesium.Cartesian3(40010447.97500168, 56238683.46406788, 20776576.752223067);
+      camera.direction = new Cesium.Cartesian3(-0.5549701431494752, -0.7801872010801355, -0.2886452346452218);
+      camera.up = new Cesium.Cartesian3(-0.3016252360948521, -0.13464820558887716, 0.9438707950150912);
+      camera.right = Cesium.Cartesian3.cross(camera.direction, camera.up, new Cesium.Cartesian3());
+
+       viewer.clock.currentTime = new Cesium.JulianDate(2458047, 27399.860215000022);
+
+        viewer.scene.sun.show = true;
+        }else{
+          viewer.camera.flyHome()
+          viewer.scene.sun.show = false;
+        }
+      }
+      //星空
+      function star(e){
+        if(e.target.checked==true){
+          viewer.scene.skyBox.show = true;
+        }
+        else{
+          viewer.scene.skyBox.show = false;
+        }
+      }
+      //大气
+      function air(e){
+        if(e.target.checked==true){
+          viewer.scene.skyAtmosphere.show = true;
+        }
+        else{
+          viewer.scene.skyAtmosphere.show = false;
+        }
+      }
+
+  </script>
+</body>
