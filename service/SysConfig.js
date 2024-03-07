@@ -5,8 +5,8 @@ const SysConfig = {
   //#region ********系统界面相关配置
   UI: {
     /*必须，系统配置标题，必须 */
-    SiteTitle: '后台API服务平台',
-    CopyRight: 'Copyright ©XX  2022-2026',
+    SiteTitle: '后台业务服务平台',
+    CopyRight: 'Copyright ©宇算  2022-2026',
     WebSite: 'http://www.xxxx.com',
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
@@ -21,7 +21,7 @@ const SysConfig = {
     /**
      * 用户登录（统一用户登录）
      */
-     LoginAuthURL: '',
+     LoginAuthURL: 'http://user.ysgis.com',
     /**
      * 文件管理服务地址（统一文件管理：后台）
      */
