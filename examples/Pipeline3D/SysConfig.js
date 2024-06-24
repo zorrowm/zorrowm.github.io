@@ -6,7 +6,7 @@ const SysConfig = {
   UI: {
     /*必须，系统配置标题，必须 */
     SiteTitle: '三维管线展示系统',
-    CopyRight: 'Copyright ©XX科技  2024-2030',
+    CopyRight: 'Copyright ©xx科技  2024-2030',
     WebSite: 'https://www.baidu.com',
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
@@ -23,7 +23,7 @@ const SysConfig = {
      * 用户登录（统一用户登录）（不能带"/"）
      * http://192.168.1.12:83
      */
-    LoginAuthURL: 'https://gis-auth.digsur.com',
+    LoginAuthURL: '',
     /**
      * 图标在线服务地址（不能带"/"）
      */
@@ -50,7 +50,7 @@ const SysConfig = {
      */
     DefaultHproseAPI: '', //https://gis-image.digsur.com/ImageAdmin
     //数据集管理http://192.168.1.33:1001/DataSource
-    DatasetHproseAPI: 'https://gis-image.digsur.com/DataSource',
+    DatasetHproseAPI: '',
     // DatasetHproseAPI: 'http://192.168.1.47:1001/DataSource',
 
     //渲染样式色带图片
@@ -101,7 +101,7 @@ const SysConfig = {
     url:'http://localhost:8000',
     layers:['img_w']
   },
-  LocalTerrain:'/dem'//本地URL地址或相对地址
+  LocalTerrain:'./dem'//本地URL地址或相对地址
   //#endregion
 };
 
