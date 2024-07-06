@@ -1,4 +1,4 @@
-import{k as d,l as p,d as g}from"./index-uk12gd3X.js";import{S as u}from"./SystemsEvent-CcMw5DLH.js";import{N as f}from"./xframelib-exp-BYnL-see.js";import{d as _,u as x,v as S,M as w,H as h}from"./@vue-exp-BMz8X7Pi.js";import"./vendor-Dka75WDo.js";import"./@hprose-exp-CwcCDL56.js";import"./vue-router-exp-COsaUipG.js";import"./axios-exp-DvxIUWKU.js";const C="rainWidget",y=_({name:C,components:{},setup(){let n,i=!1;function e(){return f.CesiumViewer&&(n||(n=f.CesiumViewer)),n}let t=null;const a=`uniform sampler2D colorTexture;
+import{k as d,l as p,d as g}from"./index-Bvhcfk1J.js";import{S as u}from"./SystemsEvent-CcMw5DLH.js";import{N as f}from"./xframelib-exp-BHnis-8Y.js";import{d as _,u as x,v as S,M as w,H as h}from"./@vue-exp-BMz8X7Pi.js";import"./vendor-09XKH5X6.js";import"./@hprose-exp-zVZHOVCF.js";import"./vue-router-exp-COsaUipG.js";import"./axios-exp-DvxIUWKU.js";const C="rainWidget",y=_({name:C,components:{},setup(){let n,i=!1;function e(){return f.CesiumViewer&&(n||(n=f.CesiumViewer)),n}let t=null;const a=`uniform sampler2D colorTexture;
         in vec2 v_textureCoordinates;
         uniform float tiltAngle;
         uniform float rainSize;

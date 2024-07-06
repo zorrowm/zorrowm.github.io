@@ -1,4 +1,4 @@
-import{k as d,l as w,d as p}from"./index-uk12gd3X.js";import{S as l}from"./SystemsEvent-CcMw5DLH.js";import{N as v}from"./xframelib-exp-BYnL-see.js";import{d as g,u as y,v as _,M as S,H as x}from"./@vue-exp-BMz8X7Pi.js";import"./vendor-Dka75WDo.js";import"./@hprose-exp-CwcCDL56.js";import"./vue-router-exp-COsaUipG.js";import"./axios-exp-DvxIUWKU.js";const C="snowWidget",k=g({name:C,components:{},setup(){let n,r=!1;function e(){return v.CesiumViewer&&(n||(n=v.CesiumViewer)),n}let t=null;const i=`uniform sampler2D colorTexture;
+import{k as d,l as w,d as p}from"./index-Bvhcfk1J.js";import{S as l}from"./SystemsEvent-CcMw5DLH.js";import{N as v}from"./xframelib-exp-BHnis-8Y.js";import{d as g,u as y,v as _,M as S,H as x}from"./@vue-exp-BMz8X7Pi.js";import"./vendor-09XKH5X6.js";import"./@hprose-exp-zVZHOVCF.js";import"./vue-router-exp-COsaUipG.js";import"./axios-exp-DvxIUWKU.js";const C="snowWidget",k=g({name:C,components:{},setup(){let n,r=!1;function e(){return v.CesiumViewer&&(n||(n=v.CesiumViewer)),n}let t=null;const i=`uniform sampler2D colorTexture;
      in vec2 v_textureCoordinates;
      uniform float rainSpeed;
      float snow(vec2 uv,float scale){

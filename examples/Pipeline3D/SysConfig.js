@@ -101,8 +101,14 @@ const SysConfig = {
     url:'http://localhost:8000',
     layers:['img_w']
   },
-  LocalTerrain:'./dem'//本地URL地址或相对地址
+  LocalTerrain:'./dem',//本地URL地址或相对地址
   //#endregion
+    //#region **********用于控制功能是否启用
+    Enables: {
+      // TurfAsync: true,
+      CesiumOfflineCache: true //Cesium缓存
+    }
+    //#endregion
 };
 
 //#region *********其他可扩展执行的JS代码
