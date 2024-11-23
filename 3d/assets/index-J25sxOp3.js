@@ -1,0 +1,1 @@
+import{j as t}from"./xframelib-exp-CvTEfE5n.js";function a(e){e.selected=!e.selected}function n(e){t.LayerManager.removeLayerItem("artificialLayer")}function i(e,o,r){t.LayerManager.addLayerItem({id:e,name:o},r)}const c=Object.freeze(Object.defineProperty({__proto__:null,AddLayerItem:i,ControlSkyVisible:a,RemoveLayerItem:n},Symbol.toStringTag,{value:"Module"}));export{c as A};
