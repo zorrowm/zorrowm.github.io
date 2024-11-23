@@ -5,8 +5,8 @@ const SysConfig = {
   //#region ********系统界面相关配置
   UI: {
     /*必须，系统配置标题，必须 */
-    SiteTitle: '三维平台',
-    CopyRight: 'Copyright ©xx科技  2024-2030',
+    SiteTitle: '帝测三维平台',
+    CopyRight: 'Copyright ©帝测科技  2024-2030',
     WebSite: 'https://www.digsur.com',
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
