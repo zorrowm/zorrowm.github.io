@@ -1,0 +1,91 @@
+/* 定义全局样式变量 */
+html {
+  /* ******************header *****************/
+  /* 头部背景色 */
+  --header-bg-color: #191358;
+  /* 头部-LOGO背景色 */
+  --header-logo-bgcolor: #f00;
+  /* 头部-标题字体颜色 */
+  --header-title-color: #fff;
+
+  /* ******************* 左侧菜单************* */
+  --sider-panel-bg-color: #6a83c2;
+  /* 菜单主背景颜色 */
+  --sider-menu-bg-color: #eee;
+  /* 菜单字体颜色 */
+  --sider-menu-font-color: #222;
+  /* 选中菜单背景颜色，默认为 #e6f7ff; */
+  --sider-menu-selected-bgcolor: #e6f7ff;
+  /* 选中菜单字颜色，默认为 #1890ff; */
+  --sider-menu-selected-fontcolor: #1890ff;
+
+  /* 底部状态栏颜色 */
+  --footer-bg-color: #eee;
+  --footer-copyright-fontcolor: #000;
+  --footer-info-fontcolor: #00f;
+  /* 浏览器默认支持的最小字体大小 */
+  --footer-fontsize: 12px;
+
+  /* 主体的背景色 */
+  --main-bg-color: #eee;
+
+  /* Icon图标样式 */
+  --iconify-default-color: #333;
+
+  /* 整体字的颜色 */
+  --primary-color: #42C7FF;
+  --text-color: #fff;
+}
+/* ant-design弹框样式,必须大于1000 */
+.ant-modal-mask,
+.ant-modal-wrap {
+  z-index: 1000 !important;
+}
+
+/* 引入字体文件 */
+/* @font-face {
+  font-family: "PangMenZhengDao";
+  src: url("./PangMenZhengDao.ttf");
+} */
+/* iconify Icon图标样式 */
+.iconify {
+  color: var(--iconify-default-color);
+  width: 16px;
+  height: 16px;
+  /* 图片文字的基线对齐，必须要有 */
+  vertical-align: middle;
+}
+/* ******************以下为服务各业务系统的，可以补充添加与修改***************************/
+/**  Form表格相关样式 **/
+.ant-form-item {
+  margin-bottom: 10px !important;
+}
+/*
+  用于FormItem  一行两个
+  */
+.scopeBox {
+  display: inline-flex;
+  width: 50%;
+}
+.backContainer {
+  pointer-events: none !important;
+}
+/* 确认对话框 */
+.ant-popover-inner
+{
+  min-width:140px;
+}
+.ant-popover-inner-content
+{
+  padding: 12px 10px !important;
+}
+
+/* 主容器背景 */
+/* .container2 {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url(../img/bg.png);
+  background-size: 100% 80%;
+  background-repeat: no-repeat;
+} */

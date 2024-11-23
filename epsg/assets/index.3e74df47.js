@@ -1,0 +1,1 @@
+import{u as s,b as n}from"./vue-router-exp.aee9d5fb.js";import{d as u,ag as p,k as m,ah as c}from"./vendor.de069ad6.js";import"./lodash-es-exp.d3c3d62f.js";const y=u({name:"Redirect",setup(i){const o=s(),r=n();return p(()=>{const{params:t,query:a}=o,{path:e}=t;r.replace({path:"/"+(Array.isArray(e)?e.join("/"):e),query:a})}),()=>m(c,null,null)}});export{y as default};

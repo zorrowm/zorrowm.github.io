@@ -1,0 +1,1 @@
+const t=[{title:"\u7F16\u7801",dataIndex:"code",fixed:"left"},{title:"\u6765\u6E90",dataIndex:"authority"},{title:"\u540D\u79F0",dataIndex:"name"},{title:"\u7C7B\u578B",dataIndex:"kind"},{title:"\u9002\u7528\u8303\u56F4",dataIndex:"area"}];export{t as c};

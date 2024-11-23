@@ -1,0 +1,1 @@
+import{a}from"./index.f27a7adf.js";import{af as e,c as s}from"./vendor.de069ad6.js";const n=a(),{layoutContentHeight:r,layoutContentWidth:c}=e(n),i=s(()=>{const t=c.value-30,o=r.value-125;return{x:t,y:o}});export{r as l,i as s};
