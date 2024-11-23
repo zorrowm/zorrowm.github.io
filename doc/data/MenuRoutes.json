@@ -1,0 +1,296 @@
+{
+  "id": "fbe867c7bd3c208c41791a2e0e38c7fe",
+  "name": "基于widget Quasar-cli开发模板",
+  "product": "vue-widget-quasar-clivite-template",
+  "version": "0.0.1",
+  "routes": [
+    {
+      "path": "/default",
+      "name": "DefaultLayout",
+      "type": 0,
+      "children": [
+        {
+          "path": "home",
+          "name": "home2",
+          "title": "首页2",
+          "type": 0,
+          "index": 1
+        },
+        {
+          "path": "dashboard",
+          "name": "dashboard2",
+          "title": "仪表盘",
+          "type": 0,
+          "index": 2,
+          "children": [
+            {
+              "path": "/default/dashboard/welcome",
+              "name": "dashboard2-welcome",
+              "title": "欢迎",
+              "type": 0
+            }
+          ]
+        },
+        {
+          "path": "http://www.baidu.com",
+          "name": "http://www.baidu.com",
+          "title": "百度",
+          "type": 0,
+          "index": 3
+        }
+      ]
+    },
+    {
+      "path": "/main",
+      "name": "Main",
+      "title": "主页面布局",
+      "type": 1,
+      "children": [
+        {
+          "path": "/main/test",
+          "name": "main-test",
+          "type": 0,
+          "index": 1
+        }
+      ]
+    },
+    {
+      "path": "/back",
+      "name": "BackLayout",
+      "title": "",
+      "type": 1,
+      "children": [
+        {
+          "path": "dashboard",
+          "name": "dashboard",
+          "title": "仪表盘",
+          "type": 0,
+          "index": 1,
+          "children": [
+            {
+              "path": "welcome",
+              "name": "dashboard-welcome",
+              "title": "欢迎",
+              "type": 0
+            }
+          ]
+        },
+        {
+          "path": "home",
+          "name": "home",
+          "title": "首页",
+          "type": 0,
+          "index": 2
+        },
+        {
+          "path": "http://www.baidu.com",
+          "name": "http://www.baidu.com",
+          "title": "百度",
+          "type": 0,
+          "index": 3
+        }
+      ]
+    },
+    {
+      "path": "/bigscreen",
+      "name": "bigscreen",
+      "title": "",
+      "type": 0,
+      "children": [
+        {
+          "path": "/test",
+          "name": "test",
+          "title": "routes.home",
+          "type": 0
+        },
+        {
+          "path": "/test2",
+          "name": "test2",
+          "title": "routes.home",
+          "type": 0
+        }
+      ]
+    }
+  ],
+  "widgetMenu": [
+    {
+      "name": "地图工具",
+      "index": 1,
+      "path": "linkMenuWidget",
+      "type": 0,
+      "children": [
+        {
+          "name": "测量工具",
+          "path": "flyMenuWidget",
+          "type": 0,
+          "children": [
+            {
+              "name": "test1",
+              "path": "flyRoamingWidget1",
+              "type": 0
+            },
+            {
+              "name": "test2",
+              "path": "SimulationWidget2",
+              "type": 0
+            }
+          ]
+        },
+        {
+          "name": "量算工具",
+          "path": "measureToolWidget",
+          "type": 0
+        },
+        {
+          "name": "标绘工具",
+          "path": "drawToolWidget",
+          "type": 0
+        },
+        {
+          "name": "态势标绘",
+          "path": "plotMapWidget",
+          "type": 0
+        },
+        {
+          "name": "截图/视频",
+          "path": "photoVideoWidget",
+          "type": 0
+        }
+      ]
+    },
+    {
+      "name": "图层树",
+      "index": 2,
+      "path": "layerManagerWidget",
+      "type": 0
+    },
+    {
+      "name": "专题地图",
+      "index": 3,
+      "path": "layerManagerWidget",
+      "type": 0
+    },
+    {
+      "name": "场景视角",
+      "index": 4,
+      "path": "layerManagerWidget",
+      "type": 0
+    },
+    {
+      "name": "地图特效",
+      "index": 5,
+      "path": "layerManagerWidget",
+      "type": 0
+    }
+  ],
+  "widgets": [
+    {
+      "id": "HeaderTitleWidget",
+      "label": "头部栏",
+      "container": 0,
+      "preload": true
+    },
+    {
+      "id": "LogoTitleWidget",
+      "label": "图标标题",
+      "container": 0,
+      "preload": true,
+      "afterid": "HeaderTitleWidget"
+    },
+    {
+      "id": "FooterCopyrightWidget",
+      "label": "底部栏",
+      "container": 1,
+      "preload": false
+    },
+    {
+      "id": "ModalContainerWidget",
+      "label": "弹框容器",
+      "container": 0,
+      "preload": true
+    },
+    {
+      "id": "SideMenuWidget",
+      "label": "左侧菜单",
+      "container": 5,
+      "preload": true
+    },
+    {
+      "id": "headerTitleWidget",
+      "label": "头部栏",
+      "container": 0,
+      "preload": true
+    },
+    {
+      "id": "bottomMenuWidget",
+      "container": 1,
+      "preload": true
+    },
+    {
+      "id": "statusWidget",
+      "container": 1,
+      "preload": true
+    },
+    {
+      "id": "cesiumWidget",
+      "container": 2,
+      "preload": true
+    },
+    {
+      "id": "menuBarWidget",
+      "container": 2,
+      "preload": true
+    },
+    {
+      "id": "linkMenuWidget",
+      "container": 2,
+      "preload": false
+    },
+    {
+      "id": "templateMenuWidget",
+      "container": 2,
+      "preload": false
+    },
+    {
+      "id": "flyMenuWidget",
+      "container": 2,
+      "preload": false
+    },
+    {
+      "id": "HeaderTitleWidget",
+      "label": "头部栏",
+      "container": 0,
+      "preload": true
+    },
+    {
+      "id": "FooterCopyrightWidget",
+      "label": "底部栏",
+      "container": 1,
+      "preload": true
+    },
+    {
+      "id": "ModalContainerWidget",
+      "label": "弹框容器",
+      "container": 0,
+      "preload": true
+    },
+    {
+      "id": "LogoTitleWidget",
+      "label": "头部栏",
+      "container": 0,
+      "preload": true
+    },
+    {
+      "id": "TopMenuWidget",
+      "label": "头部菜单栏",
+      "container": 0,
+      "preload": true
+    },
+    {
+      "id": "ModalContainerWidget",
+      "label": "弹框容器",
+      "container": 0,
+      "preload": true
+    }
+  ]
+}

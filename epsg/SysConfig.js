@@ -22,11 +22,11 @@ const SysConfig = {
     /**
      * 用户登录（统一用户登录）
      */
-     LoginAuthURL: 'http://authservice.ysgis.com',
+     LoginAuthURL: 'https://authservice.ysgis.com',
     /**
      * 图标在线服务地址
      */
-     IconServiceURL: "http://iconservice.ysgis.com",
+     IconServiceURL: "https://iconservice.ysgis.com",
     /**
      * 文件管理服务地址（统一文件管理：后台）
      */
@@ -43,7 +43,7 @@ const SysConfig = {
      * Axios普通WebAPI的BaseURL
      * 全局默认的http请求地址（一般与主hprose相同或不同）;文件上传地址
      */
-    DefaultWebAPI: 'http://epsgservice.ysgis.com',
+    DefaultWebAPI: 'https://epsgservice.ysgis.com',
     /**
      * 默认HproseAPI的服务地址
      */
