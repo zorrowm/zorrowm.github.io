@@ -6,7 +6,7 @@ const SysConfig = {
   UI: {
     /*必须，系统配置标题，必须 */
      SiteTitle: '图标在线服务系统',
-    CopyRight: 'Copyright ©北京宇算科技有限公司  2022-2026',
+    CopyRight: 'Copyright ©xxxx  2022-2026',
     WebSite: 'http://www.ysgis.com',
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
@@ -22,17 +22,17 @@ const SysConfig = {
     /**
      * 用户登录（统一用户登录）
      */
-     LoginAuthURL: "http://authservice.ysgis.com",
+     LoginAuthURL: "https://authservice.ysgis.com",
      /**
       * 图标在线服务地址
       */
-      IconServiceURL: "http://iconservice.ysgis.com",
+      IconServiceURL: "https://iconservice.ysgis.com",
     
      /**
       * Axios普通WebAPI的BaseURL
       * 全局默认的http请求地址（一般与主hprose相同或不同）;文件上传地址
       */
-    DefaultWebAPI: 'http://iconservice.ysgis.com',
+    DefaultWebAPI: 'https://iconservice.ysgis.com',
 
   },
   //#endregion
