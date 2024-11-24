@@ -1,0 +1,1 @@
+import{k as d}from"./index-CvUQtR9N.js";import{W as a}from"./WidgetsEvent-e0lOKT5_.js";import"./xframelib-exp-B9KgMBHw.js";function n(o){o&&d(a.ModalContainerWidget_LoadModal,o)}function r(o){d(a.ModalContainerWidget_CloseModal,o)}export{r as a,n as d};
