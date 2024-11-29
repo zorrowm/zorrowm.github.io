@@ -1,0 +1,141 @@
+{
+	"name": "支撑平台",
+	"id": 2,
+	"children": [
+		{
+			"name": "fileManage",
+			"title": "文件系统管理与服务系统",
+			"subtitle": "采用微服务架构，提供统一在线文件管理基础服务，对文件进行统一管理、分类存储，将各部门、各平台分散存储的文件进行收集并归纳，建立文件存储列表、实现文件分类管理，同时对重要资料进行备份及加密处理。",
+			"id": 1,
+			"img": [
+				"/img/portal/fileManage1.png",
+				"/img/portal/fileManage1.png",
+				"/img/portal/fileManage3.png"
+			]
+		},
+		{
+			"name": "coordService",
+			"title": "全球坐标系在线服务系统",
+			"subtitle": "",
+			"id": 2,
+			"children": [
+				{
+					"id": 1,
+					"name": "一站式搜索",
+					"info": [
+						"根据搜索条件的不同分为2类搜索",
+						"根据编码，进行全库搜索查找；",
+						"根据名称，进行全库搜索查找；"
+					],
+					"img": "/img/portal/coordService1.png"
+				},
+				{
+					"id": 2,
+					"name": "EPSG详情展示",
+					"info": [
+						"展示EPSG详情信息。",
+						"展示OGC WKT，PROJ4信息，支持一键复制。",
+						"根据EPSG展示地图并显示其范围。"
+					],
+					"img": "/img/portal/coordService2.png"
+				},
+				{
+					"id": 3,
+					"name": "坐标转换",
+					"info": [
+						"用于维度和经度坐标，大地测量基准和投影系统的在线转换器"
+					],
+					"img": "/img/portal/coordService3.png"
+				},
+				{
+					"id": 4,
+					"name": "API接口",
+					"info": [
+						"提供内部和外部服务接口"
+					],
+					"img": "/img/portal/coordService4.png"
+				},
+				{
+					"id": 5,
+					"name": "EPSG后台管理与维护",
+					"info": [
+						" 支持创建和维护自定义坐标系。",
+						"支持查看当前自定义坐标系的详情。"
+					],
+					"img": "/img/portal/coordService5.png"
+				}
+			]
+		},
+		{
+			"name": "intelligentInterpret",
+			"id": 3,
+			"title": "遥感影像智能解译系统",
+			"subtitle": "高效准确的解译技术有助于提高遥感应用水平、拓展应用领域。遥感影像解译的主要目的是对图像中感兴趣的目标/地物进行分类识别，主要包括居民地、植被、道路、水系、桥梁、舰船和飞机等。",
+			"intro": [
+				"基于图像视觉理解和深度学习网络，采用一系列针对遥感数据的专用高效特征提取网络，实现影像中有效信息的快速提取和变化发现。",
+				"优势：",
+				"深度学习的引入体现了端到端、数据驱动的思想:尽可能少的对流程进行干预、尽可能少的做人为假设，能够显著提升分类和检测性能。",
+				"扩展性强，如果需要检测和识别新目标，只需增加其样本重新训练，不需要改结构，不需要专门设计特征。",
+				"适应性强，不用区分大片海域和靠岸目标，能够适应各种复杂背景。"
+			],
+			"children": [
+				{
+					"id": 1,
+					"name": "建筑物提取",
+					"info": [
+						"精确率（precision,查准）:84.26%",
+						"召回率（recall，查全）：83.17%",
+						"F1分数(F1 Score,加权平均)：0.8323"
+					],
+					"img": [
+						"/img/portal/intelligentInterpret1.png"
+					]
+				},
+				{
+					"id": 2,
+					"name": "水体提取",
+					"info": [
+						"平均精确率（precision,查准）:87.84%",
+						"平均召回率（recall，查全）：85.52%",
+						"平均F1分数(F1 Score,加权平均)：0.8613"
+					],
+					"img": [
+						"/img/portal/intelligentInterpret2.png"
+					]
+				},
+				{
+					"id": 3,
+					"name": "道路提取",
+					"info": [
+						"精确率（precision,查准）:83.99%",
+						"召回率（recall，查全）：83.87%",
+						"F1分数(F1 Score,加权平均)：0.8375"
+					],
+					"img": [
+						"/img/portal/intelligentInterpret3.png"
+					]
+				},
+				{
+					"id": 4,
+					"name": "车辆提取",
+					"info": [
+						"精确率（precision,查准）:91.73%",
+						"召回率（recall，查全）：87.02%",
+						"F1分数(F1 Score,加权平均)：0.8931"
+					],
+					"img": [
+						"/img/portal/intelligentInterpret4.png"
+					]
+				},
+				{
+					"id": 5,
+					"name": "高分影像分类",
+					"info": [],
+					"img": [
+						"/img/portal/intelligentInterpret5.png"
+					]
+				}
+			]
+		}
+	]
+}

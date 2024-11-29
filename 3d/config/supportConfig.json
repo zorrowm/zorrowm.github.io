@@ -1,0 +1,59 @@
+{
+    "supportFile": [
+        {
+            "id": "file1",
+            "name": "时空矢量云平台",
+            "imgUrl": "/img/portal/support/1.png",
+            "fileUrl": "/file/portal/support/时空矢量云平台-用户手册.pdf"
+        },
+        {
+            "id": "file2",
+            "name": "时空影像云平台",
+            "imgUrl": "/img/portal/support/1.png",
+            "fileUrl": "/file/portal/support/时空影像云平台用户手册.pdf"
+        },
+        {
+            "id": "file3",
+            "name": "时空三维云平台",
+            "imgUrl": "/img/portal/support/1.png",
+            "fileUrl": "/file/portal/support/时空三维云平台系统-系统用户手册 .pdf"
+        }
+    ],
+    "supportWeb": [
+        {
+            "id": "web1",
+            "name": "时空矢量云平台",
+            "imgUrl": "/img/portal/support/4.png",
+            "webUrl": "https://vector.gis.digsur.com"
+        },
+        {
+            "id": "web2",
+            "name": "时空影像云平台",
+            "imgUrl": "/img/portal/support/5.png",
+            "webUrl": "https://image.gis.digsur.com"
+        },
+        {
+            "id": "web3",
+            "name": "时空三维云平台",
+            "imgUrl": "/img/portal/support/6.png",
+            "webUrl": "https://3d.gis.digsur.com"
+        }
+    ],
+    "supportVideo": [
+        {
+            "id": "video1",
+            "name": "video1",
+            "videoUrl": "/video/portal/support/image.mp4"
+        },
+        {
+            "id": "video2",
+            "name": "video2",
+            "videoUrl": "/video/portal/support/maptile.mp4"
+        },
+        {
+            "id": "video3",
+            "name": "video3",
+            "videoUrl": "/video/portal/support/vector.mp4"
+        }
+    ]
+}

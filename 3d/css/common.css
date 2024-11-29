@@ -376,11 +376,11 @@ a {
   color: white;
 }
 .login-bottom-line {
-  margin-top: 10px;
-  width: 100%;
+  width: 50%;
+  margin:10px auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content:space-around;
+  align-items:center;
   color: #585e6d;
   font-size: 14px;
   line-height: 20px;

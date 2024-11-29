@@ -1,1 +1,0 @@
-function t(i,o,f){i&&o&&f&&i.addEventListener(o,f,!1)}function c(i,o,f){i&&o&&f&&i.removeEventListener(o,f,!1)}function a(i,o,f){const s=function(...n){f&&f.apply(this,n),c(i,o,s)};t(i,o,s)}export{a,t as o};

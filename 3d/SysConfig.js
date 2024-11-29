@@ -4,14 +4,14 @@
 const SysConfig = {
   //#region ********系统界面相关配置
   UI: {
-    /*必须，系统配置标题，必须 */
-    SiteTitle: '帝测三维平台',
+    /*必须，系统配置标题，必须多维资源数据管理系统 */
+    SiteTitle: '基于Mapbox的GIS平台',
     CopyRight: 'Copyright ©帝测科技  2024-2030',
-    WebSite: 'https://www.digsur.com',
+    WebSite: 'http://www.XXXX.com',
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
     LockTime: 3600, //1小时
-    IsNoLogin: true, //无需登录页面,true时不登录
+    IsNoLogin: false, //无需登录页面,true时不登录
     GrayMode: false, //是否启用网站暗灰模式，悼念日，默认为false
     ProductLog: true, //是否在产品发布后启用日志记录
     // Theme:'dark'//系统的主题
@@ -27,8 +27,9 @@ const SysConfig = {
     LoginAuthURL: 'https://gis-auth.digsur.com',
     /**
      * 图标在线服务地址（不能带"/"）
+     * https://gis-icon.digsur.com/online
      */
-    IconServiceURL: 'https://gis-icon.digsur.com/online',
+    IconServiceURL: '',
     /**
      * 文件管理服务地址（统一文件管理：后台）
      */
@@ -46,20 +47,26 @@ const SysConfig = {
      * 全局默认的http请求地址（一般与主hprose相同或不同）;文件上传地址
      */
     DefaultWebAPI: '',
-    // 后台模型服务
-    DefaultModelService: 'https://3dtiles.gis.digsur.com/model',
+    VectorTileWebApi: 'https://vector.gis.digsur.com',
+    ThreeWebApi: 'https://gis-3dtiles.digsur.com',
     /**
      * 默认HproseAPI的服务地址
      */
-    DefaultHproseAPI: '', //https://gis-image.digsur.com/ImageAdmin
+    DefaultHproseAPI: 'https://image.gis.digsur.com/ImageAdmin',
     //数据集管理http://192.168.1.33:1001/DataSource
-    DatasetHproseAPI: 'https://gis-image.digsur.com/DataSource',
-    // DatasetHproseAPI: 'http://192.168.1.47:1001/DataSource',
+    DatasetHproseAPI: 'https://image.gis.digsur.com/DataSource',
+    DefaultHproseAPIVe: "https://vector.gis.digsur.com/VTCloud",
+    DefaultHproseAPIMap: "https://map.gis.digsur.com/VTFigure",
 
     //渲染样式色带图片
-    DefaultStyleColorImage: 'https://gis-image.digsur.com',
+    DefaultStyleColorImage: 'https://image.gis.digsur.com',
     //后台瓦片服务地址
-    WMTSService: 'https://gis-image.digsur.com/IMGWMTS'
+    WMTSService: 'https://image.gis.digsur.com/IMGWMTS',
+
+    //地图标绘
+    MapLabelingDefaultWebAPI:'https://gis-label.digsur.com/',
+    //资源导航URL ，必须是/#/
+    ResourceNaviURL:'https://urlnavi.gis.digsur.com/#/'
   },
   //#endregion
 
@@ -72,8 +79,6 @@ const SysConfig = {
      * 天地图服务的授权Key
      */
     TDTKey: [
-      'f7b2c7226b59e6578deb7ae495d34526',
-      '5f2cd4464e3dff59e381d6716cebbc80',
       'f9b51cc0282fa69451df24be416107b6',
       '5d27dc75ca0c3bdf34f657ffe1e9881d',
       'a90b856f2ade4b97f683cbc9c3c2702e',

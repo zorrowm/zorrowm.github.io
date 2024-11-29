@@ -1,4 +1,4 @@
-let currentPath = document.currentScript.src.replace('index.js', '');
+let currentPath2 = document.currentScript.src.replace('index.js', '');
 
 const awaitWrap = (promise) => {
     return promise
@@ -14,9 +14,9 @@ const turfAsync = {
             return;
         }
 
-        await import(currentPath + `lib/comlink.min.js`);
-        await import(currentPath + 'lib/turf.min.js');
-        const worker = new Worker(currentPath + 'lib/worker.js');
+        await import(currentPath2 + `lib/comlink.min.js`);
+        await import(currentPath2 + 'lib/turf.min.js');
+        const worker = new Worker(currentPath2 + 'lib/worker.js');
         const turf = Comlink.wrap(worker);
 
         let funcList = await turf.getFuncList();
