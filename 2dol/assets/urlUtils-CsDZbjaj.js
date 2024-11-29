@@ -1,0 +1,1 @@
+import"./xframelib-exp-Dmuc0LeW.js";function o(e,n,t){const r=e.resolve({path:n,query:t});window.open(r.href,"_blank")}function u(e){let n=e;if(e.endsWith("/")){if(e.endsWith("/#/"))return n;n=e+"#/"}else n=e+"/#/";return n}export{o as O,u as g};
