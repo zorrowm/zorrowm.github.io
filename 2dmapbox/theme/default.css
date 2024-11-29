@@ -1,6 +1,6 @@
 html {
   /* 头部栏——Icon */
-  --header-title-icon: url("img/农业技术.png");
+  --header-title-icon: url("../img/农业技术.png");
   /*头部栏—— 标题文字/标题图标 颜色 */
   --header-title-main-color: #00957f;
 

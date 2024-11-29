@@ -44,7 +44,7 @@ onUnmounted(() => {
 .earth {
   width: 2.875rem;
   height: 2.875rem;
-  background: url("img/baselayer/btngaoliang.png") no-repeat;
+  background: url("../img/baselayer/btngaoliang.png") no-repeat;
   background-size: 100%;
   position: absolute;
   right: 3rem;
@@ -83,7 +83,7 @@ onUnmounted(() => {
   height: 5.625rem;
   background: pink;
   border-radius: 5px;
-  background: url("img/baselayer/vec_c.png") no-repeat;
+  background: url("../img/baselayer/vec_c.png") no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: row;
@@ -110,15 +110,15 @@ onUnmounted(() => {
 .switchingMap_ter:active span,
 
 .switchingMap_image {
-  background: url("img/baselayer/image.jpg") no-repeat;
+  background: url("../img/baselayer/image.jpg") no-repeat;
 }
 
 .switchingMap_ter {
-  background: url("img/baselayer/ter_c.png") no-repeat;
+  background: url("../img/baselayer/ter_c.png") no-repeat;
 }
 
 .switchingMap_3d {
-  background: url("img/baselayer/ele_c.jpg") no-repeat;
+  background: url("../img/baselayer/ele_c.jpg") no-repeat;
 }
 
 .switchingMap_vec {
