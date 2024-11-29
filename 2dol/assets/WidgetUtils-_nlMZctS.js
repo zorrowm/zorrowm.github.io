@@ -1,1 +1,0 @@
-import"./index-Bagyd4Bo.js";import"./xframelib-exp-CxzDUbp4.js";function f(n,r){let i;for(const e of n)if(e.path===r){i=e;break}else if(e.children){const t=f(e.children,r);if(t){i=t;break}}return i}export{f};
