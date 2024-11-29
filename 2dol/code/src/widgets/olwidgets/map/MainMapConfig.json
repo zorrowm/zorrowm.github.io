@@ -1,0 +1,15 @@
+
+{
+    "id":"map",
+    "group":"map",
+    "hasLayerManager":true,
+    "isInternet":true,
+     "viewOptions":{
+        "zoom":5,
+        "center":[116.46229441189399, 40.24876149],
+        "minZoom":1,
+        "maxZoom":22,
+        "projection":"EPSG:3857"
+     },
+     "layers":["vec_w","cva_w"]
+}
