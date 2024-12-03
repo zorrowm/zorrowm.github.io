@@ -350,6 +350,82 @@ XMapView组件是在OLXMap基础上进一步封装，默认包括放大缩小Men
 
 ![XMapView使用效果](./ol/xmapview.png)
 
+
+
+### 2.4、分屏地图构建
+
+- 启用多地图分屏联动，需构建多个XMap 且分组相同，并启用各地图的enableMapSyncView方法。
+
+​         第一个地图，绑定map1
+
+```html
+  <div id="map1" class="mapstyle"></div>
+```
+
+```typescript
+     const idRef=ref("map1");  
+     //地图初始化
+     const  xmap1 = new XMap(idRef.value,'map');
+  
+    xmap1.initMapView({
+        "zoom":5,
+        "center":[116.46229441189399, 40.24876149],
+        "minZoom":1,
+        "maxZoom":22,
+        "projection":"EPSG:3857"
+     });
+     //加载图层
+        xmap1.addOnlineLayer("vec_w");
+        xmap1.addOnlineLayer("cva_w");
+     //启动同步
+     xmap1.enableMapSyncView();
+```
+
+​         第二个地图，绑定map2
+
+```html
+  <div id="map2" class="mapstyle"></div>
+```
+
+```typescript
+    const idRef=ref("map2");
+//地图初始化
+    const  xmap2 = new XMap(idRef.value,'map');
+  
+    xmap2.initMapView({
+        "zoom":5,
+        "center":[116.46229441189399, 40.24876149],
+        "minZoom":1,
+        "maxZoom":22,
+        "projection":"EPSG:3857"
+     });
+     //加载图层
+     xmap2.map.addLayer(new TileLayer({source:new OSM()}))
+    //启动同步
+    xmap2.enableMapSyncView();
+```
+
+​      <u>**销毁地图：只需要移除map图层，销毁xmap对象**</u>
+
+* 控制各地图的样式
+
+  相对位置，宽和高按地图数量修改样式，例如：mapStyle
+    ```typescript
+   const mapStyle = computed(() => {
+          let width = '100%';
+          let size = mapArray.value.length / 2;
+          if (size >= 1) width = '50%';
+          else size = 1;
+          let cheight = document.body.clientHeight-30;
+          if (size === 2) cheight = cheight - 6;
+          const height = cheight / size;
+          return `position:relative;display: inline-block;width:${width};height:${height}px;padding-right:1px`;
+        });
+    ```
+
+
+![多屏地图](./ol/multiscreen.png)
+
 ## 3、主要业务组件
 
 ### 3.1、 ZoomFullBar组件
@@ -387,23 +463,109 @@ onMounted(()=>{
 </script>
 ```
 
-
-
 ### 3.2、MenuToolBar组件
 
+MenuToolBar是里面默认自带的菜单组，包括图层、绘图工具、量算和定位等菜单，与mapMenuState状态对象配合使用，改变相关变量。
 
+mapMenuStore.ts代码如下：
+
+```ts
+//用于控制地图功能菜单显隐
+interface IMapMenuState {
+    layerTree: boolean; //图层树是否显示
+    dataPanel: boolean; //数据列表是否显示
+    location: boolean; //定位窗体是否显示
+    drawTool: boolean; //绘制菜单是否显示
+    measureTool: boolean; //测量菜单是否显示
+    swipeTool: boolean; //卷帘工具栏是否显示
+    otherTool: boolean; //其他菜单是否显示
+  }
+  const defaultObj: IMapMenuState ={
+    layerTree: false,
+    dataPanel: true,
+    location: false,
+    drawTool: false,
+    measureTool: false,
+    swipeTool:false,
+    otherTool: false
+  };
+  const mapMenuState = reactive(defaultObj);
+  export {mapMenuState}
+```
+
+使用时示例：<MenuToolBar @locate="doLocation" />
+
+```vue
+      <!--地图扩展菜单 -->
+      <div style="position:relative">
+        <MenuToolBar @locate="doLocation" />
+        <DrawToolBar :xmap="mapRef" v-show="mapMenuState.drawTool" />
+        <MeasureToolBar :xmap="mapRef" v-show="mapMenuState.measureTool" />
+      </div>
+```
+
+![MenuTool工具栏](./ol/menutool.png)
+
+
+```ts
+import { DrawToolBar, mapMenuState, MeasureToolBar, MenuToolBar } from '../MapTools/index';       
+
+function doLocation(x: number, y: number, z: number | undefined) {
+            if (xMap.map) {
+                const view = xMap.MapView;
+                const prj = view.getProjection();
+                const targetPoint = PrjGridTool.transformCoordinate([x, y], 'EPSG:4326', prj); //fromLonLat(, prj); 
+                view.setCenter(targetPoint);
+                if (z && z >= 0) view.setZoom(z);
+            }
+        }
+```
 
 ### 3.3、DrawToolBar组件
 
+绑定XMap对象即可，控制横向或纵向列表展示绘制工具。
 
+使用例如：
+
+```vue
+<DrawToolBar :xmap="mapRef" v-show="mapMenuState.drawTool" />
+```
+
+![drawtool](./ol/drawtool.png)
 
 ### 3.4、MeasureToolBar组件
 
+绑定XMap对象即可，控制横向或纵向列表展示量算工具。
 
+使用例如：
+
+```vue
+<MeasureToolBar :xmap="mapRef" v-show="mapMenuState.measureTool" />
+```
+
+![量线、量面工具](./ol/measuretool.png)
 
 ### 3.5、SwipeToolBar组件
 
+用于横向/纵向卷帘分析、鱼眼透视分析等工具。
 
+使用例如：
+
+```vue
+ <SwipeToolBar :xmap="mapRef" />
+```
+
+![swipetool工具](./ol/swipetool.png)
+
+默认卷帘的图层为 index=0的图层，可以根据图层ID或索引号进行修改透视的图层
+
+```typescript
+    const xmap=Global.XMap as XMap;
+    //根据图层ID，进行修改
+    xmap.LayerManager.changeSwipeLayerByID('cva_w');
+    //更加索引修改
+    //xmap.LayerManager.changeSwipeLayerIndex(1);
+```
 
 
 
@@ -412,7 +574,6 @@ onMounted(()=>{
 ContextMenu右键菜单，自己初始化XMap的需要单独添加ContextMenu进行挂接。
 
 默认使用**OLXMap**和**XMapView**构建地图的，**自带默认的右键菜单**。
-
 
 
 默认 右键菜单：

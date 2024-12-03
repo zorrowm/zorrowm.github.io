@@ -83,6 +83,8 @@ import oneMap from './OneMap.vue';
     justify-content: space-between;
     margin-top: 2px;
     margin-left: 5px;
+    position: absolute;
+    right:10px;
   }
   </style>
   
