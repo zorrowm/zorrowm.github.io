@@ -1447,7 +1447,46 @@ function showModal(actionMethod: string, rowData?: any) {
   app.config.globalProperties.$AppURL=process.env.APP_URL;
 </code></pre><p>使用/调用方式</p>
 <pre data-role="codeBlock" data-info="typescript" class="language-typescript typescript"><code><span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>$AppURL<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><h3 id="主题设置">主题设置 </h3>
+</code></pre><h3 id="锁屏功能">锁屏功能 </h3>
+<blockquote>
+<p>前端开发模板默认支持锁屏功能，锁屏后将清除本地用户token，需要重新登录，默认锁屏时间为1小时</p>
+</blockquote>
+<ul>
+<li>
+<p>通过SysConfig.UI.LockTime来设置锁屏时间，以秒为单位，不小于10秒。</p>
+</li>
+<li>
+<p>锁屏监听onLockListener,本质是document监听 mousedown、mousemove事件</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token doc-comment comment">/**
+ * 全局监听Lock
+ */</span>
+<span class="token keyword keyword-export">export</span> <span class="token keyword keyword-function">function</span> <span class="token function">onLockListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">//开始监听</span>
+  <span class="token comment">// console.log('开始监听 mousedown');</span>
+  <span class="token function">timekeeping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mousedown'</span><span class="token punctuation">,</span> timekeeping<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mousemove'</span><span class="token punctuation">,</span> timekeeping<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></li>
+<li>
+<p>取消锁屏监听 unlockListener</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token doc-comment comment">/**
+ * 取消全局监听Lock
+ */</span>
+<span class="token keyword keyword-export">export</span> <span class="token keyword keyword-function">function</span> <span class="token function">unLockListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// console.log('注销监听 mousedown');</span>
+  document<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'mousedown'</span><span class="token punctuation">,</span> timekeeping<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span><span class="token function">removeEventListener</span><span class="token punctuation">(</span><span class="token string">'mousemove'</span><span class="token punctuation">,</span> timekeeping<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></li>
+<li>
+<p>锁屏状态，以reactive对象，通过watch监视LockState.isLock状态，确定进入锁屏状态</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>    <span class="token function">watch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span>LockState<span class="token punctuation">.</span>isLock<span class="token punctuation">,</span>value<span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+      Global<span class="token punctuation">.</span><span class="token function">Logger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">'监听锁屏状态变化'</span><span class="token punctuation">,</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></li>
+</ul>
+<h3 id="主题设置">主题设置 </h3>
 <blockquote>
 <p>Quasar默认支持的黑/白模式主题；自定义扩展其他主题</p>
 </blockquote>
@@ -1607,6 +1646,25 @@ If you have chunks of markup you would like preserved, you can wrap them &lt;!--
 <p><img src="./data/tsconfig_include.png" alt="找不到模块解决方法"></p>
 <p>参考：<a href="https://juejin.cn/post/6924264635218542605">https://juejin.cn/post/6924264635218542605</a></p>
 <p><a href="https://segmentfault.com/q/1010000040178399">https://segmentfault.com/q/1010000040178399</a></p>
+<h4 id="9解决二级目录部署网站时相关资源请求路径不对问题">9.解决二级目录部署网站时相关资源请求路径不对问题 </h4>
+<p>解决方法：</p>
+<p>1）quasar.config.ts配置 启用 <strong>publicPath : './'</strong></p>
+<p>2）图片等资源路线去掉“/” 例如：</p>
+<p><strong>SampleData/README.md</strong></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-function">function</span> <span class="token function">doTextDownlaod</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'SampleData/README.md'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>p<span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+        <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+        <span class="token function">SaveAs</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>data<span class="token punctuation">,</span><span class="token string">'test.md'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p><strong>img/logo.png</strong></p>
+<pre data-role="codeBlock" data-info="vue" class="language-vue vue"><code>        &lt;div id="logo-part"&gt;
+          &lt;img src="img/logo.png" alt="Logo" id="waitLogo" /&gt;
+          &lt;img src="img/spinner.svg" alt="" id="waitSpinner" /&gt;
+        &lt;/div&gt;
+</code></pre><p><strong>icon: 'apiExampleimg/basicLayerManager.png'</strong></p>
+<p><img src="./data/imgpath.png" alt="图片正确路径"></p>
 <h3 id="webworker提升性能vite-plugin-webworker-service插件">WebWorker提升性能：vite-plugin-webworker-service插件 </h3>
 <blockquote>
 <p>说明：使用vite-plugin-webworker-service来代替workerpool库。<strong>因为 workerpool库有局限性，无法使用import引入外部类库或方法。</strong></p>
@@ -3263,7 +3321,79 @@ const defaultWidgetCofig: Array&lt;IWidgetConfig&gt; = [
 <p>修改VueWindow组件（VWindow）拖动定位错误;弃用DownloadByUrl方法;移除窗体同步库WSynchro.js;更新依赖库版本;</p>
 </blockquote>
 <p><strong>重点：</strong> <strong>修改VueWindow组件（VWindow）拖动定位错误</strong></p>
-<h2 id="重要业务组件使用">*重要业务组件使用 </h2>
+<h3 id="7-v083">7. V0.8.3 </h3>
+<blockquote>
+<p>v0.8.3  增加HproseRPC过程的请求字符串和返回字符串的外部解码类HproseRPCCodec;</p>
+</blockquote>
+<ul>
+<li>对HproseRPC过程的 request和response进行反序列化</li>
+</ul>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-function">function</span> <span class="token function">doDecodeRPC</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> responseHeader<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>rpcvalue<span class="token punctuation">.</span>value<span class="token operator">===</span><span class="token string">'request'</span><span class="token punctuation">)</span><span class="token comment">//请求</span>
+    <span class="token punctuation">{</span>
+        rpcResult<span class="token punctuation">.</span>value<span class="token operator">=</span> HproseRPCCodec<span class="token punctuation">.</span>Instance<span class="token punctuation">.</span><span class="token function">decodeRequest</span><span class="token punctuation">(</span>rpcInfo<span class="token punctuation">.</span>value<span class="token punctuation">,</span>responseHeader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-else">else</span> <span class="token comment">//返回结果字符串</span>
+    <span class="token punctuation">{</span>
+        rpcResult<span class="token punctuation">.</span>value<span class="token operator">=</span> HproseRPCCodec<span class="token punctuation">.</span>Instance<span class="token punctuation">.</span><span class="token function">decodeResponse</span><span class="token punctuation">(</span>rpcInfo<span class="token punctuation">.</span>value<span class="token punctuation">,</span>responseHeader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'解码请求头:'</span><span class="token punctuation">,</span>responseHeader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p><a href="http://localhost:9000/#/back/hprose-encode">http://localhost:9000/#/back/hprose-encode</a><br>
+<img src="./data/rpcdecode.png" alt="RPC反序列化"></p>
+<h3 id="8--v084">8.  V0.8.4 </h3>
+<blockquote>
+<p>v0.8.4  为widget权限对象，增加layoutid属性;修改LockHelper锁屏功能BUG;去掉DownloadByUrl（可改用HttpDownload方法）;为H5Tool增加readFileBytes方法（读取前端文件，为bytes二进制数组/字符串）;更新依赖库版本;</p>
+</blockquote>
+<p><img src="./data/update084.png" alt="依赖库版本升级"></p>
+<ul>
+<li><strong>H5Tool.readFileBytes方法</strong>:实现前端读取要上传文件File对象，为bytes二进制数组/字符串，再用post方法上传。</li>
+</ul>
+<pre data-role="codeBlock" data-info="vue" class="language-vue vue"><code>    &lt;q-uploader ref="profileUploader2" :max-files="1" class="hidden"  accept=".doc, .docx, .pdf"
+    field-name="file" @added="UploadFileToProfile" /&gt;
+</code></pre><p>UploadFileToProfile上传文件代码</p>
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript typescript"><code><span class="token comment">//单附件文件上传</span>
+<span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">UploadFileToProfile</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-const">const</span> file <span class="token operator">=</span> files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-const">const</span> fileName<span class="token operator">=</span>file<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+  <span class="token comment">//***文件二进制内容******</span>
+  <span class="token keyword keyword-const">const</span> data<span class="token operator">=</span><span class="token keyword keyword-await">await</span> H5Tool<span class="token punctuation">.</span><span class="token function">readFileBytes</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-const">const</span> result <span class="token operator">=</span> <span class="token keyword keyword-await">await</span> ProfileService<span class="token punctuation">.</span><span class="token function">SaveProfileInfoAsync</span><span class="token punctuation">(</span>
+    <span class="token comment">//@ts-ignore</span>
+  <span class="token punctuation">{</span>
+      id<span class="token operator">:</span><span class="token string">''</span><span class="token punctuation">,</span>
+      file<span class="token operator">:</span>data<span class="token punctuation">,</span>
+      name<span class="token operator">:</span>fileName<span class="token punctuation">,</span>
+      studentid<span class="token operator">:</span>currentSelectId<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  profileUploader2<span class="token punctuation">.</span>value<span class="token operator">?.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    Global<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'档案上传成功！'</span><span class="token punctuation">)</span>
+    <span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-return">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  Global<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">'档案上传失败！'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p><em>ProfileService.SaveProfileInfoAsync方法内容</em></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>    <span class="token doc-comment comment">/**
+    *新建或更新档案 
+    *<span class="token keyword keyword-@param">@param</span> <span class="token parameter">profile</span>  档案对象 
+    *<span class="token keyword keyword-@returns">@returns</span> System.Threading.Tasks.Task`1[System.Boolean]
+    */</span>
+    <span class="token keyword keyword-async">async</span> <span class="token function">SaveProfileInfoAsync</span><span class="token punctuation">(</span> profile<span class="token operator">?</span><span class="token operator">:</span>Profile<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+      <span class="token keyword keyword-const">const</span> proxyClient<span class="token operator">=</span><span class="token keyword keyword-await">await</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>hproseProxyClient<span class="token punctuation">.</span><span class="token function">getHproseProxy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span><span class="token operator">!</span>proxyClient<span class="token punctuation">)</span>
+      <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">'ProxyClient为空,SaveProfileInfoAsync方法无法调用'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      
+      <span class="token keyword keyword-return">return</span> <span class="token keyword keyword-await">await</span> proxyClient<span class="token operator">?.</span><span class="token function">SaveProfileInfoAsync</span><span class="token punctuation">(</span>profile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre><h2 id="重要业务组件使用">*重要业务组件使用 </h2>
 <h3 id="0-qlayoutmaincontainer组件">0. QLayoutMainContainer组件 </h3>
 <blockquote>
 <p><strong>解决LayoutContainer与QLayout等组件的兼容使用问题</strong></p>
