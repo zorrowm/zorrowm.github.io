@@ -26,7 +26,6 @@
 </template>
 
 <script lang="ts">
-import { Button, notification } from "ant-design-vue";
 import { Feature } from "ol";
 import { platformModifierKeyOnly } from "ol/events/condition";
 import { GeoJSON } from "ol/format";
