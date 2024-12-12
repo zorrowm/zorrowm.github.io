@@ -329,6 +329,63 @@ onMounted(() =&gt; {
   &lt;/template&gt;
 </code></pre><p><strong>使用效果：</strong></p>
 <p><img src="./ol/xmapview.png" alt="XMapView使用效果"></p>
+<h3 id="24-分屏地图构建">2.4、分屏地图构建 </h3>
+<ul>
+<li>启用多地图分屏联动，需构建多个XMap 且分组相同，并启用各地图的enableMapSyncView方法。</li>
+</ul>
+<p>​         第一个地图，绑定map1</p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>map1<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mapstyle<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre><pre data-role="codeBlock" data-info="typescript" class="language-typescript typescript"><code>     <span class="token keyword keyword-const">const</span> idRef<span class="token operator">=</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"map1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+     <span class="token comment">//地图初始化</span>
+     <span class="token keyword keyword-const">const</span>  xmap1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">XMap</span><span class="token punctuation">(</span>idRef<span class="token punctuation">.</span>value<span class="token punctuation">,</span><span class="token string">'map'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+    xmap1<span class="token punctuation">.</span><span class="token function">initMapView</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token string-property property">"zoom"</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"center"</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">116.46229441189399</span><span class="token punctuation">,</span> <span class="token number">40.24876149</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"minZoom"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"maxZoom"</span><span class="token operator">:</span><span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"projection"</span><span class="token operator">:</span><span class="token string">"EPSG:3857"</span>
+     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token comment">//加载图层</span>
+        xmap1<span class="token punctuation">.</span><span class="token function">addOnlineLayer</span><span class="token punctuation">(</span><span class="token string">"vec_w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        xmap1<span class="token punctuation">.</span><span class="token function">addOnlineLayer</span><span class="token punctuation">(</span><span class="token string">"cva_w"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token comment">//启动同步</span>
+     xmap1<span class="token punctuation">.</span><span class="token function">enableMapSyncView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>​         第二个地图，绑定map2</p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>map2<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mapstyle<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre><pre data-role="codeBlock" data-info="typescript" class="language-typescript typescript"><code>    <span class="token keyword keyword-const">const</span> idRef<span class="token operator">=</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">"map2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//地图初始化</span>
+    <span class="token keyword keyword-const">const</span>  xmap2 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">XMap</span><span class="token punctuation">(</span>idRef<span class="token punctuation">.</span>value<span class="token punctuation">,</span><span class="token string">'map'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+    xmap2<span class="token punctuation">.</span><span class="token function">initMapView</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token string-property property">"zoom"</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"center"</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token number">116.46229441189399</span><span class="token punctuation">,</span> <span class="token number">40.24876149</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"minZoom"</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"maxZoom"</span><span class="token operator">:</span><span class="token number">22</span><span class="token punctuation">,</span>
+        <span class="token string-property property">"projection"</span><span class="token operator">:</span><span class="token string">"EPSG:3857"</span>
+     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token comment">//加载图层</span>
+     xmap2<span class="token punctuation">.</span>map<span class="token punctuation">.</span><span class="token function">addLayer</span><span class="token punctuation">(</span><span class="token keyword keyword-new">new</span> <span class="token class-name">TileLayer</span><span class="token punctuation">(</span><span class="token punctuation">{</span>source<span class="token operator">:</span><span class="token keyword keyword-new">new</span> <span class="token class-name"><span class="token constant">OSM</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment">//启动同步</span>
+    xmap2<span class="token punctuation">.</span><span class="token function">enableMapSyncView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>​      <u><strong>销毁地图：只需要移除map图层，销毁xmap对象</strong></u></p>
+<ul>
+<li>
+<p>控制各地图的样式</p>
+<p>相对位置，宽和高按地图数量修改样式，例如：mapStyle</p>
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript typescript"><code><span class="token keyword keyword-const">const</span> mapStyle <span class="token operator">=</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword keyword-let">let</span> width <span class="token operator">=</span> <span class="token string">'100%'</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-let">let</span> size <span class="token operator">=</span> mapArray<span class="token punctuation">.</span>value<span class="token punctuation">.</span>length <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>size <span class="token operator">&gt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> width <span class="token operator">=</span> <span class="token string">'50%'</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-else">else</span> size <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-let">let</span> cheight <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>clientHeight<span class="token operator">-</span><span class="token number">30</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>size <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> cheight <span class="token operator">=</span> cheight <span class="token operator">-</span> <span class="token number">6</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-const">const</span> height <span class="token operator">=</span> cheight <span class="token operator">/</span> size<span class="token punctuation">;</span>
+      <span class="token keyword keyword-return">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">position:relative;display: inline-block;width:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>width<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">;height:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>height<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px;padding-right:1px</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></li>
+</ul>
+<p><img src="./ol/multiscreen.png" alt="多屏地图"></p>
 <h2 id="3-主要业务组件">3、主要业务组件 </h2>
 <h3 id="31--zoomfullbar组件">3.1、 ZoomFullBar组件 </h3>
 <p>ZoomFullBar组件默认提供了 <strong>放大、缩小、图层管理、全屏、默认视图、在线定位</strong>功能。</p>
@@ -360,10 +417,70 @@ onMounted(()=&gt;{
 })
 &lt;/script&gt;
 </code></pre><h3 id="32-menutoolbar组件">3.2、MenuToolBar组件 </h3>
-<h3 id="33-drawtoolbar组件">3.3、DrawToolBar组件 </h3>
+<p>MenuToolBar是里面默认自带的菜单组，包括图层、绘图工具、量算和定位等菜单，与mapMenuState状态对象配合使用，改变相关变量。</p>
+<p>mapMenuStore.ts代码如下：</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token comment">//用于控制地图功能菜单显隐</span>
+<span class="token keyword keyword-interface">interface</span> <span class="token class-name">IMapMenuState</span> <span class="token punctuation">{</span>
+    layerTree<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span> <span class="token comment">//图层树是否显示</span>
+    dataPanel<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span> <span class="token comment">//数据列表是否显示</span>
+    location<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span> <span class="token comment">//定位窗体是否显示</span>
+    drawTool<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span> <span class="token comment">//绘制菜单是否显示</span>
+    measureTool<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span> <span class="token comment">//测量菜单是否显示</span>
+    swipeTool<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span> <span class="token comment">//卷帘工具栏是否显示</span>
+    otherTool<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span> <span class="token comment">//其他菜单是否显示</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword keyword-const">const</span> defaultObj<span class="token operator">:</span> IMapMenuState <span class="token operator">=</span><span class="token punctuation">{</span>
+    layerTree<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    dataPanel<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    location<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    drawTool<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    measureTool<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    swipeTool<span class="token operator">:</span><span class="token boolean">false</span><span class="token punctuation">,</span>
+    otherTool<span class="token operator">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-const">const</span> mapMenuState <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span>defaultObj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-export">export</span> <span class="token punctuation">{</span>mapMenuState<span class="token punctuation">}</span>
+</code></pre><p>使用时示例：&lt;MenuToolBar @locate="doLocation" /&gt;</p>
+<pre data-role="codeBlock" data-info="vue" class="language-vue vue"><code>      &lt;!--地图扩展菜单 --&gt;
+      &lt;div style="position:relative"&gt;
+        &lt;MenuToolBar @locate="doLocation" /&gt;
+        &lt;DrawToolBar :xmap="mapRef" v-show="mapMenuState.drawTool" /&gt;
+        &lt;MeasureToolBar :xmap="mapRef" v-show="mapMenuState.measureTool" /&gt;
+      &lt;/div&gt;
+</code></pre><p><img src="./ol/menutool.png" alt="MenuTool工具栏"></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-import">import</span> <span class="token punctuation">{</span> DrawToolBar<span class="token punctuation">,</span> mapMenuState<span class="token punctuation">,</span> MeasureToolBar<span class="token punctuation">,</span> MenuToolBar <span class="token punctuation">}</span> <span class="token keyword keyword-from">from</span> <span class="token string">'../MapTools/index'</span><span class="token punctuation">;</span>       
+
+<span class="token keyword keyword-function">function</span> <span class="token function">doLocation</span><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> y<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span> z<span class="token operator">:</span> <span class="token builtin">number</span> <span class="token operator">|</span> <span class="token keyword keyword-undefined">undefined</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>xMap<span class="token punctuation">.</span>map<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword keyword-const">const</span> view <span class="token operator">=</span> xMap<span class="token punctuation">.</span>MapView<span class="token punctuation">;</span>
+                <span class="token keyword keyword-const">const</span> prj <span class="token operator">=</span> view<span class="token punctuation">.</span><span class="token function">getProjection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword keyword-const">const</span> targetPoint <span class="token operator">=</span> PrjGridTool<span class="token punctuation">.</span><span class="token function">transformCoordinate</span><span class="token punctuation">(</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'EPSG:4326'</span><span class="token punctuation">,</span> prj<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//fromLonLat(, prj); </span>
+                view<span class="token punctuation">.</span><span class="token function">setCenter</span><span class="token punctuation">(</span>targetPoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>z <span class="token operator">&amp;&amp;</span> z <span class="token operator">&gt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> view<span class="token punctuation">.</span><span class="token function">setZoom</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+</code></pre><h3 id="33-drawtoolbar组件">3.3、DrawToolBar组件 </h3>
+<p>绑定XMap对象即可，控制横向或纵向列表展示绘制工具。</p>
+<p>使用例如：</p>
+<pre data-role="codeBlock" data-info="vue" class="language-vue vue"><code>&lt;DrawToolBar :xmap="mapRef" v-show="mapMenuState.drawTool" /&gt;
+</code></pre><p><img src="./ol/drawtool.png" alt="drawtool"></p>
 <h3 id="34-measuretoolbar组件">3.4、MeasureToolBar组件 </h3>
+<p>绑定XMap对象即可，控制横向或纵向列表展示量算工具。</p>
+<p>使用例如：</p>
+<pre data-role="codeBlock" data-info="vue" class="language-vue vue"><code>&lt;MeasureToolBar :xmap="mapRef" v-show="mapMenuState.measureTool" /&gt;
+</code></pre><p><img src="./ol/measuretool.png" alt="量线、量面工具"></p>
 <h3 id="35-swipetoolbar组件">3.5、SwipeToolBar组件 </h3>
-<h3 id="36-contextmenu组件">3.6、ContextMenu组件 </h3>
+<p>用于横向/纵向卷帘分析、鱼眼透视分析等工具。</p>
+<p>使用例如：</p>
+<pre data-role="codeBlock" data-info="vue" class="language-vue vue"><code> &lt;SwipeToolBar :xmap="mapRef" /&gt;
+</code></pre><p><img src="./ol/swipetool.png" alt="swipetool工具"></p>
+<p>默认卷帘的图层为 index=0的图层，可以根据图层ID或索引号进行修改透视的图层</p>
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript typescript"><code>    <span class="token keyword keyword-const">const</span> xmap<span class="token operator">=</span>Global<span class="token punctuation">.</span>XMap <span class="token keyword keyword-as">as</span> XMap<span class="token punctuation">;</span>
+    <span class="token comment">//根据图层ID，进行修改</span>
+    xmap<span class="token punctuation">.</span>LayerManager<span class="token punctuation">.</span><span class="token function">changeSwipeLayerByID</span><span class="token punctuation">(</span><span class="token string">'cva_w'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//更加索引修改</span>
+    <span class="token comment">//xmap.LayerManager.changeSwipeLayerIndex(1);</span>
+</code></pre><h3 id="36-contextmenu组件">3.6、ContextMenu组件 </h3>
 <p>ContextMenu右键菜单，自己初始化XMap的需要单独添加ContextMenu进行挂接。</p>
 <p>默认使用<strong>OLXMap</strong>和<strong>XMapView</strong>构建地图的，<strong>自带默认的右键菜单</strong>。</p>
 <p>默认 右键菜单：</p>

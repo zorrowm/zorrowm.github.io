@@ -3393,6 +3393,26 @@ const defaultWidgetCofig: Array&lt;IWidgetConfig&gt; = [
       
       <span class="token keyword keyword-return">return</span> <span class="token keyword keyword-await">await</span> proxyClient<span class="token operator">?.</span><span class="token function">SaveProfileInfoAsync</span><span class="token punctuation">(</span>profile<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+</code></pre><h3 id="9v085">9.V0.8.5 </h3>
+<blockquote>
+<p>动态加载Widget时绑定更多IWidgetConfig属性（如：id,layoutID等）;加载widget报错，输出更多异常信息;</p>
+</blockquote>
+<p>widget组件运行时，获取自身的options属性</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-import">import</span> <span class="token punctuation">{</span> getCurrentInstance <span class="token punctuation">}</span> <span class="token keyword keyword-from">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>     
+<span class="token keyword keyword-const">const</span> instance <span class="token operator">=</span> <span class="token function">getCurrentInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'5555555555'</span><span class="token punctuation">,</span>instance<span class="token operator">?.</span>proxy<span class="token operator">?.</span>$options<span class="token punctuation">)</span>
+</code></pre><p><strong>就是组件里可以拿到当前运行时的widget id和 layoutID,可用于内部卸载Widget自身。</strong></p>
+<p><img src="./data/v085options.png" alt="widget外部绑定属性"></p>
+<p>测试卸载Widget自身：成功</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>      <span class="token keyword keyword-const">const</span> instance <span class="token operator">=</span> <span class="token function">getCurrentInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-const">const</span> wid<span class="token operator">=</span>instance<span class="token operator">?.</span>proxy<span class="token operator">?.</span>$options<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+      <span class="token keyword keyword-const">const</span> layoutid<span class="token operator">=</span>instance<span class="token operator">?.</span>proxy<span class="token operator">?.</span>$options<span class="token punctuation">.</span>layoutID<span class="token punctuation">;</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'开始卸载自身'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>wid<span class="token punctuation">)</span>
+        Global<span class="token punctuation">.</span>LayoutMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>layoutid<span class="token punctuation">)</span><span class="token operator">?.</span><span class="token function">unloadWidget</span><span class="token punctuation">(</span>wid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h2 id="重要业务组件使用">*重要业务组件使用 </h2>
 <h3 id="0-qlayoutmaincontainer组件">0. QLayoutMainContainer组件 </h3>
 <blockquote>
@@ -4273,6 +4293,24 @@ function doItemClicked(item)
 <p><img src="./data/contextMenuControl.png" alt="contextMenu组件使用"></p>
 </li>
 </ul>
+<h3 id="8-widgetmenubar组件menubarwidget">8. WidgetMenuBar组件（MenuBarWidget） </h3>
+<blockquote>
+<p>解决了：同一组件多次调用（动态import）,互相样式和状态互不影响。</p>
+</blockquote>
+<p>WidgetMenBar是与src/settings/widgetMenuSetting配合使用的，<strong>一组横向或纵向的Widget构建的菜单栏</strong>，在大屏中使用较多。</p>
+<p>之前问题：</p>
+<ul>
+<li>一组菜单栏得复制和定义个菜单栏Widget</li>
+<li>菜单栏widget里需要提前定义layoutID和widgetID，与widgetSetting配置一样</li>
+<li>菜单栏widget无法跨LayoutContainer布局复用</li>
+</ul>
+<p><img src="./data/weatherMenuWidget.png" alt="多个MenuBarWidget"></p>
+<p>MenuBarWidget菜单栏widget,可以广泛复用（跨LayoutContainer）</p>
+<p><img src="./data/menuBarWidget.png" alt="新MenuBarWidget复用"></p>
+<p>只需要根据id，在menuBarStyle.scss里定义对应不同菜单栏的布局和样式</p>
+<p><img src="./data/menubarStyle.png" alt="menuBarStyle定义修改样式"></p>
+<p>运行效果：(样式互不影响)</p>
+<p><img src="./data/menuBarWidgetExample.png" alt="示例"></p>
 <h2 id="前端开发知识点积累大杂烩">前端开发知识点积累（大杂烩） </h2>
 <h3 id="1-flex布局知识点">1. Flex布局知识点 </h3>
 <h4 id="1flex1的作用">1）Flex:1的作用 </h4>
