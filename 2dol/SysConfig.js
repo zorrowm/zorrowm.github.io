@@ -49,8 +49,9 @@ const SysConfig = {
     DefaultWebAPI: '',
     /**
      * 默认HproseAPI的服务地址
+     * (影像后端)
      */
-    DefaultHproseAPI: '', //https://gis-image.digsur.com/ImageAdmin
+    DefaultHproseAPI: 'https://gis-image.digsur.com/ImageAdmin', //
     //数据集管理http://192.168.1.33:1001/DataSource
     DatasetHproseAPI: 'https://gis-image.digsur.com/DataSource',
     // DatasetHproseAPI: 'http://192.168.1.47:1001/DataSource',
@@ -103,7 +104,7 @@ const SysConfig = {
   //#region **********用于控制功能是否启用
   Enables:{
     TurfAsync:true,
-    CesiumOfflineCache:true,//Cesium缓存
+    CesiumOfflineCache:false,//Cesium缓存
   }
   //#endregion
 };

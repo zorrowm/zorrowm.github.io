@@ -102,7 +102,8 @@ onMounted(() =&gt; {
     controls<span class="token operator">?</span><span class="token operator">:</span><span class="token builtin">Array</span><span class="token operator">&lt;</span>IControlOption<span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token comment">//地图组件</span>
     interactions<span class="token operator">?</span><span class="token operator">:</span><span class="token builtin">Array</span><span class="token operator">&lt;</span>IControlOption<span class="token operator">&gt;</span><span class="token punctuation">,</span><span class="token comment">//交互式组件</span>
 <span class="token punctuation">}</span>
-</code></pre><p>public文件夹下的地图配置文档：<strong>DefaultMapConfig.json</strong></p>
+</code></pre><p><img src="./ol/configTemplate.png" alt="配置文档模版"></p>
+<p>public文件夹下的地图配置文档：<strong>DefaultMapConfig.json</strong></p>
 <pre data-role="codeBlock" data-info="json" class="language-json json"><code><span class="token punctuation">{</span>
     <span class="token property">"id"</span><span class="token operator">:</span><span class="token string">"map"</span><span class="token punctuation">,</span>
     <span class="token property">"group"</span><span class="token operator">:</span><span class="token string">"map"</span><span class="token punctuation">,</span>
@@ -485,7 +486,153 @@ onMounted(()=&gt;{
 <p>默认使用<strong>OLXMap</strong>和<strong>XMapView</strong>构建地图的，<strong>自带默认的右键菜单</strong>。</p>
 <p>默认 右键菜单：</p>
 <p><img src="./ol/contextMenu.png" alt="右键菜单"></p>
+<h2 id="4-其他业务实现">4. 其他业务实现 </h2>
+<h3 id="41-wmts服务加载">4.1、WMTS服务加载 </h3>
+<h4 id="411--加载影像wmts服务影像平台">4.1.1、 加载影像WMTS服务（影像平台） </h4>
+<p>影像平台服务地址：<a href="https://gis-image.digsur.com/IMGWMTS">https://gis-image.digsur.com/IMGWMTS</a></p>
+<p>请求影像服务xxx元数据：<a href="https://gis-image.digsur.com/IMGWMTS/GetServiceBrowse?layer=xxxx">https://gis-image.digsur.com/IMGWMTS/GetServiceBrowse?layer=xxxx</a></p>
+<p>加载影像元数据，构建影像图层,<strong>WMTSTool.addWMTSLayerSelf</strong></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code> xmap<span class="token punctuation">.</span>WMTSTool<span class="token punctuation">.</span><span class="token function">addWMTSLayerSelf</span><span class="token punctuation">(</span>
+                    metaData<span class="token punctuation">,</span>
+                    layer
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword keyword-const">const</span> bounds <span class="token operator">=</span> metaData<span class="token punctuation">.</span>bounds<span class="token punctuation">;</span>
+ xmap<span class="token punctuation">.</span><span class="token function">zoomToExtent</span><span class="token punctuation">(</span>bounds<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>完整代码：</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token doc-comment comment">/**
+ * 加载影像服务
+ */</span>
+<span class="token keyword keyword-function">function</span> <span class="token function">loadImageWMTS</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>serviceName<span class="token punctuation">.</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Global<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">"影像服务名不能为空！"</span><span class="token punctuation">)</span>
+        <span class="token keyword keyword-return">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>Global<span class="token punctuation">.</span>XMap<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-const">const</span> xmap <span class="token operator">=</span> Global<span class="token punctuation">.</span>XMap <span class="token keyword keyword-as">as</span> XMap<span class="token punctuation">;</span>
+        <span class="token keyword keyword-const">const</span> layer <span class="token operator">=</span> serviceName<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+        <span class="token function">get</span><span class="token punctuation">(</span>imageserver<span class="token punctuation">.</span>value <span class="token operator">+</span> <span class="token string">"/GetServiceBrowse"</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> layer <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>res <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>status <span class="token operator">===</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword keyword-const">const</span> metaData <span class="token operator">=</span> res<span class="token punctuation">.</span>data<span class="token punctuation">;</span>
+                <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'影像元数据为：'</span><span class="token punctuation">,</span> metaData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                xmap<span class="token punctuation">.</span>WMTSTool<span class="token punctuation">.</span><span class="token function">addWMTSLayerSelf</span><span class="token punctuation">(</span>
+                    metaData<span class="token punctuation">,</span>
+                    layer
+                <span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword keyword-const">const</span> bounds <span class="token operator">=</span> metaData<span class="token punctuation">.</span>bounds<span class="token punctuation">;</span>
+                xmap<span class="token punctuation">.</span><span class="token function">zoomToExtent</span><span class="token punctuation">(</span>bounds<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span>ex <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            Global<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">请求服务</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>layer<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">元数据失败</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> ex<span class="token punctuation">.</span>Message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="412-wmts的getcapabilitis元数据xml加载">4.1.2、WMTS的GetCapabilitis元数据XML加载 </h4>
+<p>通过OGC标准WMTS的GetCapabilitis元数据加载图层<br></p>
+<p><a href="https://image.gis.digsur.com/IMGWMTS?layer=s:test1&amp;Service=WMTS&amp;Request=GetCapbilities">https://image.gis.digsur.com/IMGWMTS?layer=s:test1&amp;Service=WMTS&amp;Request=GetCapbilities</a></p>
+<p>影像平台服务地址：<a href="https://gis-image.digsur.com/IMGWMTS">https://gis-image.digsur.com/IMGWMTS</a></p>
+<p>图层名为  s:test1</p>
+<ul>
+<li>PrjGridTool.getWMTSCapabilities 请求XML元数据，并解析成对象</li>
+<li>PrjGridTool.getXMLOptionsFromCapabilities构建WMTS参数对象</li>
+<li>WMTSTool.addWMTSLayerByXMLOptions构建WMTS图层，并定位</li>
+</ul>
+<p>完整代码：</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token doc-comment comment">/**
+ * 通过WMTS的XML元数据加载图层
+ */</span>
+<span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">loadWMTSByXML</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 
+    <span class="token keyword keyword-const">const</span> xmlObj <span class="token operator">=</span> <span class="token keyword keyword-await">await</span> PrjGridTool<span class="token punctuation">.</span><span class="token function">getWMTSCapabilities</span><span class="token punctuation">(</span>wmtsURL<span class="token punctuation">.</span>value<span class="token punctuation">,</span> layerName<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword keyword-const">const</span> xmlOptions <span class="token operator">=</span> <span class="token keyword keyword-await">await</span> PrjGridTool<span class="token punctuation">.</span><span class="token function">getXMLOptionsFromCapabilities</span><span class="token punctuation">(</span>xmlObj<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>xmlOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-const">const</span> xmap <span class="token operator">=</span> Global<span class="token punctuation">.</span>XMap <span class="token keyword keyword-as">as</span> XMap<span class="token punctuation">;</span>
+        xmap<span class="token punctuation">.</span>WMTSTool<span class="token punctuation">.</span><span class="token function">addWMTSLayerByXMLOptions</span><span class="token punctuation">(</span>xmlOptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="413-ogc-wmts参数加载图层">4.1.3、OGC WMTS参数加载图层 </h4>
+<p><a href="https://image.gis.digsur.com/IMGWMTS?layer=s:test1&amp;style=default&amp;tilematrixset=C&amp;Service=WMTS&amp;Request=GetTile&amp;Version=1.0.0&amp;Format=image/jpeg&amp;TileMatrix=10&amp;TileCol=843&amp;TileRow=142">https://image.gis.digsur.com/IMGWMTS?layer=s:test1&amp;style=default&amp;tilematrixset=C&amp;Service=WMTS&amp;Request=GetTile&amp;Version=1.0.0&amp;Format=image/jpeg&amp;TileMatrix=10&amp;TileCol=843&amp;TileRow=142</a></p>
+<ol>
+<li>
+<p>根据tilematrixset构建TileGrid和Projection</p>
+</li>
+<li>
+<p>调用WMTSTool.addWMTSLayer方法</p>
+<p>例如：</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>lowerMatrix <span class="token operator">===</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            wmtstileGrid <span class="token operator">=</span> PrjGridTool<span class="token punctuation">.</span><span class="token function">getTDTTileGrid</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            wmtsProj <span class="token operator">=</span> PrjGridTool<span class="token punctuation">.</span><span class="token function">getProjection</span><span class="token punctuation">(</span><span class="token punctuation">{</span> epsg<span class="token operator">:</span> <span class="token string">'EPSG:3857'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword keyword-const">const</span> wmtsLayer <span class="token operator">=</span> xmap<span class="token punctuation">.</span>WMTSTool<span class="token punctuation">.</span><span class="token function">addWMTSLayer</span><span class="token punctuation">(</span>layerName<span class="token punctuation">.</span>value<span class="token punctuation">,</span> tilematrix<span class="token punctuation">.</span>value<span class="token punctuation">,</span> wmtsURL<span class="token punctuation">.</span>value<span class="token punctuation">,</span> wmtstileGrid<span class="token punctuation">,</span>
+             wmtsProj<span class="token punctuation">,</span> style<span class="token punctuation">.</span>value<span class="token punctuation">,</span> <span class="token string">"KVP"</span><span class="token punctuation">,</span> format<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</code></pre></li>
+</ol>
+<h3 id="42-mvt矢量切片服务加载">4.2、MVT矢量切片服务加载 </h3>
+<h4 id="421-通过矢量切片数据服务tilejson加载">4.2.1、通过矢量切片数据服务TileJson加载 </h4>
+<p>矢量切片数据服务，元数据请求</p>
+<p><a href="https://vector.gis.digsur.com/vtile/%E7%94%A8%E6%88%B7ID/%E6%9C%8D%E5%8A%A1%E5%90%8D/tilejson?tk=%E6%8E%88%E6%9D%83%E7%A0%81">https://vector.gis.digsur.com/vtile/用户ID/服务名/tilejson?tk=授权码</a></p>
+<p>例如：</p>
+<p><a href="https://vector.gis.digsur.com/vtile/admin/test1113/tile.json?tk=00065a33-7951-4250-b1b2-ab7b871a4aa3">https://vector.gis.digsur.com/vtile/admin/test1113/tile.json?tk=00065a33-7951-4250-b1b2-ab7b871a4aa3</a></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-function">function</span> <span class="token function">loadMVTLayer</span><span class="token punctuation">(</span>tileJson<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    PrjValue<span class="token punctuation">.</span>value <span class="token operator">=</span> tileJson<span class="token punctuation">.</span>tileSchema<span class="token operator">?.</span>rule <span class="token operator">??</span> <span class="token string">'W'</span><span class="token punctuation">;</span>
+    serviceID<span class="token punctuation">.</span>value<span class="token operator">=</span>tileJson<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    serviceName<span class="token punctuation">.</span>value<span class="token operator">=</span>tileJson<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token keyword keyword-const">const</span> defaultPrjObj <span class="token operator">=</span> PrjGridTool<span class="token punctuation">.</span><span class="token function">getProjection</span><span class="token punctuation">(</span>tileJson<span class="token punctuation">.</span>prjInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-const">const</span> xmap <span class="token operator">=</span> Global<span class="token punctuation">.</span>XMap <span class="token keyword keyword-as">as</span> XMap<span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>vtTool<span class="token punctuation">)</span>
+        vtTool <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">VTLayerTool</span><span class="token punctuation">(</span>xmap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>mvtLayer<span class="token punctuation">)</span>
+        xmap<span class="token punctuation">.</span>LayerManager<span class="token punctuation">.</span><span class="token function">deleteLayer</span><span class="token punctuation">(</span>mvtLayer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//加矢量图层</span>
+    mvtLayer <span class="token operator">=</span> vtTool<span class="token punctuation">.</span><span class="token function">addVTLayer</span><span class="token punctuation">(</span>tileJson<span class="token punctuation">)</span>
+
+    xmap<span class="token punctuation">.</span>MapView<span class="token punctuation">.</span><span class="token function">setZoom</span><span class="token punctuation">(</span>tileJson<span class="token punctuation">.</span>center<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-let">let</span> center <span class="token operator">=</span> PrjGridTool<span class="token punctuation">.</span><span class="token function">fromLonLatCoordinate</span><span class="token punctuation">(</span>
+        <span class="token punctuation">[</span>tileJson<span class="token punctuation">.</span>center<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> tileJson<span class="token punctuation">.</span>center<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        defaultPrjObj
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    xmap<span class="token punctuation">.</span>MapView<span class="token punctuation">.</span><span class="token function">setCenter</span><span class="token punctuation">(</span>center<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><h4 id="422-stylejson加载电子地图">4.2.2、StyleJson加载电子地图 </h4>
+<p>通过StyleJson配置加载地图文档，并构建电子地图。</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-function">function</span> <span class="token function">loadMVTLayer</span><span class="token punctuation">(</span>styleJson<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    PrjValue<span class="token punctuation">.</span>value <span class="token operator">=</span> styleJson<span class="token punctuation">.</span>tileSchema<span class="token operator">?.</span>rule <span class="token operator">??</span> <span class="token string">'W'</span><span class="token punctuation">;</span>
+    serviceID<span class="token punctuation">.</span>value<span class="token operator">=</span>styleJson<span class="token punctuation">.</span>id<span class="token punctuation">;</span>
+    serviceName<span class="token punctuation">.</span>value<span class="token operator">=</span>styleJson<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+    <span class="token comment">// const defaultPrjObj = PrjGridTool.getProjection(styleJson.prjInfo);</span>
+    <span class="token keyword keyword-const">const</span> xmap <span class="token operator">=</span> Global<span class="token punctuation">.</span>XMap <span class="token keyword keyword-as">as</span> XMap<span class="token punctuation">;</span>
+
+    <span class="token function">apply</span><span class="token punctuation">(</span>xmap<span class="token punctuation">.</span>map<span class="token punctuation">,</span> styleJson<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>map<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword keyword-const">const</span> targetPrj<span class="token operator">=</span>xmap<span class="token punctuation">.</span>MapView<span class="token punctuation">.</span><span class="token function">getProjection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>styleJson<span class="token punctuation">.</span>zoom<span class="token punctuation">)</span> xmap<span class="token punctuation">.</span>MapView<span class="token punctuation">.</span><span class="token function">setZoom</span><span class="token punctuation">(</span>styleJson<span class="token punctuation">.</span>zoom<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-else">else</span> xmap<span class="token punctuation">.</span>MapView<span class="token punctuation">.</span><span class="token function">setZoom</span><span class="token punctuation">(</span>styleJson<span class="token punctuation">.</span>zoom<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>styleJson<span class="token punctuation">.</span>center<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        xmap<span class="token punctuation">.</span>MapView<span class="token punctuation">.</span><span class="token function">setCenter</span><span class="token punctuation">(</span>
+        PrjGridTool<span class="token punctuation">.</span><span class="token function">fromLonLatCoordinate</span><span class="token punctuation">(</span>styleJson<span class="token punctuation">.</span>center<span class="token operator">!</span><span class="token punctuation">,</span> targetPrj<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span>
+       xmap<span class="token punctuation">.</span>MapView<span class="token punctuation">.</span><span class="token function">setCenter</span><span class="token punctuation">(</span>
+        PrjGridTool<span class="token punctuation">.</span><span class="token function">fromLonLatCoordinate</span><span class="token punctuation">(</span>styleJson<span class="token punctuation">.</span>center<span class="token operator">!</span><span class="token punctuation">,</span> targetPrj<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="43-分屏地图实现">4.3、分屏地图实现 </h3>
+<p>地图的id不同，group相同，就是一组地图，调用每个地图的<strong>enableMapSyncView</strong>开启同步，调用每个地图的<strong>disableMapSyncView</strong>取消同步。</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-const">const</span> xmap1 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">XMap</span><span class="token punctuation">(</span><span class="token string">'map1'</span><span class="token punctuation">,</span><span class="token string">'map'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xmap1<span class="token punctuation">.</span><span class="token function">enableMapSyncView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> xmap2 <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">XMap</span><span class="token punctuation">(</span><span class="token string">'map2'</span><span class="token punctuation">,</span><span class="token string">'map'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+xmap2<span class="token punctuation">.</span><span class="token function">enableMapSyncView</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>xmap1和xmap2就可以同步了。</p>
+<p>然后通过控制map1和map2的DIV容器样式，就能实现地图分屏展示了。</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>     <span class="token keyword keyword-const">const</span> mapContainer<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"map1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     mapContainer<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left<span class="token operator">=</span><span class="token string">"50%"</span>
+     mapContainer<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width<span class="token operator">=</span><span class="token string">"50%"</span>
+     
+     <span class="token keyword keyword-const">const</span> mapContainer2<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"map2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     mapContainer2<span class="token punctuation">.</span>style<span class="token punctuation">.</span>left<span class="token operator">=</span><span class="token string">"0"</span>
+     mapContainer2<span class="token punctuation">.</span>style<span class="token punctuation">.</span>width<span class="token operator">=</span><span class="token string">"50%"</span>
+</code></pre>
       </div>
       
       

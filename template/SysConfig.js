@@ -46,11 +46,11 @@ const SysConfig = {
      * Axios普通WebAPI的BaseURL
      * 全局默认的http请求地址（一般与主hprose相同或不同）;文件上传地址
      */
-    DefaultWebAPI: '',
+    DefaultWebAPI: 'http://192.168.1.120:5139',
     /**
      * 默认HproseAPI的服务地址
      */
-    DefaultHproseAPI: '', //https://gis-image.digsur.com/ImageAdmin
+    DefaultHproseAPI: 'http://192.168.1.120:5139/hprose', //https://gis-image.digsur.com/ImageAdmin
     //数据集管理http://192.168.1.33:1001/DataSource
     DatasetHproseAPI: 'https://gis-image.digsur.com/DataSource',
     // DatasetHproseAPI: 'http://192.168.1.47:1001/DataSource',

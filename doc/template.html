@@ -3413,6 +3413,47 @@ const defaultWidgetCofig: Array&lt;IWidgetConfig&gt; = [
         Global<span class="token punctuation">.</span>LayoutMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>layoutid<span class="token punctuation">)</span><span class="token operator">?.</span><span class="token function">unloadWidget</span><span class="token punctuation">(</span>wid<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
       <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="10-v086">10. V0.8.6 </h3>
+<blockquote>
+<p>修改get方法支持：业务服务API请求、请求网站public下资源、http完整URL请求;</p>
+</blockquote>
+<p>之前的get方法是请求相对于SysConfig.js的ServiceURL下DefaultWebAPI后台服务的相对地址APIURL，但被广泛用于请求前端的相对资源的请求，这在之前是错误的用法。</p>
+<p>*<em>从v0.8.6版，get方法支持：业务服务API请求、请求网站public下资源、http完整URL请求;</em></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token doc-comment comment">/**
+
+ * 业务服务Get请求、请求网站下资源、http完整请求
+ * <span class="token keyword keyword-@param">@param</span> <span class="token parameter">url</span> public下资源相对路径
+ * <span class="token keyword keyword-@param">@param</span> <span class="token parameter">_params</span> 参数
+ * <span class="token keyword keyword-@param">@param</span> <span class="token parameter">isForceAPI</span> 是否强制为API请求，默认false
+ * <span class="token keyword keyword-@returns">@returns</span> 返回Promise对象
+   */</span>
+ <span class="token keyword keyword-declare">declare</span> <span class="token keyword keyword-function">function</span> <span class="token function">get</span><span class="token punctuation">(</span>url<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> _params<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> isForceAPI<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+</code></pre><p>get方法应用：<br>
+请求完整URL</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>  <span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'https://file.gis.digsur.com/swagger/v1/swagger.json'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>p<span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'请求结果:'</span><span class="token punctuation">,</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+        <span class="token function">JsonDownload</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>data<span class="token punctuation">,</span><span class="token string">'test'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+        Global<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">warn</span><span class="token punctuation">(</span><span class="token string">'下载错误'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>请求网站相对资源</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>   <span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'SampleData/README.md'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>p<span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+         <span class="token keyword keyword-if">if</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+         <span class="token function">SaveAs</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>data<span class="token punctuation">,</span><span class="token string">'test.md'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>请求后端API服务</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>   get('/api/Grade/GetGradeList',undefined,true)
+</code></pre><h3 id="11-v087">11. V0.8.7 </h3>
+<blockquote>
+<p>修改0.8.6版的getDownload内部错误（与HttpDownload方法共存使用）;</p>
+</blockquote>
+<p>使用示例：</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code> getDownload('./SampleData/README.md');
+ 
+ getDownload('https://file.gis.digsur.com/swagger/v1/swagger.json');
+ 
+  getDownload('https://file.gis.digsur.com/swagger/v1/swagger.json','2.json');
 </code></pre><h2 id="重要业务组件使用">*重要业务组件使用 </h2>
 <h3 id="0-qlayoutmaincontainer组件">0. QLayoutMainContainer组件 </h3>
 <blockquote>

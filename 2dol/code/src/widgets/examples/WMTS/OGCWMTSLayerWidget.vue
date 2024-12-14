@@ -2,50 +2,42 @@
 </template>
 
 <script setup lang="ts">
-import { SwipeToolBar,XMap } from 'xgis-ol';
-import { onMounted,ref,onUnmounted } from 'vue';
-import { Global,get } from 'xframelib';
+import { SwipeToolBar, XMap, PrjGridTool, IProjInfo } from 'xgis-ol';
+import { onMounted, ref, onUnmounted } from 'vue';
+import { Global, get } from 'xframelib';
 import { useRoute } from 'vue-router';
+import WMTSCapabilities from 'ol/format/WMTSCapabilities';
+import WMTS from 'ol/source/WMTS';
+import { Projection, get as getProjection } from 'ol/proj';
 
 const route = useRoute();
-const mapRef=ref<XMap>();
-let layer="s:test1";
-let wmtsLayer:any;
-onMounted(()=>{
-  if(Global.XMap)
-  {
-    const xmap=Global.XMap as XMap;
-    const qlayer=route.query.layer as string;
-    if(qlayer)
-    layer=qlayer;
+const mapRef = ref<XMap>();
+let layer = "s:test1";
+let wmtsLayer: any;
 
 
-    get(Global.Config.ServiceURL.WMTSService+"/GetServiceBrowse",{layer}).then(res=>{
-        if(res.status===200)
-        {
-            const metaData=res.data;
-            console.log('影像元数据为：',metaData);
-            wmtsLayer= xmap.WMTSTool.addWMTSLayerSelf(
-                  metaData,
-                  layer
-                );
-             const bounds=metaData.bounds;
-             xmap.zoomToExtent(bounds);
 
-        }
-    })
+onMounted(async () => {
+  if (Global.XMap) {
+    const xmap = Global.XMap as XMap;
+    const qlayer = route.query.layer as string;
+    if (qlayer)
+      layer = qlayer;
+
+    const xmlObj = await PrjGridTool.getWMTSCapabilities(Global.Config.ServiceURL.WMTSService, layer);
+
+    const xmlOptions = await PrjGridTool.getXMLOptionsFromCapabilities(xmlObj, true);
+    if (xmlOptions) {
+      xmap.WMTSTool.addWMTSLayerByXMLOptions(xmlOptions);
+    }
   }
 });
-onUnmounted(()=>{
+onUnmounted(() => {
 
-    if(wmtsLayer)
-    {
-        const xmap=Global.XMap as XMap;
-        xmap.map.removeLayer(wmtsLayer);
-    }
+  if (wmtsLayer) {
+    const xmap = Global.XMap as XMap;
+    xmap.map.removeLayer(wmtsLayer);
+  }
 })
-
-
-
 
 </script>

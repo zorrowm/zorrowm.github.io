@@ -86,6 +86,8 @@ export interface IMapConfig
 }
 ```
 
+![配置文档模版](./ol/configTemplate.png)
+
 public文件夹下的地图配置文档：**DefaultMapConfig.json**
 
 ```json
@@ -579,3 +581,199 @@ ContextMenu右键菜单，自己初始化XMap的需要单独添加ContextMenu进
 默认 右键菜单：
 
 ![右键菜单](./ol/contextMenu.png)
+
+## 4. 其他业务实现
+
+### 4.1、WMTS服务加载
+
+#### 4.1.1、 加载影像WMTS服务（影像平台）
+
+影像平台服务地址：https://gis-image.digsur.com/IMGWMTS
+
+请求影像服务xxx元数据：https://gis-image.digsur.com/IMGWMTS/GetServiceBrowse?layer=xxxx
+
+加载影像元数据，构建影像图层,**WMTSTool.addWMTSLayerSelf**
+
+```ts
+ xmap.WMTSTool.addWMTSLayerSelf(
+                    metaData,
+                    layer
+                );
+ const bounds = metaData.bounds;
+ xmap.zoomToExtent(bounds);
+```
+
+完整代码：
+
+```ts
+/**
+ * 加载影像服务
+ */
+function loadImageWMTS() {
+    if (!serviceName.value) {
+        Global.Message.warn("影像服务名不能为空！")
+        return;
+    }
+    if (Global.XMap) {
+        const xmap = Global.XMap as XMap;
+        const layer = serviceName.value;
+        get(imageserver.value + "/GetServiceBrowse", { layer }).then(res => {
+            if (res.status === 200) {
+                const metaData = res.data;
+                console.log('影像元数据为：', metaData);
+                xmap.WMTSTool.addWMTSLayerSelf(
+                    metaData,
+                    layer
+                );
+                const bounds = metaData.bounds;
+                xmap.zoomToExtent(bounds);
+            }
+        }).catch(ex => {
+            Global.Message.warn(`请求服务${layer}元数据失败`, ex.Message);
+        })
+    }
+}
+```
+
+####  4.1.2、WMTS的GetCapabilitis元数据XML加载
+
+通过OGC标准WMTS的GetCapabilitis元数据加载图层<br />
+
+   https://image.gis.digsur.com/IMGWMTS?layer=s:test1&Service=WMTS&Request=GetCapbilities
+
+影像平台服务地址：https://gis-image.digsur.com/IMGWMTS
+
+图层名为  s:test1
+
+- PrjGridTool.getWMTSCapabilities 请求XML元数据，并解析成对象
+- PrjGridTool.getXMLOptionsFromCapabilities构建WMTS参数对象
+- WMTSTool.addWMTSLayerByXMLOptions构建WMTS图层，并定位
+
+完整代码：
+
+```ts
+/**
+ * 通过WMTS的XML元数据加载图层
+ */
+async function loadWMTSByXML() {
+
+    const xmlObj = await PrjGridTool.getWMTSCapabilities(wmtsURL.value, layerName.value);
+
+    const xmlOptions = await PrjGridTool.getXMLOptionsFromCapabilities(xmlObj, true);
+    if (xmlOptions) {
+        const xmap = Global.XMap as XMap;
+        xmap.WMTSTool.addWMTSLayerByXMLOptions(xmlOptions);
+    }
+}
+```
+
+#### 4.1.3、OGC WMTS参数加载图层
+
+ https://image.gis.digsur.com/IMGWMTS?layer=s:test1&style=default&tilematrixset=C&Service=WMTS&Request=GetTile&Version=1.0.0&Format=image/jpeg&TileMatrix=10&TileCol=843&TileRow=142
+
+1. 根据tilematrixset构建TileGrid和Projection
+
+2. 调用WMTSTool.addWMTSLayer方法
+
+   例如：
+
+   ```ts
+   if (lowerMatrix === 'w') {
+               wmtstileGrid = PrjGridTool.getTDTTileGrid(true);
+               wmtsProj = PrjGridTool.getProjection({ epsg: 'EPSG:3857' });
+               const wmtsLayer = xmap.WMTSTool.addWMTSLayer(layerName.value, tilematrix.value, wmtsURL.value, wmtstileGrid,
+                wmtsProj, style.value, "KVP", format.value);
+           }
+   ```
+
+   
+
+### 4.2、MVT矢量切片服务加载
+
+#### 4.2.1、通过矢量切片数据服务TileJson加载
+
+矢量切片数据服务，元数据请求
+
+https://vector.gis.digsur.com/vtile/用户ID/服务名/tilejson?tk=授权码
+
+例如：
+
+https://vector.gis.digsur.com/vtile/admin/test1113/tile.json?tk=00065a33-7951-4250-b1b2-ab7b871a4aa3
+
+```ts
+function loadMVTLayer(tileJson: any) {
+    PrjValue.value = tileJson.tileSchema?.rule ?? 'W';
+    serviceID.value=tileJson.id;
+    serviceName.value=tileJson.name;
+    const defaultPrjObj = PrjGridTool.getProjection(tileJson.prjInfo);
+    const xmap = Global.XMap as XMap;
+    if (!vtTool)
+        vtTool = new VTLayerTool(xmap);
+    if (mvtLayer)
+        xmap.LayerManager.deleteLayer(mvtLayer);
+    //加矢量图层
+    mvtLayer = vtTool.addVTLayer(tileJson)
+
+    xmap.MapView.setZoom(tileJson.center[2]);
+    let center = PrjGridTool.fromLonLatCoordinate(
+        [tileJson.center[0], tileJson.center[1]],
+        defaultPrjObj
+    );
+    xmap.MapView.setCenter(center);
+}
+```
+
+#### 4.2.2、StyleJson加载电子地图
+
+通过StyleJson配置加载地图文档，并构建电子地图。
+
+```ts
+function loadMVTLayer(styleJson: any) {
+    PrjValue.value = styleJson.tileSchema?.rule ?? 'W';
+    serviceID.value=styleJson.id;
+    serviceName.value=styleJson.name;
+    // const defaultPrjObj = PrjGridTool.getProjection(styleJson.prjInfo);
+    const xmap = Global.XMap as XMap;
+
+    apply(xmap.map, styleJson).then((map: any) => {
+
+        const targetPrj=xmap.MapView.getProjection();
+        if (styleJson.zoom) xmap.MapView.setZoom(styleJson.zoom!);
+        else xmap.MapView.setZoom(styleJson.zoom!);
+    if (styleJson.center) {
+        xmap.MapView.setCenter(
+        PrjGridTool.fromLonLatCoordinate(styleJson.center!, targetPrj)
+      );
+    } else
+       xmap.MapView.setCenter(
+        PrjGridTool.fromLonLatCoordinate(styleJson.center!, targetPrj)
+      );
+  });
+```
+
+### 4.3、分屏地图实现
+
+地图的id不同，group相同，就是一组地图，调用每个地图的**enableMapSyncView**开启同步，调用每个地图的**disableMapSyncView**取消同步。
+
+```ts
+const xmap1 = new XMap('map1','map');
+xmap1.enableMapSyncView();
+
+const xmap2 = new XMap('map2','map');
+xmap2.enableMapSyncView();
+```
+
+xmap1和xmap2就可以同步了。
+
+然后通过控制map1和map2的DIV容器样式，就能实现地图分屏展示了。
+
+```ts
+     const mapContainer=document.getElementById("map1");
+     mapContainer.style.left="50%"
+     mapContainer.style.width="50%"
+     
+     const mapContainer2=document.getElementById("map2");
+     mapContainer2.style.left="0"
+     mapContainer2.style.width="50%"
+```
+

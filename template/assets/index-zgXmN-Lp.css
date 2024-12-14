@@ -1,0 +1,1 @@
+@charset "UTF-8";.scrollSnapContainer{position:relative;height:var(--2e552496);overflow-x:hidden;overflow-y:auto;scroll-behavior:smooth;scroll-snap-type:y mandatory;scroll-snap-stop:always;-webkit-scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch}.scrollSection{position:relative;width:100%;min-height:var(--2e552496);scroll-snap-align:start}

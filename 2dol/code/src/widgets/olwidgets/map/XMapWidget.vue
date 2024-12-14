@@ -4,13 +4,16 @@
         <ZoomFullBar :xmap="mapRef" :hasLayerTree="hasLayerTree" class="q-gutter-y-xs  xmap-zoombar" />
         <ContextMenu :xmap="mapRef" :target="'map'" :moreMenuList="menuList" @itemClicked="doItemClick"></ContextMenu>
         </div>
+        <div class="layerTreeContainer" v-show="isLayerTreeShow">
+            <LayerTree  :xmap="mapRef" :moreContextMenu="contextMenuList" />
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed,onMounted, ref } from 'vue';
 import { Global, requestGet } from 'xframelib';
-import { PrjGridTool, XMap, ZoomFullBar,ContextMenu,IMapContextItem } from 'xgis-ol';
+import { PrjGridTool, XMap, ZoomFullBar,ContextMenu,IMapContextItem,mapMenuState,LayerTree } from 'xgis-ol';
 import 'xgis-ol/dist/index.css';
 
 const mapRef=ref<XMap>();
@@ -31,10 +34,27 @@ const menuList:Array<IMapContextItem> = [
     icon: 'ic:twotone-10k'
 }
 ]
+
+const contextMenuList = [
+  {},
+  {
+    name: "测试一下",
+    icon: "gis:layer-up",
+    value: "upMove2",
+  },
+  {
+    name: "Test",
+    icon: "gis:layer-down",
+    value: "downMove2",
+  }
+
+];
 function doItemClick(item)
 {
     Global.Message.info('点击了菜单：' + item.label);
 }
+
+const isLayerTreeShow=computed(()=>mapMenuState.layerTree);
 
 onMounted(async () => {
     const configResult = await requestGet('', 'DefaultMapConfig.json').catch(ex => {
@@ -86,5 +106,17 @@ onMounted(async () => {
     left: 8px;
     bottom: -2px;
     z-index: 10;
+}
+.layerTreeContainer
+{
+    position: absolute;
+    left:5px;
+    top:5px;
+    width: 310px;
+    height: 500px;
+    background-color: #ddd;
+    padding-right: 10px;
+    padding-left: 5px;
+    font-size: 14px;
 }
 </style>

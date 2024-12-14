@@ -27,7 +27,7 @@ let mvtLayer: any;
 let debugLayer: any;
 let vtTool: VTLayerTool;
 
-const tileJsonURL = ref('');
+const tileJsonURL = ref('https://vector.gis.digsur.com/vtile/admin/test1113/tile.json?tk=00065a33-7951-4250-b1b2-ab7b871a4aa3');
 const tileJsonContent = ref('')
 
 

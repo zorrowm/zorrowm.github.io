@@ -1,7 +1,7 @@
 {
     "id":"map",
     "group":"map",
-    "hasLayerManager":false,
+    "hasLayerManager":true,
     "isInternet":true,
      "viewOptions":{
         "zoom":5,

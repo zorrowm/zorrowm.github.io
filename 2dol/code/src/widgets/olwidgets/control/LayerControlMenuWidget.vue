@@ -1,6 +1,6 @@
 <template>
   <XWindow :isDark="false" top="30px" left="10px" nWidth="350px" hHeight="400px" title="图层管理"
-    icon="img/basicimage/arcgis_img.png" pid="imageBaseLayerWidget" @loaded="loadedHandle" @close="doClosePanel">
+    icon="img/basicimage/arcgis_img.png"  @loaded="loadedHandle" @close="doClosePanel">
     <LayerTree  :xmap="xmapRef" :moreContextMenu="contextMenuList"/>
   </XWindow>
 
@@ -9,20 +9,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted,onUnmounted } from 'vue';
+import { getCurrentInstance,ref, onMounted,onUnmounted } from 'vue';
 import { Global, XWindow } from 'xframelib';
 import { XMap,LayerTree,MapEvent,MapEventArgs } from 'xgis-ol';
 
 
+const instance = getCurrentInstance();
 let windowID = '';
 function loadedHandle(panelData) {
   windowID = panelData.id;
 }
 function doClosePanel(panelData) {
-  //   widgetID = panelData.pid;
-  //   if (panelData.pid) {
-  //     EmitMsg(WidgetsEvent.WidgetClosed, widgetID);
-  //   }
+
+   const wid=instance?.proxy?.$options.id;
+   const layoutid=instance?.proxy?.$options.layoutID;
+   if(wid)
+   {
+     Global.LayoutMap.get(layoutid)?.unloadWidget(wid);
+   }
+    
+   //EmitMsg(WidgetsEvent.WidgetClosed, widgetid);
 }
 
 
