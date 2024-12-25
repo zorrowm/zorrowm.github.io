@@ -47,8 +47,7 @@ import {
     MapEventBus,
     SwipeToolBar,
     XMap,
-    XMapView,
-    mapMenuState
+    XMapView
 } from "xgis-ol";
 import OtherTool from "./otherTool.vue";
 import 'xgis-ol/dist/index.css';
@@ -88,7 +87,7 @@ import 'xgis-ol/dist/index.css';
         xMap = res.xmap;
         mapRef.value = xMap; //必须要有
         //全局存储
-        Global.xMap = res.xmap;
+        Global.XMap = res.xmap;
   
         MapEventBus.eventOn(MapEvent.LAYER_OPACITY_CHANGED, changeOpacity);
   
@@ -126,7 +125,7 @@ import 'xgis-ol/dist/index.css';
       });
   
       const dataPanelVisible = computed(() => {
-        return mapMenuState.dataPanel;
+        return xMap&&xMap.mapMenuState.dataPanel;
       });
 
   

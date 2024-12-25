@@ -49,17 +49,17 @@ const SysConfig = {
     DefaultWebAPI: '',
     /**
      * 默认HproseAPI的服务地址
-     * (影像后端)
      */
-    DefaultHproseAPI: 'https://gis-image.digsur.com/ImageAdmin', //
-    //数据集管理http://192.168.1.33:1001/DataSource
-    DatasetHproseAPI: 'https://gis-image.digsur.com/DataSource',
-    // DatasetHproseAPI: 'http://192.168.1.47:1001/DataSource',
-
-    //渲染样式色带图片
-    DefaultStyleColorImage: 'https://gis-image.digsur.com',
+    DefaultHproseAPI: '', //
+    //影像平台-影像管理=》获取影像服务元数据
+    ImageHproseAPI: 'https://image.gis.digsur.com/ImageAdmin',
     //后台瓦片服务地址
-    WMTSService: 'https://gis-image.digsur.com/IMGWMTS'
+    WMTSService: 'https://image.gis.digsur.com/IMGWMTS',
+    /**
+     * EPSG查询URL
+     */
+    EPSGServiceURL:'https://epsg.gis.digsur.com',
+
   },
   //#endregion
 

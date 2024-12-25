@@ -41,7 +41,7 @@ import {
 } from "vue";
 import { bool } from "vue-types";
 import { getProxyClient, Global, H5Tool } from "xframelib";
-import { mapMenuState, XMap } from "xgis-ol";
+import { XMap } from "xgis-ol";
 import { EmitMsg } from "@/events";
 import SystemsEvent from "@/events/modules/SystemsEvent";
 
@@ -106,14 +106,19 @@ export default defineComponent({
 
     const dataPanelSelected = computed(() => {
       let style = "";
-      if (mapMenuState.dataPanel) {
+      if (props.xmap&&props.xmap.mapMenuState.dataPanel) {
         style = "background-color:#ccc";
       }
       return style;
     });
     function changedataPanel() {
-      const isvisible = mapMenuState.dataPanel;
-      mapMenuState.dataPanel = !isvisible;
+      if(props.xmap)
+      {
+        const isvisible = props.xmap.mapMenuState.dataPanel;
+        props.xmap.mapMenuState.dataPanel = !isvisible;
+
+      }
+
     }
     //是否是游客模式
     const isGuestComputed = computed(() => {
@@ -135,7 +140,8 @@ export default defineComponent({
       }
       const featureGeoJson = new GeoJSON().writeFeature(fea);
       console.log(featureGeoJson, "featureGeoJson");
-      mapMenuState.dataPanel = true;
+      if(props.xmap)
+      props.xmap.mapMenuState.dataPanel = true;
       emit("dragBoxFeature", featureGeoJson);
     }
     function dragBoxStarted() {
@@ -181,7 +187,6 @@ export default defineComponent({
       selectXYZ,
       backgroundStyle,
       backSelectStyle,
-      notification,
       toggleRowGrid,
       vectorbackStyle,
       dataPanelSelected,

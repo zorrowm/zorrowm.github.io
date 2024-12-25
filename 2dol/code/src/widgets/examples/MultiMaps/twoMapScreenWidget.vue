@@ -3,12 +3,12 @@
 </template>
 
 <script lang="ts" setup>
-import {Global} from 'xframelib';
 import TileLayer from 'ol/layer/Tile';
 import { OSM } from 'ol/source';
-import { computed, onMounted, ref,onUnmounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
+import { Global } from 'xframelib';
 import { XMap } from 'xgis-ol';
-import "xgis-ol/dist/index.css"
+import "xgis-ol/dist/index.css";
 
 
 let xmap: XMap;
@@ -31,13 +31,14 @@ onMounted(()=>{
         "maxZoom":22,
         "projection":"EPSG:3857"
      });
-    //  if(idRef.value==='map2'||idRef.value==='map4')
-        xmap.map.addLayer(new TileLayer({source:new OSM()}))
+         //  if(idRef.value==='map2'||idRef.value==='map4')
+         xmap.map.addLayer(new TileLayer({source:new OSM()}))
     //  else{
     //     xmap.addOnlineLayer("vec_w");
     //     xmap.addOnlineLayer("cva_w");
     //  }
      xmap.enableMapSyncView();
+
      const xmap0=Global.XMap as XMap;
      xmap0.enableMapSyncView();
 });
@@ -50,6 +51,11 @@ onUnmounted(()=>{
         mapContainer.style.left="0";
         mapContainer.style.width="100%"
     }
+    if(xmap)
+    xmap.disableMapSyncView();
+    const xmap0=Global.XMap as XMap;
+    if(xmap0)
+    xmap0.disableMapSyncView();
 })
 
 

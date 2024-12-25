@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { computed,onMounted, ref } from 'vue';
 import { Global, requestGet } from 'xframelib';
-import { PrjGridTool, XMap, ZoomFullBar,ContextMenu,IMapContextItem,mapMenuState,LayerTree } from 'xgis-ol';
+import { PrjGridTool, XMap, ZoomFullBar,ContextMenu,IMapContextItem,LayerTree } from 'xgis-ol';
 import 'xgis-ol/dist/index.css';
 
 const mapRef=ref<XMap>();
@@ -54,7 +54,7 @@ function doItemClick(item)
     Global.Message.info('点击了菜单：' + item.label);
 }
 
-const isLayerTreeShow=computed(()=>mapMenuState.layerTree);
+const isLayerTreeShow=computed(()=>mapRef.value&&mapRef.value.mapMenuState.layerTree);
 
 onMounted(async () => {
     const configResult = await requestGet('', 'DefaultMapConfig.json').catch(ex => {

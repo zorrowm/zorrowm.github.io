@@ -1,5 +1,5 @@
 <template>
-    <div class="drawToolBar">
+    <div>
         <DrawToolBar :xmap="mapRef" />
     </div>
 </template>

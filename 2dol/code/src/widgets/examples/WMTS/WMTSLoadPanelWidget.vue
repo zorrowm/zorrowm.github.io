@@ -53,7 +53,8 @@ import { getCurrentInstance, ref } from 'vue'
 import { Global, get, XWindow } from 'xframelib';
 import { XMap, PrjGridTool, IProjInfo, ITileGridSchema } from 'xgis-ol';
 import Projection from 'ol/proj/Projection';
-import TileGridsetRuleService from 'src/service/imageAdmin/TileGridsetRuleService.ts';
+import {TileGridsetRuleService} from 'src/service/imageAdmin/TileGridsetRuleService';
+import ServiceClients from "src/service/index";
 
 const panel = ref('GetServiceBrowse');
 const imageserver = ref(Global.Config.ServiceURL.WMTSService ?? 'https://gis-image.digsur.com/IMGWMTS')
@@ -94,6 +95,8 @@ const format = ref('image/jpeg');
 const minZoom = ref(1);
 const maxZoom = ref(18);
 
+
+
 /**
  * 通过URL和参数，添加WMTS标准地图服务
  */
@@ -122,7 +125,9 @@ function loadWMTSByURLParams() {
                 wmtsProj, style.value, "KVP", format.value);
         }
         else {
-            TileGridsetRuleService.GetTileGridsetRuleByRuleid(tilematrix.value).then(async res => {
+            //定义对象
+            const tilegridService=new TileGridsetRuleService(ServiceClients.ImageAdminClient);
+            tilegridService.GetTileGridsetRuleByRuleid(tilematrix.value).then(async res => {
 
                 if (!res || !res.rule) {
                     Global.Message.warn(`矩阵集名错误：${tilematrix.value}`);

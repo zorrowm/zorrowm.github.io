@@ -1,5 +1,5 @@
 <template>
-    <XWindow v-show="isShow" :isDark="true" top="10px" left="10px" nWidth="280px" hHeight="350px" title="在线影像底图" icon="img/basicimage/arcgis_img.png"
+    <XWindow v-show="isShow" :isDark="false" top="10px" left="10px" nWidth="280px" hHeight="350px" title="在线影像底图" icon="img/basicimage/arcgis_img.png"
         pid="imageBaseLayerWidget" @loaded="loadedHandle" @close="doClosePanel">
         <q-scroll-area style="height:100%;">
             <div class="row q-col-gutter-sm">
@@ -19,12 +19,9 @@
 
 <script lang="ts" setup>
 
-import { EmitMsg } from 'src/events';
-import { onMounted, ref } from 'vue';
-import { Global,XWindow, XWindowManager } from 'xframelib';
-import { BasicLayerList } from "xgis-ol";
-import { XMap } from 'xgis-ol';
-import WidgetsEvent from 'src/events/modules/WidgetsEvent';
+import { getCurrentInstance, onMounted, ref } from 'vue';
+import { Global, XWindow, XWindowManager } from 'xframelib';
+import { BasicLayerList, XMap } from "xgis-ol";
 
 
 let itemSelected = ref('');
@@ -34,11 +31,14 @@ function loadedHandle(panelData)
 {
     windowID=panelData.id;
 }
+
+const instance = getCurrentInstance();
 function doClosePanel(panelData) {
-  widgetID = panelData.pid;
-  if (panelData.pid) {
-    EmitMsg(WidgetsEvent.WidgetClosed, widgetID);
-  }
+    const wid = instance?.proxy?.$options.id;
+    const layoutid = instance?.proxy?.$options.layoutID;
+    if (wid) {
+        Global.LayoutMap.get(layoutid)?.unloadWidget(wid);
+    }
 }
 
 function getSelectedStyle(item) {
