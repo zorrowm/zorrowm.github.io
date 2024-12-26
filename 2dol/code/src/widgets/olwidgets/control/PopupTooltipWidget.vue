@@ -58,9 +58,12 @@ onMounted(()=>{
 
 onUnmounted(()=>{
 
-  if(geojsonLayer)
+  const xmap=Global.XMap as XMap;
+  if(xmap&&geojsonLayer)
   {
-      Global.XMap.map.removeLayer(geojsonLayer);
+      xmap.map.removeLayer(geojsonLayer);
+      if(select)
+      xmap.map.removeInteraction(select);
   }
 
 });

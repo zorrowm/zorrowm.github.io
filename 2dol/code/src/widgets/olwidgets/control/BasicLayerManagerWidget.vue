@@ -25,7 +25,6 @@ import { BasicLayerList, XMap } from "xgis-ol";
 
 
 let itemSelected = ref('');
-let widgetID = 'BasicLayerManagerWidget';
 let windowID='';
 function loadedHandle(panelData)
 {
@@ -37,6 +36,7 @@ function doClosePanel(panelData) {
     const wid = instance?.proxy?.$options.id;
     const layoutid = instance?.proxy?.$options.layoutID;
     if (wid) {
+        console.log('关闭图层管理',wid,layoutid);
         Global.LayoutMap.get(layoutid)?.unloadWidget(wid);
     }
 }

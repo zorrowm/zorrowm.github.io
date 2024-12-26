@@ -1,6 +1,6 @@
 <template>
     <div class="LayerSwitch">
-        <q-btn round color="secondary">
+        <q-btn round>
             <Icon icon="ion:layers" color="#fff" />
             <q-menu  cover anchor="center left" style="min-height:80px;overflow: hidden;">
                 <q-list class="row no-wrap" style="min-height:80px;overflow: hidden;">
@@ -162,9 +162,10 @@ onMounted(() => {
 <style scoped>
 .LayerSwitch {
     position: absolute;
-    right: 10px;
-    bottom: 20px;
+    right: 5px;
+    bottom: 10px;
     width:auto;
+    z-index:-2;
 
 }
 

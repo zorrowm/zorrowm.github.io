@@ -60,7 +60,14 @@ onUnmounted(() => {
 
 </script>
 
-<style>
+<style lang="scss">
+.ol-videorec
+{
+   left:unset !important;
+   right:55px;
+   top:283px!important;
+   transform:unset !important;
+}
 #video {
     position: fixed;
     top: 0;

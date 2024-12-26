@@ -1,0 +1,1 @@
+import{b as s,u as n}from"./vue-router-exp-CvNwyAs-.js";import{d as p,aa as u}from"./@vue-exp-18LRBxdm.js";const f=p({name:"Redirect",setup(c){const o=s(),r=n();return u(()=>{const{params:t,query:a}=o,{path:e}=t;r.replace({path:"/"+(Array.isArray(e)?e.join("/"):e),query:a})}),()=>"<q-space/>"}});export{f as default};

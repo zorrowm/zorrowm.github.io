@@ -17,10 +17,12 @@ onMounted(()=>{
     const xmap=Global.XMap as XMap;
     const prj=xmap.MapView.getProjection();
     var ov = new Overview({
-      layers: layers2,
+      layers: [
+      new Tile({	source: new OSM()	})
+    ],
       minZoom: 1,
       maxZoom: 12,
-      rotation: true,
+      rotation: false,
       align: 'right',
       projection:prj
 
@@ -29,9 +31,12 @@ onMounted(()=>{
 
 })
 
-
 </script>
 
-<style scoped>
-
+<style>
+.ol-overview
+{
+  right:0px !important;
+  bottom:60px !important;
+}
 </style>

@@ -10,7 +10,7 @@
   >
   <template #title>
     <img  src="img/drawImg/AttackArrow.png" width="24" height="24" />
-    <span  class="paneltitle">态势标绘服务1</span>
+    <span  class="paneltitle">态势标绘服务</span>
     <div class="justify-between toolbar">
       <span title="导出JSON" @click="importPlotJson">
       <Icon icon="system-uicons:import"/>

@@ -64,11 +64,6 @@ function doClick() {
             }
         })
     }
-
-
-
-
-
 }
 function loadGridLayer() {
     if (mvtLayer) {

@@ -62,11 +62,6 @@ function doClick() {
             }
         })
     }
-
-
-
-
-
 }
 
 onUnmounted(() => {

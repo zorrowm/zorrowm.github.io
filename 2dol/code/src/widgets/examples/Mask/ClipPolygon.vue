@@ -44,52 +44,65 @@ function erase(geom) {
     });
     return polygonRing;
 }
+const style = new Style({
+        fill: new Fill({
+            color: 'black',
+        }),
+    });
+let clipLayer:VecLayer; 
+let base:any,base2:any;
+let oldExtent:any;
+function clipRender (e) {
+        const vectorContext = getVectorContext(e);
+        e.context.globalCompositeOperation = 'destination-in';
+        if(clipLayer)
+        clipLayer.getSource().forEachFeature(function (feature) {
+            vectorContext.drawFeature(feature, style);
+        });
+        e.context.globalCompositeOperation = 'source-over';
+    }
+
 onMounted(() => {
     const xmap = Global.XMap as XMap;
     const group= xmap.map.getLayers().getArray();
-    const base =group[0];
-    const base2 = group[1];
+     base =group[0];
+     base2 = group[1];
     const prj=xmap.MapView.getProjection();
     var fts = new GeoJSON().readFeatures(testdata,{dataProjection:"EPSG:4326",featureProjection:prj});
-    const clipLayer = new VecLayer({
+    clipLayer = new VecLayer({
         style: null,
         source: new VectorSource({
             features:fts,
         }),
     });
+    oldExtent=base.getExtent();
     clipLayer.getSource().on('addfeature', function () {
         base.setExtent(clipLayer.getSource().getExtent());
         base2.setExtent(clipLayer.getSource().getExtent());
     });
-    const style = new Style({
-        fill: new Fill({
-            color: 'black',
-        }),
-    });
-    base.on('postrender', function (e) {
-        const vectorContext = getVectorContext(e);
-        e.context.globalCompositeOperation = 'destination-in';
-        clipLayer.getSource().forEachFeature(function (feature) {
-            vectorContext.drawFeature(feature, style);
-        });
-        e.context.globalCompositeOperation = 'source-over';
-    });
-    base2.on('postrender', function (e) {
-        const vectorContext = getVectorContext(e);
-        e.context.globalCompositeOperation = 'destination-in';
-        clipLayer.getSource().forEachFeature(function (feature) {
-            vectorContext.drawFeature(feature, style);
-        });
-        e.context.globalCompositeOperation = 'source-over';
-    });
 
-
+    base.on('postrender', clipRender);
+    base2.on('postrender', clipRender);
+    xmap.map.renderSync();
 })
 onUnmounted(() => {
-    // const xmap = Global.XMap as XMap;
-    // if (converLayer) {
-    //     xmap.map.removeLayer(converLayer);
-    // }
+    if (clipLayer) {
+        if(base)
+        {
+            base.un('postrender', clipRender);
+            base.setExtent(oldExtent);
+        }
+        if(base2)
+        {
+            base2.un('postrender', clipRender);
+            base2.setExtent(oldExtent);
+        }
+
+        clipLayer.dispose();
+    }
+    const xmap = Global.XMap as XMap;
+    if(xmap)
+    xmap.map.renderSync();
 })
 </script>
 
