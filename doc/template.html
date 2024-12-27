@@ -2531,6 +2531,71 @@ export async function x2state() {
 <p><img src="./data/workers_demo.png" alt="workers使用示例"></p>
 </li>
 </ul>
+<h3 id="3-前端基础功能库">3. 前端基础功能库 </h3>
+<h4 id="iconv-lite--文本编码库">iconv-lite  文本编码库 </h4>
+<p>iconv-lite: Pure JS character encoding conversion</p>
+<p><a href="https://www.npmjs.com/package/iconv-lite">https://www.npmjs.com/package/iconv-lite</a></p>
+<ul>
+<li>调用示例：<u>默认为require引入</u></li>
+</ul>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-var">var</span> iconv <span class="token operator">=</span> <span class="token keyword keyword-require">require</span><span class="token punctuation">(</span><span class="token string">'iconv-lite'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Convert from an encoded buffer to a js string.</span>
+str <span class="token operator">=</span> iconv<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>Buffer<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0x68</span><span class="token punctuation">,</span> <span class="token number">0x65</span><span class="token punctuation">,</span> <span class="token number">0x6c</span><span class="token punctuation">,</span> <span class="token number">0x6c</span><span class="token punctuation">,</span> <span class="token number">0x6f</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">'win1251'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Convert from a js string to an encoded buffer.</span>
+buf <span class="token operator">=</span> iconv<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span><span class="token string">"Sample input string"</span><span class="token punctuation">,</span> <span class="token string">'win1251'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Check if encoding is supported</span>
+iconv<span class="token punctuation">.</span><span class="token function">encodingExists</span><span class="token punctuation">(</span><span class="token string">"us-ascii"</span><span class="token punctuation">)</span>
+</code></pre><ul>
+<li>通过配置vite-plugin-commonjs插件，前端引入模式改为：<strong>import iconv from 'iconv-lite';</strong></li>
+</ul>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-import">import</span> iconv <span class="token keyword keyword-from">from</span> <span class="token string">'iconv-lite'</span><span class="token punctuation">;</span>
+<span class="token comment">// 示例用法</span>
+<span class="token keyword keyword-let">let</span> str <span class="token operator">=</span> <span class="token string">'要转换的字符串'</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> buffer <span class="token operator">=</span> iconv<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> <span class="token string">'gbk'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-let">let</span> decodedStr <span class="token operator">=</span> iconv<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span>buffer<span class="token punctuation">,</span> <span class="token string">'gbk'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>decodedStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h4 id="jszip--压缩解压类库">jszip  压缩解压类库 </h4>
+<p><a href="https://www.npmjs.com/package/jszip">https://www.npmjs.com/package/jszip</a></p>
+<p>A library for creating, reading and editing .zip files with JavaScript, with a lovely and simple API.</p>
+<p><a href="https://stuk.github.io/jszip/">https://stuk.github.io/jszip/</a></p>
+<h3 id="4-viterollup插件库">4. Vite/Rollup插件库 </h3>
+<h4 id="vite-plugin-commonjs">vite-plugin-commonjs </h4>
+<p><a href="https://www.npmjs.com/package/vite-plugin-commonjs">https://www.npmjs.com/package/vite-plugin-commonjs</a></p>
+<blockquote>
+<p>将原本只支持require引用的类库，支持为import引入</p>
+</blockquote>
+<p>例如：</p>
+<p><s>var iconv = require('iconv-lite');</s>  改为   <strong>import iconv from 'iconv-lite';</strong></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token comment">// Top-level scope</span>
+<span class="token keyword keyword-const">const</span> foo <span class="token operator">=</span> <span class="token keyword keyword-require">require</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>default
+<span class="token comment">// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span>
+<span class="token keyword keyword-import">import</span> foo <span class="token keyword keyword-from">from</span> <span class="token string">'foo'</span>
+
+<span class="token keyword keyword-const">const</span> foo <span class="token operator">=</span> <span class="token keyword keyword-require">require</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span>
+<span class="token comment">// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span>
+<span class="token keyword keyword-import">import</span> <span class="token operator">*</span> <span class="token keyword keyword-as">as</span> foo <span class="token keyword keyword-from">from</span> <span class="token string">'foo'</span>
+
+<span class="token keyword keyword-const">const</span> foo <span class="token operator">=</span> <span class="token keyword keyword-require">require</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>bar
+<span class="token comment">// ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓</span>
+<span class="token keyword keyword-import">import</span> <span class="token operator">*</span> <span class="token keyword keyword-as">as</span> __CJS_import__0__ <span class="token keyword keyword-from">from</span> <span class="token string">'foo'</span><span class="token punctuation">;</span> <span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> bar<span class="token operator">:</span> foo <span class="token punctuation">}</span> <span class="token operator">=</span> __CJS_import__0__
+
+<span class="token comment">// Non top-level scope</span>
+<span class="token keyword keyword-const">const</span> foo <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> bar<span class="token operator">:</span> <span class="token keyword keyword-require">require</span><span class="token punctuation">(</span><span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>bar <span class="token punctuation">}</span><span class="token punctuation">]</span>
+↓
+<span class="token keyword keyword-import">import</span> <span class="token operator">*</span> <span class="token keyword keyword-as">as</span> __CJS_import__0__ <span class="token keyword keyword-from">from</span> <span class="token string">'foo'</span><span class="token punctuation">;</span> <span class="token keyword keyword-const">const</span> foo <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> bar<span class="token operator">:</span> __CJS_import__0__<span class="token punctuation">.</span>bar <span class="token punctuation">}</span><span class="token punctuation">]</span>
+</code></pre><p>配置插件使用方式：</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript js"><code><span class="token keyword module keyword-import">import</span> <span class="token imports">commonjs</span> <span class="token keyword module keyword-from">from</span> <span class="token string">'vite-plugin-commonjs'</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">plugins</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">commonjs</span><span class="token punctuation">(</span><span class="token comment">/* options */</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre><p>quasar工程里配置如下：</p>
+<p><img src="./data/vite-plugin-commonjs.png" alt="使用方式"></p>
+<p>否者，在使用import动态引入模块时，会报require引入错误，如下：</p>
+<p><img src="./data/requireError.png" alt="require报错"></p>
 <h2 id="前端升级支持扫码登录方法">前端升级支持扫码登录方法 </h2>
 <p>使用“帝测授权宝”APP -android版，实现前端系统的扫码登录。扫码APP是默认连接外网用户权限管理系统，也就是系统SysConfig.js的LoginAuthURL为：<a href="https://gis-auth.digsur.com">https://gis-auth.digsur.com</a></p>
 <h3 id="使用antdesign版模版的升级">使用Antdesign版模版的升级 </h3>
@@ -3454,6 +3519,184 @@ const defaultWidgetCofig: Array&lt;IWidgetConfig&gt; = [
  getDownload('https://file.gis.digsur.com/swagger/v1/swagger.json');
  
   getDownload('https://file.gis.digsur.com/swagger/v1/swagger.json','2.json');
+</code></pre><h3 id="12-v089">12. V0.8.9 </h3>
+<blockquote>
+<p>为Function扩展promise方法（事件异步方法将按Promise异步执行）；修改isElement判断错误；增加ZipTool用于文件在线压缩和解压；H5Tool增加blockEvent停止冒泡bindDropFileHanlder拖拽文件、readFilePromise异步读取文件、优化readFileBytes为bytes二进制数组;IsTool增加isStringLikeJson、isStringLikeKml方法;H5Tool增加了onPasteHandler和offPasteHandler使用document绑定粘贴事件（不是任意div元素都可以绑定paste事件，只有设置了 contenteditable="true" 的元素，才会触发该事件）；FileDownload增加SaveToSelectedFile方法，将文件保存到选定路径；</p>
+</blockquote>
+<ol>
+<li>
+<p>为Function扩展promise方法</p>
+<p>实现事件方法以Promise异步方式执行</p>
+<p><strong>readFile.promise</strong></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>     <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token function">isFunction</span><span class="token punctuation">(</span>readFile<span class="token punctuation">.</span>promise<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        readFile<span class="token punctuation">.</span><span class="token function">promise</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>dataTransfer<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">'1111111111'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span>p <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'8888888888'</span><span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>事件回调方法，例如：</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-function">function</span> <span class="token function">readFile</span><span class="token punctuation">(</span>file<span class="token operator">:</span> File<span class="token punctuation">,</span> msg<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> cb<span class="token operator">:</span> <span class="token builtin">Function</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-var">var</span> reader <span class="token operator">=</span> <span class="token keyword keyword-new">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'5555555555'</span><span class="token punctuation">)</span>
+  reader<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword keyword-function">function</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-try">try</span> <span class="token punctuation">{</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'结果:'</span><span class="token punctuation">,</span>reader<span class="token punctuation">.</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">cb</span><span class="token punctuation">(</span><span class="token keyword keyword-null">null</span><span class="token punctuation">,</span> reader<span class="token punctuation">.</span>result<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword keyword-catch">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">cb</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
+      <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'加载 Shapefile 失败:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  reader<span class="token punctuation">.</span><span class="token function">readAsText</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token comment">//readAsArrayBuffer(file);</span>
+<span class="token punctuation">}</span>
+</code></pre><p>H5Tool的promisify使用,例如：</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-const">const</span> data<span class="token operator">=</span><span class="token keyword keyword-await">await</span> H5Tool<span class="token punctuation">.</span><span class="token function">promisify</span><span class="token punctuation">(</span>readFile<span class="token punctuation">,</span>event<span class="token punctuation">.</span>dataTransfer<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">'11111111'</span><span class="token punctuation">)</span>
+</code></pre></li>
+<li>
+<p>bindDropFileHanlder拖拽文件</p>
+<blockquote>
+<p>/**</p>
+<p>* 给DIV对象绑定拖拽文件事件</p>
+<p>* @param ele id或classname或 HtmlElement对象</p>
+<p>* @param onDropFile 接收文件拖拽列表_回调函数</p>
+<p>*/</p>
+<p>static bindDropFileHanlder(ele:string|Element,onDropFile:(fileList:FileList)=&gt;{})</p>
+</blockquote>
+<p>给id为map的div增加拖拽文件加载事件</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>    <span class="token comment">//拖拽文件加载</span>
+    H5Tool<span class="token punctuation">.</span><span class="token function">bindDropFileHanlder</span><span class="token punctuation">(</span><span class="token string">"map"</span><span class="token punctuation">,</span>dragFileHandler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>拖拽文件处理方法：</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">dragFileHandler</span><span class="token punctuation">(</span>fileList<span class="token operator">:</span> FileList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>fileList <span class="token operator">||</span> fileList<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-return">return</span><span class="token punctuation">;</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> len <span class="token operator">=</span> fileList<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'文件个数为：'</span><span class="token punctuation">,</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-const">const</span> files <span class="token operator">=</span> <span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>fileList<span class="token punctuation">)</span> 
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></li>
+<li>
+<p>readFilePromise异步读取文件</p>
+<blockquote>
+<p>/**</p>
+<ul>
+<li>
+<p>以Promise方式读前端文件</p>
+</li>
+<li>
+<p>@param file 文件或BLob</p>
+</li>
+<li>
+<p>@param type 类型'FileBytes'|'ArrayBuffer'|'Text'|'BinaryString'|'DataURL'，默认为ArrayBuffer</p>
+</li>
+<li>
+<p>@param encoding 文本编码,默认为UTF-8</p>
+</li>
+<li>
+<p>@returns</p>
+</li>
+<li>
+<p>*/</p>
+</li>
+</ul>
+<p>static readFilePromise(file:File|Blob, type:'FileBytes'|'ArrayBuffer'|'Text'|'BinaryString'|'DataURL'= 'ArrayBuffer',encoding="UTF-8"):Promise&lt;string|ArrayBuffer&gt;</p>
+</blockquote>
+<p>示例代码：<strong>H5Tool.readFilePromise(file,'Text')</strong></p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">fileUpload</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-const">const</span> file <span class="token operator">=</span> files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-const">const</span> name <span class="token operator">=</span> file<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+
+  <span class="token keyword keyword-const">const</span> data<span class="token operator">=</span><span class="token keyword keyword-await">await</span> H5Tool<span class="token punctuation">.</span><span class="token function">readFilePromise</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span><span class="token string">'Text'</span><span class="token punctuation">)</span> <span class="token keyword keyword-as">as</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  <span class="token keyword keyword-const">const</span> json<span class="token operator">=</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  plotHelper<span class="token punctuation">.</span><span class="token function">addFeatures</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token doc-comment comment">/**
+ * 读取前端文件，为bytes二进制数组（base64编码的）
+ * <span class="token keyword keyword-@param">@param</span> <span class="token parameter">file</span> 
+ * <span class="token keyword keyword-@returns">@returns</span> 
+ */</span>
+<span class="token keyword keyword-static">static</span> <span class="token function">readFileBytes</span><span class="token punctuation">(</span>file<span class="token operator">:</span>File<span class="token operator">|</span>Blob<span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">Promise</span><span class="token operator">&lt;</span><span class="token builtin">any</span><span class="token operator">&gt;</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword keyword-return">return</span> H5Tool<span class="token punctuation">.</span><span class="token function">readFilePromise</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span><span class="token string">"FileBytes"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></li>
+<li>
+<p>H5Tool增加了onPasteHandler和offPasteHandler使用document绑定粘贴事件</p>
+<blockquote>
+<p>不是任意div元素都可以绑定paste事件，只有设置了 contenteditable="true" 的元素，才会触发该事件</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>    H5Tool<span class="token punctuation">.</span><span class="token function">onPasteHandler</span><span class="token punctuation">(</span>pasteFileHandler<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">pasteFileHandler</span><span class="token punctuation">(</span>copyContent<span class="token operator">:</span> <span class="token builtin">string</span> <span class="token operator">|</span> File<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token function">isString</span><span class="token punctuation">(</span>copyContent<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Global<span class="token punctuation">.</span>Message<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span>copyContent <span class="token keyword keyword-as">as</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword keyword-else">else</span> <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span><span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>copyContent<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> files <span class="token operator">=</span> copyContent <span class="token keyword keyword-as">as</span> File<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>files<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword keyword-return">return</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-const">const</span> result <span class="token operator">=</span> <span class="token keyword keyword-await">await</span> <span class="token function">import2DFiles</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-if">if</span> <span class="token punctuation">(</span>result <span class="token operator">&amp;&amp;</span> result<span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></li>
+<li>
+<p>FileDownload增加SaveToSelectedFile方法</p>
+</li>
+</ol>
+<blockquote>
+<p>可能报“window.showSaveFilePicke个不存在”问题<br>
+handle = await window.showSaveFilePicker(options);</p>
+</blockquote>
+<p><img src="./data/showSaveFilePicker.png" alt="不存在方法错误"></p>
+<h3 id="13-v090">13. V0.9.0 </h3>
+<ol>
+<li>
+<p>iconv字符编码使用</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code><span class="token keyword keyword-import">import</span> <span class="token punctuation">{</span> iconv <span class="token punctuation">}</span> <span class="token keyword keyword-from">from</span> <span class="token string">'xframelib'</span><span class="token punctuation">;</span>
+
+<span class="token comment">//字符转编码</span>
+     <span class="token keyword keyword-const">const</span> utf8Str<span class="token operator">=</span><span class="token string">'ÁÖ»¶4ÔÂÔÂ±¨.docx'</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-const">const</span> tmp <span class="token operator">=</span>iconv<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>utf8Str<span class="token punctuation">,</span><span class="token string">"ISO-8859-1"</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-const">const</span> gb2312 <span class="token operator">=</span> iconv<span class="token punctuation">.</span><span class="token function">decode</span><span class="token punctuation">(</span> tmp<span class="token punctuation">,</span><span class="token string">'gbk'</span><span class="token punctuation">)</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'5555555'</span><span class="token punctuation">,</span>gb2312<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>沙发是</p>
+</li>
+<li>
+<p><strong>ZipTool用于文件在线压缩和解压</strong></p>
+</li>
+</ol>
+<ul>
+<li>解压文件</li>
+</ul>
+<p>直接读取压缩包文件，解压：readZipFromFile</p>
+<p>readZipFromFile</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code>   <span class="token keyword keyword-const">const</span> zipfile<span class="token operator">=</span>fileList<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+   <span class="token keyword keyword-const">const</span> result<span class="token operator">=</span><span class="token keyword keyword-await">await</span> ZipTool<span class="token punctuation">.</span><span class="token function">readZipFromFile</span><span class="token punctuation">(</span>zipfile<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   fileArray<span class="token punctuation">.</span>value<span class="token operator">=</span>result<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>it<span class="token operator">=&gt;</span>it<span class="token punctuation">.</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   result<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>it<span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+    <span class="token function">SaveAs</span><span class="token punctuation">(</span>it<span class="token punctuation">.</span>content<span class="token punctuation">,</span>it<span class="token punctuation">.</span>filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><ul>
+<li>压缩文件</li>
+</ul>
+<p>saveZipFile、saveZipFromFiles、saveZipFileSync方法</p>
+<pre data-role="codeBlock" data-info="ts" class="language-ts ts"><code> <span class="token keyword keyword-const">const</span> files<span class="token operator">=</span><span class="token builtin">Array</span><span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>fileList<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ZipTool<span class="token punctuation">.</span><span class="token function">saveZipFromFiles</span><span class="token punctuation">(</span><span class="token string">'0000.zip'</span><span class="token punctuation">,</span>files<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-const">const</span> list<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-for">for</span><span class="token punctuation">(</span><span class="token keyword keyword-let">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>files<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword keyword-const">const</span> file<span class="token operator">=</span>files<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword keyword-const">const</span> filename<span class="token operator">=</span>file<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+      <span class="token keyword keyword-const">const</span> buffer<span class="token operator">=</span> <span class="token keyword keyword-await">await</span> H5Tool<span class="token punctuation">.</span><span class="token function">readFilePromise</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span><span class="token string">'ArrayBuffer'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword keyword-const">const</span> content<span class="token operator">=</span><span class="token keyword keyword-new">new</span> <span class="token class-name">Uint8Array</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      list<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        filename<span class="token punctuation">,</span>content
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    ZipTool<span class="token punctuation">.</span><span class="token function">saveZipFile</span><span class="token punctuation">(</span><span class="token string">'22222.zip'</span><span class="token punctuation">,</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword keyword-const">const</span> tt<span class="token operator">=</span>ZipTool<span class="token punctuation">.</span><span class="token function">saveZipFileSync</span><span class="token punctuation">(</span><span class="token string">'33333.zip'</span><span class="token punctuation">,</span>list<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'压缩0000'</span><span class="token punctuation">,</span>tt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 </code></pre><h2 id="重要业务组件使用">*重要业务组件使用 </h2>
 <h3 id="0-qlayoutmaincontainer组件">0. QLayoutMainContainer组件 </h3>
 <blockquote>
@@ -4657,6 +4900,30 @@ proxy.$http.get('/api/data')
       <span class="token keyword keyword-return">return</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span>tabFields<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 </code></pre><h3 id="6-其他">6、其他 </h3>
+<h2 id="mapshaper打包与精简的修改要点">MapShaper打包与精简的修改要点 </h2>
+<h3 id="1-mapshaper重新打包">1、MapShaper重新打包 </h3>
+<p>MapShaper直接引入使用会报错误,例如：</p>
+<p><img src="./data/requireError.png" alt="requireError"></p>
+<p>因为：iconv-lite、mproj库都是通过require方式引入的</p>
+<p>解决方法：</p>
+<ul>
+<li>
+<p>新增插件**@rollup/plugin-commonjs**</p>
+<p>import commonjs from '@rollup/plugin-commonjs';</p>
+</li>
+<li>
+<p>修改配置项format为 "cjs"</p>
+<p><img src="./data/importPlugin.png" alt="配置插件"></p>
+</li>
+<li>
+<p>批量修改为import 引入模块</p>
+<p><img src="./data/importIconv-lite.png" alt="import1"></p>
+</li>
+</ul>
+<p><img src="./data/importMproj.png" alt="import取代require"></p>
+<ul>
+<li>执行 npm run build 重新打包，拷贝www文件夹下的mapshaper.js 进行替换</li>
+</ul>
 
       </div>
       
