@@ -1,0 +1,517 @@
+/* 清除默认样式 */
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+input,
+button {
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+/*网站灰暗模式，悼念日*/
+.grayMode {
+  filter: grayscale(100%);
+  filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+}
+/* 图片消除底侧的小空隙 */
+img {
+  vertical-align: middle;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+#app {
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Microsoft YaHei', 'Source Han Sans CN', sans-serif;
+}
+/* 万能清除浮动 */
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+  /* visibility: hidden;
+  font-size: 0;
+  height: 0; */
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/*溢出文本显示省略*/
+.textFlow {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.app-loading {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f4f7f9;
+}
+
+.app-loading .app-loading-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.app-loading .dots {
+  display: flex;
+  padding: 98px;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-loading .app-loading-title {
+  display: flex;
+  margin-top: 20px;
+  font-size: 26px;
+  color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+#app-loading-info
+{
+  display: flex;
+  margin-top: 10px;
+  font-size:18px;
+  color: rgba(0, 0, 0, 0.85);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+
+/* 加载动画*/
+#logo-part {
+  width: 20vw;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: 100%;
+  align-items: center;
+}
+
+#waitLogo {
+  grid-column: 1;
+  grid-row: 1;
+  margin: auto;
+  width: 40%;
+  height: 40%;
+}
+#waitSpinner {
+  grid-column: 1;
+  grid-row: 1;
+  -webkit-animation: spin1 0.5s infinite linear;
+  -moz-animation: spin1 0.5s infinite linear;
+  -o-animation: spin1 0.5s infinite linear;
+  -ms-animation: spin1 0.5s infinite linear;
+  animation: spin1 0.5s infinite linear;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+@-webkit-keyframes spin1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin1 {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes spin1 {
+  0% {
+    -o-transform: rotate(0deg);
+  }
+
+  100% {
+    -o-transform: rotate(360deg);
+  }
+}
+
+@-ms-keyframes spin1 {
+  0% {
+    -ms-transform: rotate(0deg);
+  }
+
+  100% {
+    -ms-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* 用户登录界面 */
+.dc-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.login-logo {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+}
+.login-logo > img {
+  width: 30px;
+  margin-top: -15px;
+}
+.login-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #cccccc;
+  margin-left: 8px;
+}
+.login {
+  z-index: 2;
+  position: absolute;
+  width: 350px;
+  border-radius: 5px;
+  height: 400px;
+
+  box-shadow: 0px 0px 10px #333333;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -175px;
+  transition: all 1s;
+  -moz-transition: all 1s;
+  /* Firefox 4 */
+  -webkit-transition: all 1s;
+  /* Safari 鍜� Chrome */
+  -o-transition: all 1s;
+  /* Opera */
+  /* 滚动条动画 */
+  --border-size: 3px;
+  --border-angle: 0turn;
+  background-image: conic-gradient(from var(--border-angle), #fff, #fff, #fff),
+    conic-gradient(from var(--border-angle), transparent 20%, #e76957, #fee);
+  background-color: #fff;
+  background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-animation: bg-spin 5s linear infinite;
+  animation: bg-spin 5s linear infinite;
+}
+@-webkit-keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+@keyframes bg-spin {
+  to {
+    --border-angle: 1turn;
+  }
+}
+.login:hover {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0turn;
+}
+.login-top {
+  font-size: 24px;
+  margin-top: 50px;
+  padding-left: 40px;
+  box-sizing: border-box;
+  color: #333333;
+  margin-bottom: 50px;
+}
+.login-top-center {
+  font-size: 24px;
+  width: 100%;
+  margin: 40px auto;
+  text-align: center;
+  box-sizing: border-box;
+  color: #333333;
+}
+.login-center {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 40px;
+  margin-bottom: 20px;
+}
+.login-center-img {
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin-top: 5px;
+}
+.login-center-img > img {
+  width: 100%;
+}
+.login-center-input {
+  float: left;
+  width: 230px;
+  margin-left: 15px;
+  height: 30px;
+  position: relative;
+}
+.login-center-input input {
+  z-index: 2;
+  transition: all 0.5s;
+  padding-left: 10px;
+  color: #333333;
+  width: 100%;
+  height: 30px;
+  border: 0;
+  border-bottom: 1px solid #cccccc;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  box-sizing: border-box;
+  outline: none;
+  position: relative;
+}
+.login-center-input input:focus {
+  border: 1px solid dodgerblue;
+}
+.login-center-input-text {
+  background: white;
+  padding: 0 5px;
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  font-size: 14px;
+  left: 5px;
+  color: dodgerblue;
+  line-height: 20px;
+  transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  /* Firefox 4 */
+  -webkit-transition: all 0.5s;
+  /* Safari  Chrome */
+  -o-transition: all 0.5s;
+  /* Opera */
+}
+.login-center-input input:focus ~ .login-center-input-text {
+  top: 0;
+  z-index: 3;
+  opacity: 1;
+  margin-top: -15px;
+}
+.login.active {
+  -webkit-animation: login-small 0.8s;
+  animation: login-small 0.8s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+.login-button {
+  cursor: pointer;
+  width: 270px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  background-color: #3b78dd;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 20px;
+  color: white;
+}
+.login-bottom-line {
+  width: 50%;
+  margin:10px auto;
+  display: flex;
+  justify-content:space-around;
+  align-items:center;
+  color: #585e6d;
+  font-size: 14px;
+  line-height: 20px;
+}
+.login-copyright {
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  color: #000;
+  font-size: 14px;
+}
+.righttop-login
+{
+  position: absolute;
+  right: 0;
+  top:0;
+  width:50px;
+  height:50px;
+}
+.loginQRCode
+{
+  margin:0 auto;
+  width:250px;
+  height:200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+.login-top-append
+{
+  font-size: 14px;  
+  color:gray;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+/* 下面为dat.gui相关的样式 */
+.dg{
+  z-index: 110 !important;
+}
+.btn-box{
+  position: absolute;
+  top: 20px;
+  left: 80px;
+  z-index: 110;
+  min-height: 40px;
+  width:500px;
+  background: rgba(0,0,0,0.6);
+  padding: 10px 10px 0 10px;
+  border-radius: 10px;
+  color:#fff;
+  user-select:  none;
+}
+
+.btn-box ul:nth-of-type(n+2){
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-box ul li {
+  display: inline-block;
+}
+
+.btn-box ul li button {
+  width: 70px;
+  height: 30px;
+  margin: 0 5px;
+  background-color: rgba(32,160,255,.2);
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  color:#fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.sticky-header-table {
+  height: 310px;
+}
+
+.body--dark .sticky-header-table .q-table__top,
+.body--dark .sticky-header-table .q-table__bottom,
+.body--dark .sticky-header-table thead tr:first-child th {
+  background-color: #2a2b2c;
+}
+
+.body--light .sticky-header-table .q-table__top,
+.body--light .sticky-header-table .q-table__bottom,
+.body--light .sticky-header-table thead tr:first-child th {
+  background-color: rgb(249, 249, 249);
+}
+
+.sticky-header-table thead tr th {
+  position: sticky;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.sticky-header-table thead tr:first-child th {
+  top: 0;
+}
+
+.sticky-header-table.q-table--loading thead tr:last-child th {
+  /* height of all previous header rows */
+  top: 48px;
+}
+/* 修改表，复选框列的宽度 */
+.q-table--col-auto-width:has(.q-checkbox)
+{
+  max-width:40px;
+  padding-left: unset !important;
+  padding-right: unset !important;
+}
+
+.stiky-last th:last-child,.stiky-last td:last-child
+{
+  position: sticky;
+  right: 0;
+  top: 56px;
+  z-index: 1;
+  background-color: #eee;
+} 
+
+.stiky-first th:first-child,.stiky-first td:first-child
+{
+  position: sticky;
+  left: 0;
+  top: 56px;
+  z-index: 2;
+  background-color: #eee;
+} 
+
