@@ -7,7 +7,7 @@ const SysConfig = {
     /*必须，系统配置标题，必须 */
     SiteTitle: "EPSG在线查询服务",
     CopyRight: "Copyright ©xx科技  2023-2030",
-    WebSite: "https://www.ysgis.com",
+    WebSite: "https://www.baidu.com",
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
     LockTime: 3600, //1小时

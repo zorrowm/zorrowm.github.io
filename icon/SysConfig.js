@@ -7,7 +7,7 @@ const SysConfig = {
     /*必须，系统配置标题，必须 */
      SiteTitle: '图标在线服务系统',
     CopyRight: 'Copyright ©xxxx  2022-2026',
-    WebSite: 'http://www.ysgis.com',
+    WebSite: 'http://www.baidu.com',
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
     LockTime: 3600, //1小时
