@@ -1,1 +1,0 @@
-import{_ as t,o as a,c as e}from"./chunks/framework.6E_17U8v.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"datalist/data.md","filePath":"datalist/data.md","lastUpdated":1701135828000}'),s={name:"datalist/data.md"};function d(r,o,c,n,i,p){return a(),e("div")}const m=t(s,[["render",d]]);export{_ as __pageData,m as default};
