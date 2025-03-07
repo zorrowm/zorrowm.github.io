@@ -1,1 +1,0 @@
-import{_ as t,c as s,o,ae as i}from"./chunks/framework.BMBYWaLh.js";const d=JSON.parse('{"title":"简介","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),r={name:"index.md"};function a(n,e,l,u,g,p){return o(),s("div",null,e[0]||(e[0]=[i("",20)]))}const m=t(r,[["render",a]]);export{d as __pageData,m as default};
