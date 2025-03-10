@@ -6,7 +6,7 @@ const SysConfig = {
   UI: {
     /*必须，系统配置标题，必须 */
     SiteTitle: '后台业务服务平台',
-    CopyRight: 'Copyright ©xx  2022-2026',
+    CopyRight: 'Copyright ©XX  2022-2026',
     WebSite: 'http://www.xxxx.com',
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,

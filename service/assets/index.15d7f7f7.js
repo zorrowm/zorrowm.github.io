@@ -1,1 +1,0 @@
-import{M as t}from"./xframelib-exp.f18cc8b7.js";var a={SatusMessage:"statusmessage"};function u(s){t.EventBus.emit(a.SatusMessage,s)}function n(s){t.EventBus.on(a.SatusMessage,s)}export{u as E,n as O};

@@ -1,1 +1,0 @@
-System.register(["./xframelib-exp-legacy.dacdec32.js"],(function(e){"use strict";var t;return{setters:[function(e){t=e.M}],execute:function(){e({E:function(e){t.EventBus.emit(n,e)},O:function(e){t.EventBus.on(n,e)}});var n="statusmessage"}}}));
