@@ -43,7 +43,7 @@ const SysConfig = {
      * Axios普通WebAPI的BaseURL
      * 全局默认的http请求地址（一般与主hprose相同或不同）;文件上传地址
      */
-    DefaultWebAPI: 'https://epsgservice.ysgis.com',
+    DefaultWebAPI: 'https://epsg.gis.digsur.com',
     /**
      * 默认HproseAPI的服务地址
      */

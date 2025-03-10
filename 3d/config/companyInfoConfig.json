@@ -1,0 +1,66 @@
+{
+	"logo": "https://www.gis.digsur.com/img/logo.png",
+	"img": "https://www.gis.digsur.com/img/Base.png",
+	"children": [
+		{
+			"name": "产品与服务",
+			"id": 1,
+			"children": [
+				{
+					"id": 1,
+					"name": "软件产品",
+					"path": ""
+				},
+				{
+					"id": 2,
+					"name": "解决方案",
+					"path": ""
+				},
+				{
+					"id": 3,
+					"name": "定制服务",
+					"path": ""
+				}
+			]
+		},
+		{
+			"name": "支持",
+			"id": 2,
+			"children": [
+				{
+					"id": 1,
+					"name": "使用手册",
+					"path": ""
+				},
+				{
+					"id": 2,
+					"name": "技术服务",
+					"path": ""
+				},
+				{
+					"id": 3,
+					"name": "咨询服务",
+					"path": ""
+				}
+			]
+		},
+		{
+			"name": "关于帝测",
+			"id": 3,
+			"children": [
+				{
+					"id": 1,
+					"name": "地址：北京市昌平区未来科学城G座4层"
+				},
+				{
+					"id": 2,
+					"name": "电话：010-59919066"
+				},
+				{
+					"id": 3,
+					"name": "邮箱：dckj@digsur.com"
+				}
+			]
+		}
+	]
+}

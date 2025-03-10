@@ -11,7 +11,7 @@ const SysConfig = {
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
     LockTime: 3600, //1小时
-    IsNoLogin: false, //无需登录页面,true时不登录
+    IsNoLogin: true, //无需登录页面,true时不登录
     GrayMode: false, //是否启用网站暗灰模式，悼念日，默认为false
     ProductLog: false, //是否在产品发布后输出开发日志记录
     // Theme:'dark'//系统的主题

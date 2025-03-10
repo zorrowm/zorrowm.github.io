@@ -1,0 +1,46 @@
+{
+    "datas": [
+        {
+            "id": "budalagong",
+            "label": "布达拉宫",
+            "type": "photoLayer",
+            "source": "https://3dtiles.gis.digsur.com/model/4c64e2b3-5fdf-4193-9456-f22ba71d195b/tileset.json",
+            "img": "/img/examples/budalagong.png"
+        },
+        {
+            "id": "shengmingkexueyuan",
+            "type": "artificialLayer",
+            "label": "生命科学园",
+            "source": "https://3dtiles.gis.digsur.com/model/50782d17-b6b7-40dd-a090-61ffa3e7d454/tileset.json",
+            "img": "/img/examples/shengmingkexueyuan.png"
+        },
+        {
+            "id": "jiuyanlou_summer",
+            "type": "photoLayer",
+            "label": "九眼楼夏季",
+            "source": "https://3dtiles.gis.digsur.com/model/b3f6969e-f370-4001-9a65-2eda73f1ffb3/tileset.json",
+            "img": "/img/examples/jiuyanlou_summer.png"
+        },
+        {
+            "id": "jiuyanlou_winter",
+            "type": "photoLayer",
+            "label": "九眼楼冬季",
+            "source": "https://3dtiles.gis.digsur.com/model/4a811ae1-322a-4ccd-bd47-ac1cae5809a5/tileset.json",
+            "img": "/img/examples/jiuyanlou_winter.png"
+        },
+        {
+            "id": "bim1",
+            "type": "bim",
+            "label": "教学楼",
+            "source": "https://mars3d.gis.digsur.com/3dtiles/bim-daxue/tileset.json",
+            "img": "/img/examples/bim1.png"
+        },
+        {
+            "id": "bim2",
+            "type": "bim",
+            "label": "办公楼",
+            "source": "http://192.168.1.125:9888/freedo/map/file/D/runDB/zhihl/Model_Task/zh/zh/tileset.json",
+            "img": "/img/examples/bim2.png"
+        }
+    ]
+}
