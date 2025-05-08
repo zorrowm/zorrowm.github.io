@@ -1,0 +1,14 @@
+{
+"name": "peak",
+"description": "peak",
+"version": "2",
+"minzoom": "0",
+"maxzoom": "5",
+"center": "118.125000,26.947604,5",
+"bounds": "72.281860,16.447298,134.348862,53.368744",
+"type": "overlay",
+"format": "pbf",
+"generator": "tippecanoe v1.36.0",
+"generator_options": "tippecanoe -zg -e peak peak.json",
+"json": "{\"vector_layers\": [ { \"id\": \"peak\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 5, \"fields\": {\"name\": \"String\"} } ],\"tilestats\": {\"layerCount\": 1,\"layers\": [{\"layer\": \"peak\",\"count\": 38754,\"geometry\": \"Point\",\"attributeCount\": 1,\"attributes\": [{\"attribute\": \"name\",\"count\": 1000,\"type\": \"string\",\"values\": [\"\",\"1160m\",\"1239\",\"1260m\",\"1349\",\"1360m\",\"1391\",\"1630m\",\"1680m\",\"1810m\",\"203高地\",\"2560m\",\"2630\",\"2715\",\"2740\",\"2750\",\"2768\",\"2835\",\"2844\",\"2852\",\"2860+\",\"2890+\",\"2900+\",\"2910+\",\"2941\",\"3 Little Pigs\",\"3048\",\"3100\",\"3119\",\"3140\",\"3168\",\"3216\",\"3300\",\"3310\",\"3397\",\"3410\",\"3450\",\"381\",\"40 лет Октябрьской революции\",\"4390\",\"4400高地\",\"4940m\",\"4970m\",\"5305\",\"5850\",\"5958\",\"6074\",\"6130\",\"6310\",\"6510\",\"814\",\"830高地\",\"844\",\"872 m\",\"988\",\"Abi Gamin\",\"Adi Kailash\",\"Altun Shan\",\"Ama Dablam\",\"Amatsan Himal\",\"Amphu Gyabjen\",\"Angelus\",\"Apsarasas III\",\"Apsarasas Kangri I\",\"Apsarasas Kangri II\",\"Araniko Chuli\",\"Asa\",\"Asiatuppa\",\"Balbala\",\"Balbala West\",\"Barmatia\",\"Bars\",\"Baruntse\",\"Batang La\",\"Batang La peak\",\"Bayan Shan\",\"Beimufang\",\"Beitou Mountain\",\"Bhairav Takura\",\"Bhalutar\",\"Bhemdang Karpo\",\"Bhemdang Ri\",\"Bhrikuti Shail\",\"Biale Kangri\",\"Big Sister\",\"Boar Hill\",\"Broad Peak Central\",\"Broad Peak North\",\"Broad Peak 布洛阿特峰\",\"Bump - 邦普\",\"Buqin Shan\",\"Cao Ba Lanh\",\"Chaklo\",\"Chalung Ri\",\"Chamar\",\"Chamar / Nangpai Gosum East\",\"Chamrao Parvat\",\"Chana Dorje\",\"Chanabolo\",\"Changchenmo\"]}]}]}}"
+}

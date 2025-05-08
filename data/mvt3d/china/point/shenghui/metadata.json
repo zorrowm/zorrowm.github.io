@@ -1,0 +1,14 @@
+{
+"name": "shenghui",
+"description": "shenghui",
+"version": "2",
+"minzoom": "0",
+"maxzoom": "0",
+"center": "87.551380,20.043417,0",
+"bounds": "87.551380,20.043417,126.654755,45.743805",
+"type": "overlay",
+"format": "pbf",
+"generator": "tippecanoe v1.36.0",
+"generator_options": "tippecanoe -zg -e shenghui --drop-densest-as-needed --extend-zooms-if-still-dropping '省会级城市.json'",
+"json": "{\"vector_layers\": [ { \"id\": \"省会级城市\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 0, \"fields\": {\"NAME\": \"String\", \"code\": \"String\"} } ],\"tilestats\": {\"layerCount\": 1,\"layers\": [{\"layer\": \"省会级城市\",\"count\": 34,\"geometry\": \"Point\",\"attributeCount\": 2,\"attributes\": [{\"attribute\": \"NAME\",\"count\": 33,\"type\": \"string\",\"values\": [\"上海\",\"乌鲁木齐\",\"兰州\",\"北京\",\"南京\",\"南宁\",\"南昌\",\"台北\",\"合肥\",\"呼和浩特\",\"哈尔滨\",\"天津\",\"太原\",\"广州\",\"成都\",\"拉萨\",\"昆明\",\"杭州\",\"武汉\",\"沈阳\",\"济南\",\"海口\",\"澳门\",\"石家庄\",\"福州\",\"西宁\",\"西安\",\"贵阳\",\"郑州\",\"重庆\",\"银川\",\"长春\",\"长沙\"]},{\"attribute\": \"code\",\"count\": 1,\"type\": \"string\",\"values\": [\"111001\"]}]}]}}"
+}

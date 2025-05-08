@@ -1,0 +1,14 @@
+{
+"name": "heliu",
+"description": "heliu",
+"version": "2",
+"minzoom": "7",
+"maxzoom": "9",
+"center": "121.289063,31.052457,9",
+"bounds": "73.359910,18.228495,135.677600,54.011570",
+"type": "overlay",
+"format": "pbf",
+"generator": "tippecanoe v1.36.0",
+"generator_options": "tippecanoe -Z7 -zg -e heliu river.json",
+"json": "{\"vector_layers\": [ { \"id\": \"river\", \"description\": \"\", \"minzoom\": 7, \"maxzoom\": 9, \"fields\": {\"name\": \"String\"} } ],\"tilestats\": {\"layerCount\": 1,\"layers\": [{\"layer\": \"river\",\"count\": 34052,\"geometry\": \"LineString\",\"attributeCount\": 1,\"attributes\": [{\"attribute\": \"name\",\"count\": 1000,\"type\": \"string\",\"values\": [\"01a\",\"12组后宅河\",\"80\",\"Adzamkho River\",\"Adzon river\",\"Aksu\",\"Alaknanda\",\"Andra River\",\"Anze river\",\"Arpong\",\"Basam\",\"Bhaga River\",\"Bhagirathi River\",\"Bharbun Khola\",\"Bheri Khola\",\"Bhote Koshi\",\"Binhe\",\"Braldu River\",\"Budhi Gandaki\",\"Burtsa Nala\",\"Butog Tsangpo\",\"Bāra-khūn River\",\"Chakung Glong Chu\",\"Chandra River\",\"Char Chu\",\"CharChu\",\"Chemayungdung Chu\",\"Chharka Tulsi Khola\",\"Chiane River\",\"Chibra\",\"Chip Chap\",\"Chip Chap River\",\"Chizuo Tsangpo\",\"Chogro Chu\",\"Chorten Lungpa\",\"Chu Arrok\",\"Chu Naku\",\"Chungpo Chu\",\"Chupda Chu\",\"Chusumdo Tsangpo\",\"Chāng Chenmo\",\"Da Chu\",\"Daba Chu\",\"Dangkar Chu\",\"Daong\",\"Darma Yankti\",\"Daxi River\",\"Daxigou\",\"Delei River\",\"Dhauli Ganga\",\"Di Chu\",\"Doldunkhar (Girthi Ganga)\",\"Domar Chu\",\"Domjor\",\"Dozam Khola\",\"Dri river\",\"Drude Tsangpo\",\"Dudh Khola\",\"Dudh Koshi\",\"Dumordo River\",\"Dungma Chu\",\"Duren River\",\"Dzong Chu\",\"East Karakash River\",\"Edza River\",\"Edzon River\",\"Ekka Pani\",\"Galwan River\",\"Galwan River 加勒万河\",\"Ganesh Ganga\",\"Ganga Chu\",\"Gaodepu\",\"Ghaghara\",\"Ghujerāb River\",\"Ghunsa Khola\",\"Girthi Ganga\",\"Goma Chu\",\"Goshu Chu\",\"Gyamthing\",\"Gyang Chu\",\"Gyün Tsangpo\",\"Haa Chu\",\"Hadi Khola\",\"Hanle\",\"Hao Lin\",\"Hongkeng River\",\"Hoti River\",\"Houhe\",\"Hua Jian\",\"Huapi He\",\"Huihe\",\"Hunza River\",\"Hushe River;Saltoro River\",\"Imja Khola\",\"Indus River\",\"Indus River دریائے سندھ\",\"Inus River\",\"Jadh Ganga\",\"Jadhang\",\"Jadhang Gad\"]}]}]}}"
+}

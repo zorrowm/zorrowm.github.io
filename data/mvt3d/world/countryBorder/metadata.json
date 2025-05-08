@@ -1,0 +1,14 @@
+{
+"name": "countryBorder",
+"description": "countryBorder",
+"version": "2",
+"minzoom": "0",
+"maxzoom": "5",
+"center": "16.875000,44.951199,5",
+"bounds": "-180.000000,-60.617226,180.000000,83.627360",
+"type": "overlay",
+"format": "pbf",
+"generator": "tippecanoe v1.36.0",
+"generator_options": "tippecanoe -zg -e countryBorder countryBorder.json",
+"json": "{\"vector_layers\": [ { \"id\": \"countryBorder\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 5, \"fields\": {} } ],\"tilestats\": {\"layerCount\": 1,\"layers\": [{\"layer\": \"countryBorder\",\"count\": 248,\"geometry\": \"LineString\",\"attributeCount\": 0,\"attributes\": []}]}}"
+}
