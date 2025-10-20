@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano showerrors="false" version="1.21" logkey="false" deprecatedwarnings="false" debugmode="false" idletime="180">
+<display autofullscreen="false"/>
+<layer name="welcome" type="image" visible="false" mask="mask_layer" url.no-mobile="%SWFPATH%/images/intro.png" url.mobile="%SWFPATH%/images/intro_mobile.png" keep="true" scale.mobile="0.5" scale.no-mobile="1" alpha="1" x="0" y="0"  align="center" zorder="100" welcometime="5" onclick="action(welcome_close,welcome);" />
+<layer name="cms_view_userinfo" type="txt" mask="mask_layer" style="cms_view" visible="false" html="创作者：热力管线" onautosized="cms_view_htmls();"/>
+
+
+<config>
+		
+	</config>
+set(map_for_work,false);<include url="%SWFPATH%/xml/vr.xml" />
+<include url="%SWFPATH%/plugins/showtext.xml" />
+<include url="%SWFPATH%/xml/style.xml" />
+<include url="%SWFPATH%/xml/layer.xml" />
+<include url="%SWFPATH%/xml/action.xml" />
+<include url="%SWFPATH%/module/f3d/gtransition/gtransition.xml" />
+<include url="%SWFPATH%/xml/hotspot_bz.xml" />
+
+<control mouse="drag" touch="drag"/>
+<autorotate enabled="true" waittime="5" speed="1" accel="1" horizon="0"/>
+<settings 
+	krpanodevice = "" 
+	krpanonum="315"
+	krpanostartscene="scene3" 
+	loadsceneput="MERGE" 
+	littleplanetintro="0" 
+	start_splash="" 
+	splash_pc="0" 
+	splash_m="0" 
+	splash_pc_wz="" 
+	splash_m_wz="" 
+	splash_close="" 
+	splash_close_time="" 
+	splash_show_time="" 
+	splash_bg_color="" 
+	splash_bg_image="" 
+	open_hits="0" 
+	open_zan="0" 
+	pano_zan_num="" 
+	open_panoinfo="0" 
+	pano_info="" 
+	open_share="1" 
+		open_auto_pano="0"	
+	open_wechat="0" 
+	share_img="images/qrcode.png" 
+	open_ui="0" 
+	ui_uuid="1" 
+	open_scene_name="1" 
+	cms_openuser="1" 
+	openautonext="0" 
+	
+	
+		zimu_onoff="0"	opencard="0" 
+	open_delall="1" 
+	open_camera="0" 
+	open_pano_vr="1" 
+	open_fullscreen="1" 
+	
+	open_tel="0" 
+	tel="openurl('tel://',_blank);" 
+	showtel="TEL:" 
+	openhttp="0" 
+	http="openurl('',_blank)" 
+	opendaohang="0" 
+	daohang="openurl('https://uri.amap.com/marker?position=,',_blank )" 
+	open_password = "0" 
+	open_gyro="0" 
+		gyro_m="false"	diy_ui_btn_img = "0" 
+	diy_ui_btn_title = "0" 
+	diy_ui="1" 
+	user_name="热力管线" 
+	user_sf="设计师" 
+	user_headimg="images/" 
+	user_seekan="0" 
+	open_pano_vs_pano="0" 
+	user_map="," 
+	dibu_info=""
+/>
+<contextmenu enterfs="进入全屏" exitfs="退出全屏" fullscreen="false" versioninfo="false" native="false" customstyle="calc:'default|default|default|'+(0x000000 BOR (((0.4)*0xFF) LSHT 24))+'|0xFFFFFF|0xBBBBBB|0|0|1|0|4|10|0xFFFFFF|0|0|4|6|7|0xFFFFFF|none|8|0|0|0|3|0xCCCCCC|'+skin_settings.design_bgcolor+'|0|12|8'">
+	<item name="info1"  caption="全景软件平台V2.0"  onclick=""    />
+	<item name="cc" caption="更改控制模式" onclick="cm_changecontrolmode();" separator="true" />
+	</contextmenu>
+
+<group name="group">
+		<item name="group629" title="默认分组" group="0" parent="top"/>
+			<item name="group630" title="默认分组" group="group629" parent="child"/>	</group>
+	<include url="%SWFPATH%/ui/ui_013/skin/skin.xml" />
+
+<scene name="scene3" view_id="scene3538" group="group630" title="1" thumburl="%SWFPATH%/scene/scene3/thumb.jpg"  onstart="sceneaction();">
+	<preview url="%SWFPATH%/scene/scene3/scene/preview.jpg" />
+		<view hlookat="0" fovtype="MFOV" vlookat="0" fov="120" fovmin="20" fovmax="150" limitview="lookat" hlookatmin="180" hlookatmax="-180" vlookatmin="-90" vlookatmax="90" />
+	<image type="CUBE" multires="true" tilesize="512" progressive="false" prealign="0|179.004|0">
+		<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="%SWFPATH%/scene/scene3/scene/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level><level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="%SWFPATH%/scene/scene3/scene/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level><level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="%SWFPATH%/scene/scene3/scene/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>	</image>	
+	<!-- roam -->
+	<hotspot mask="roam_hostpot" scalechildren="false"
+				url="%SWFPATH%/images/3.png" 
+				ath="-8.2225976862528" atv="17.683001508747" align="bottom" edge="bottom" 
+				crop="0|0|128|128" framewidth="128" 
+				frameheight="128" frame="0" lastframe="24" name="spot15136" 
+				devices="all" scale.desktop="1" scale.no-desktop="0.7" zorder="10" alpha="1"  htime="0.03" 
+					isvrs="true" 
+														onclick="loadscene(scene4, null, MERGE,get(blendmodes[1].blend));" 
+					onloaded="hotspot_animates_x();hotspot_txt_add(15136,2,12);"
+								/>
+			
+	 
+	
+	<data name="embed_group" group="" id=""/>
+	
+	<action name="sceneaction">
+				bgmusic_scene(,,,0);
+		bgmusic_view(,,,0);
+						
+				
+					set(settings.open_thismap,0);
+			thismap_setting(false);					embed_group_box(false);		bottom_rights(true);
+		
+		uichild_layer(off);
+				
+		uichild_hotspot(off);
+			</action>
+</scene><scene name="scene4" view_id="scene3539" group="group630" title="2" thumburl="%SWFPATH%/scene/scene4/thumb.jpg"  onstart="sceneaction();">
+	<preview url="%SWFPATH%/scene/scene4/scene/preview.jpg" />
+		<view hlookat="0" fovtype="MFOV" vlookat="0" fov="120" fovmin="20" fovmax="150" limitview="lookat" hlookatmin="180" hlookatmax="-180" vlookatmin="-90" vlookatmax="90" />
+	<image type="CUBE" multires="true" tilesize="512" progressive="false" prealign="0|272.066|0">
+		<level tiledimagewidth="2560" tiledimageheight="2560">
+				<cube url="%SWFPATH%/scene/scene4/scene/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level><level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="%SWFPATH%/scene/scene4/scene/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level><level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="%SWFPATH%/scene/scene4/scene/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>	</image>	
+	<!-- roam -->
+	<hotspot mask="roam_hostpot" scalechildren="false"
+				url="%SWFPATH%/images/4.png" 
+				ath="35.023916762001" atv="6.11961903201" align="bottom" edge="bottom" 
+				crop="0|0|128|128" framewidth="128" 
+				frameheight="128" frame="0" lastframe="24" name="spot15135" 
+				devices="all" scale.desktop="1" scale.no-desktop="0.7" zorder="10" alpha="1"  htime="0.03" 
+					isvrs="true" 
+														onclick="loadscene(scene3, null, MERGE,get(blendmodes[1].blend));" 
+					onloaded="hotspot_animates_x();hotspot_txt_add(15135,1,12);"
+								/>
+			
+	 
+	
+	<data name="embed_group" group="" id=""/>
+	
+	<action name="sceneaction">
+				bgmusic_scene(,,,0);
+		bgmusic_view(,,,0);
+						
+				
+					set(settings.open_thismap,0);
+			thismap_setting(false);					embed_group_box(false);		bottom_rights(true);
+		
+		uichild_layer(off);
+				
+		uichild_hotspot(off);
+			</action>
+</scene>
+
+<plugin name="soundinterface" url.html5="%SWFPATH%/plugins/soundinterface.js" preload="true" rootpath="" mute="false" panningmodel="simple" worldscale="1.0" autopause="true" autounlock="true"/>
+
+
+	</krpano>
