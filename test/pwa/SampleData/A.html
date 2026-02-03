@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PageA</title>
+  </head>
+  <script>
+    // 1：注册事件，接受从B页面发送过来的键名
+    window.addEventListener(
+      'message',
+      function (event) {
+        const value = event.data;
+        // 2：域名校验，只有确保是我们自己的域名才去会把缓存中的数据传给它
+        if (value.action === 'set') {
+          localStorage.setItem(value.key, value.value);
+          return;
+        } else if (value.action === 'get')
+          if (event.origin) {
+            event.source.postMessage(localStorage.getItem(value.key), event.origin);
+            // document.getElementById("test222").innerHTML=event.origin;
+          }
+      },
+      false,
+    );
+
+    //  function getParentUrl(){
+    //     let url=null;
+    //     if(parent!==window)
+    //     {
+    //         try {
+    //             url=parent.location.origin;
+    //         } catch (error) {
+    //             console.log('777777777',error);
+    //             url=window.parent.location.href;//document.referrer;//window.parent.location.origin;
+    //         }
+    //     }
+    //     return url;
+    //  }
+    setInterval(() => {
+      // const parentURL=getParentUrl();
+      // document.getElementById("test222").innerHTML=' 555555'+parentURL;'http://localhost:9000'
+      window.parent.postMessage({ id: 'WM', content: '15555555' }, '*');
+    }, 2000);
+  </script>
+  <body id="content">
+    <h1>page A</h1>
+    <div id="test222"></div>
+  </body>
+  <script>
+    localStorage.setItem('pageA', 'this is pageA’s localstorage');
+    sessionStorage.setItem('pageA', 'this is pageA’s sessionStorage');
+  </script>
+</html>

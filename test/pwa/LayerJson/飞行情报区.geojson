@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "飞行情报区",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4490" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "编码": 260412, "名称": null, "类型": null, "编号": null, "跑道磁方向": null, "高程": null, "比高": null, "宽度": null, "图形特征": null, "注记指针": null, "外挂表指针": null, "Shape_Length": 3.9672137101676346 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 114.566666667552454, 29.033333332824441 ], [ 113.949999999710599, 26.700000000245836 ], [ 114.116666667351183, 26.049999999955048 ], [ 114.873333333457026, 25.766666666494928 ], [ 114.920214465197432, 25.708424769444264 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "编码": 260412, "名称": null, "类型": null, "编号": null, "跑道磁方向": null, "高程": null, "比高": null, "宽度": null, "图形特征": null, "注记指针": null, "外挂表指针": null, "Shape_Length": 4.5252508466973014 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 107.91115110865718, 25.838410087999762 ], [ 109.316666667002323, 26.58333333262766 ], [ 109.383333332799509, 28.783333333611893 ], [ 109.400000000372927, 29.516666667273341 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "编码": 260412, "名称": null, "类型": null, "编号": null, "跑道磁方向": null, "高程": null, "比高": null, "宽度": null, "图形特征": null, "注记指针": null, "外挂表指针": null, "Shape_Length": 5.2107920403832146 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 109.400000000372927, 29.516666667273341 ], [ 113.120000000238633, 29.38333333298101 ], [ 114.566666667552454, 29.033333332824441 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "编码": 260412, "名称": null, "类型": null, "编号": null, "跑道磁方向": null, "高程": null, "比高": null, "宽度": null, "图形特征": null, "注记指针": null, "外挂表指针": null, "Shape_Length": 0.61040949479273832 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 114.566666667552454, 29.033333332824441 ], [ 115.05071123334676, 29.405221232141059 ] ] ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "编码": 260412, "名称": null, "类型": null, "编号": null, "跑道磁方向": null, "高程": null, "比高": null, "宽度": null, "图形特征": null, "注记指针": null, "外挂表指针": null, "Shape_Length": 1.1714523368332921 }, "geometry": { "type": "MultiLineString", "coordinates": [ [ [ 109.457275240307354, 30.6867180013449 ], [ 109.400000000372927, 29.516666667273341 ] ] ] } }
+]
+}

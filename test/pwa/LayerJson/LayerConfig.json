@@ -1,0 +1,73 @@
+[
+    {
+        "icon": "/img/bigscreen/数字正射影像.svg",
+        "id": "szzsyx",
+        "name": "数字正射影像",
+        "type": "Widget",
+        "url": ""
+    },
+    {
+        "icon": "/img/bigscreen/低空空域.svg",
+        "id": "dkky",
+        "name": "低空空域",
+        "type": "Polygon",
+        "url": "LayerJson/低空空域.geojson"
+    },
+    {
+        "icon": "/img/bigscreen/低空航线.svg",
+        "id": "dkhx",
+        "name": "低空航线",
+        "type": "LineString",
+        "color": "rgb(75,107,71)",
+        "url": "LayerJson/低空航线.geojson"
+    },
+    {
+        "icon": "/img/bigscreen/航路航线.svg",
+        "id": "hlhx",
+        "name": "航路航线",
+        "type": "LineString",
+        "url": "LayerJson/航路航线.geojson"
+    },
+    {
+        "icon": "/img/bigscreen/导航设施.svg",
+        "id": "dhss",
+        "name": "导航设施",
+        "type": "Point",
+        "url": "LayerJson/导航设施.geojson"
+    },
+    {
+        "icon": "/img/bigscreen/区域管制区.svg",
+        "id": "qygzq",
+        "name": "区域管制区",
+        "type": "Polygon",
+        "url": "LayerJson/区域管制区.geojson"
+    },
+    {
+        "icon": "/img/bigscreen/限制区.svg",
+        "id": "xzq",
+        "name": "限制区、危险区、禁区、防空识别区",
+        "type": "Polygon",
+        "url": "LayerJson/限制区、危险区、禁区、防空识别区.geojson"
+    },
+    {
+        "icon": "/img/bigscreen/通用机场.svg",
+        "id": "tyjc",
+        "name": "通用机场-湖南",
+        "type": "Point",
+        "url": "LayerJson/通用机场-湖南.geojson"
+    },
+    {
+        "icon": "/img/bigscreen/民用运输机场.svg",
+        "id": "myysjc",
+        "name": "民用运输机场-湖南",
+        "type": "Point",
+        "url": "LayerJson/民用运输机场-湖南.geojson"
+    },
+    {
+        "icon": "/img/bigscreen/障碍物.svg",
+        "id": "zaw",
+        "name": "障碍物",
+        "type": "Point",
+        "url": "LayerJson/障碍物.geojson"
+    }
+]
