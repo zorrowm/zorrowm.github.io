@@ -1,0 +1,1 @@
+import{Tt as e,zt as t}from"./vendor-P8s-4sk6.js";import{g as n}from"./index-CUittNzm.js";var r={};function i(n,r){return t(),e(`div`)}var a=n(r,[[`render`,i]]);export{a as default};

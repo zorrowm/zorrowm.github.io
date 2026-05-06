@@ -1,0 +1,1 @@
+import{Ft as e,G as t,K as n,kt as r}from"./vendor-P8s-4sk6.js";var i=r({name:`Redirect`,setup(r){let i=t(),a=n();return e(()=>{let{params:e,query:t}=i,{path:n}=e;a.replace({path:`/`+(Array.isArray(n)?n.join(`/`):n),query:t})}),()=>`<q-space/>`}});export{i as default};

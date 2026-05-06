@@ -1,0 +1,1 @@
+import{Tt as e,an as t,kt as n,zt as r}from"./vendor-P8s-4sk6.js";var i={style:{color:`#f00`}},a=n({__name:`testQuery`,props:{id:{type:Number,default:0}},setup(n){return(a,o)=>(r(),e(`div`,i,` 该页面是测试获取路由参数:`+t(n.id),1))}});export{a as default};
