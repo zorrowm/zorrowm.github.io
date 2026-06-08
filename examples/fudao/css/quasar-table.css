@@ -1,0 +1,56 @@
+/***QUASAR 表格头***/
+.sticky-header-table {
+  height: 310px;
+}
+
+.body--dark .sticky-header-table .q-table__top,
+.body--dark .sticky-header-table .q-table__bottom,
+.body--dark .sticky-header-table thead tr:first-child th {
+  background-color: #2a2b2c;
+}
+
+.body--light .sticky-header-table .q-table__top,
+.body--light .sticky-header-table .q-table__bottom,
+.body--light .sticky-header-table thead tr:first-child th {
+  background-color: rgb(249, 249, 249);
+}
+
+.sticky-header-table thead tr th {
+  position: sticky;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.sticky-header-table thead tr:first-child th {
+  top: 0;
+}
+
+.sticky-header-table.q-table--loading thead tr:last-child th {
+  /* height of all previous header rows */
+  top: 48px;
+}
+/* 修改表，复选框列的宽度 */
+.q-table--col-auto-width:has(.q-checkbox)
+{
+  max-width:40px;
+  padding-left: unset !important;
+  padding-right: unset !important;
+}
+
+.stiky-last th:last-child,.stiky-last td:last-child
+{
+  position: sticky;
+  right: 0;
+  top: 56px;
+  z-index: 1;
+  background-color: #eee;
+} 
+
+.stiky-first th:first-child,.stiky-first td:first-child
+{
+  position: sticky;
+  left: 0;
+  top: 56px;
+  z-index: 2;
+  background-color: #eee;
+} 

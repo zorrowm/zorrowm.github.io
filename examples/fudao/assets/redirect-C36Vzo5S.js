@@ -1,0 +1,1 @@
+import{Nt as e,X as t,Z as n,zt as r}from"./vendor-DOOaZF0-.js";var i=e({name:`Redirect`,setup(e){let i=t(),a=n();return r(()=>{let{params:e,query:t}=i,{path:n}=e;a.replace({path:`/`+(Array.isArray(n)?n.join(`/`):n),query:t})}),()=>`<q-space/>`}});export{i as default};

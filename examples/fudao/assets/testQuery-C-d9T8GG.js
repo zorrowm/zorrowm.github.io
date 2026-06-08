@@ -1,0 +1,1 @@
+import{Nt as e,Ut as t,kt as n,un as r}from"./vendor-DOOaZF0-.js";var i={style:{color:`#f00`}},a=e({__name:`testQuery`,props:{id:{type:Number,default:0}},setup(e){return(a,o)=>(t(),n(`div`,i,` 该页面是测试获取路由参数:`+r(e.id),1))}});export{a as default};
