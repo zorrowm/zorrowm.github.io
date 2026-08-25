@@ -1,0 +1,92 @@
+{
+  "projects": [
+    {
+      "id": "win10-os",
+      "title": "Win10OS",
+      "description": "一个 Windows 10 风格的在线桌面系统，整合应用窗口、桌面组件和可配置模板。",
+      "link": "https://win10.ysgis.com/",
+      "pic": "/img/win10/win10.png",
+      "images": [
+        {
+          "src": "/img/win10/win10.png",
+          "alt": "文件系统"
+        },
+        {
+          "src": "/img/win10/win10-1.png",
+          "alt": "浏览器"
+        },
+        {
+          "src": "/img/win10/win10-2.png",
+          "alt": "控制面板"
+        }
+      ]
+    },
+	{
+      "id": "vite-quasar-template",
+      "title": "template",
+      "description": "一个前端开发模板，用于前端组件积累复用！",
+      "link": "https://template.ysgis.com/#/back",
+      "pic": "/img/template/template-0.png",
+      "images": [
+        {
+          "src": "/img/template/template-0.png",
+          "alt": "Hprose序列化"
+        },
+        {
+          "src": "/img/template/template-1.png",
+          "alt": "多级弹框"
+        },
+        {
+          "src": "/img/template/template-2.png",
+          "alt": "SplitPanel示例"
+        },
+	    {
+          "src": "/img/template/template-3.png",
+          "alt": "ECharts示例"
+        }
+      ]
+    },
+	{
+      "id": "fudao",
+      "title": "福岛核污染监测",
+      "description": "福岛核废水排海污染监测系统",
+      "link": "https://fudao.ysgis.com",
+      "pic": "/img/fudao/fudao-0.png",
+      "images": [
+        {
+          "src": "/img/fudao/fudao-0.png",
+          "alt": "污水排放"
+        },
+        {
+          "src": "/img/fudao/fudao-1.png",
+          "alt": "风险预测"
+        },
+        {
+          "src": "/img/fudao/fudao-2.png",
+          "alt": "监测报告"
+        }
+      ]
+    },
+    {
+      "id": "airport-hub",
+      "title": "枢纽机场方案",
+      "description": "围绕大型交通枢纽的概念展示，突出总图视角、流线组织和多方案比选效果。",
+      "link": "https://github.com/",
+      "pic": "/img/ImageViewerTest/daxing.jpg",
+      "images": [
+        {
+          "src": "/img/ImageViewerTest/daxing.jpg",
+          "alt": "机场总体鸟瞰"
+        },
+        {
+          "src": "/img/ImageViewerTest/daxing2.jpg",
+          "alt": "方案图纸展示"
+        },
+        {
+          "src": "/img/ImageViewerTest/daxing3.jpg",
+          "alt": "枢纽造型细节"
+        }
+      ]
+    }
+  ]
+}
