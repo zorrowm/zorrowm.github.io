@@ -1,1 +1,0 @@
-import{L as e,h as t,v as n}from"./litewindow-exp-CaK9H0pX.js";import{a as r}from"./index-XK-dDz5Y.js";var i={},a={class:`pageContent`};function o(r,i){return e(),n(`div`,a,[...i[0]||=[t(`h1`,null,`这是一个测试页面`,-1)]])}var s=r(i,[[`render`,o]]);export{s as default};
