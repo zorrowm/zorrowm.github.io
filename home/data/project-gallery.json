@@ -5,18 +5,18 @@
       "title": "Win10OS",
       "description": "一个 Windows 10 风格的在线桌面系统，整合应用窗口、桌面组件和可配置模板。",
       "link": "https://win10.ysgis.com/",
-      "pic": "/img/win10/win10.png",
+      "pic": "img/win10/win10.png",
       "images": [
         {
-          "src": "/img/win10/win10.png",
+          "src": "img/win10/win10.png",
           "alt": "文件系统"
         },
         {
-          "src": "/img/win10/win10-1.png",
+          "src": "img/win10/win10-1.png",
           "alt": "浏览器"
         },
         {
-          "src": "/img/win10/win10-2.png",
+          "src": "img/win10/win10-2.png",
           "alt": "控制面板"
         }
       ]
@@ -26,22 +26,22 @@
       "title": "template",
       "description": "一个前端开发模板，用于前端组件积累复用！",
       "link": "https://template.ysgis.com/#/back",
-      "pic": "/img/template/template-0.png",
+      "pic": "img/template/template-0.png",
       "images": [
         {
-          "src": "/img/template/template-0.png",
+          "src": "img/template/template-0.png",
           "alt": "Hprose序列化"
         },
         {
-          "src": "/img/template/template-1.png",
+          "src": "img/template/template-1.png",
           "alt": "多级弹框"
         },
         {
-          "src": "/img/template/template-2.png",
+          "src": "img/template/template-2.png",
           "alt": "SplitPanel示例"
         },
 	    {
-          "src": "/img/template/template-3.png",
+          "src": "img/template/template-3.png",
           "alt": "ECharts示例"
         }
       ]
@@ -51,18 +51,18 @@
       "title": "福岛核污染监测",
       "description": "福岛核废水排海污染监测系统",
       "link": "https://fudao.ysgis.com",
-      "pic": "/img/fudao/fudao-0.png",
+      "pic": "img/fudao/fudao-0.png",
       "images": [
         {
-          "src": "/img/fudao/fudao-0.png",
+          "src": "img/fudao/fudao-0.png",
           "alt": "污水排放"
         },
         {
-          "src": "/img/fudao/fudao-1.png",
+          "src": "img/fudao/fudao-1.png",
           "alt": "风险预测"
         },
         {
-          "src": "/img/fudao/fudao-2.png",
+          "src": "img/fudao/fudao-2.png",
           "alt": "监测报告"
         }
       ]
@@ -72,22 +72,22 @@
       "title": "前端知识库",
       "description": "积累的前端开发知识库文档。",
       "link": "https://doc.ysgis.com",
-      "pic": "/img/doc/doc-0.png",
+      "pic": "img/doc/doc-0.png",
       "images": [
         {
-          "src": "/img/doc/doc-0.png",
+          "src": "img/doc/doc-0.png",
           "alt": "前端知识库首页"
         },
         {
-          "src": "/img/doc/doc-1.png",
+          "src": "img/doc/doc-1.png",
           "alt": "整体架构图"
         },
         {
-          "src": "/img/doc/doc-2.png",
+          "src": "img/doc/doc-2.png",
           "alt": "前端模板知识点"
         },
         {
-          "src": "/img/doc/doc-3.png",
+          "src": "img/doc/doc-3.png",
           "alt": "CSS知识点"
         }
       ]
@@ -97,14 +97,14 @@
       "title": "在线API生成代码",
       "description": "Hprose和WebAPI在线生成代码的服务网站。",
       "link": "https://service.ysgis.com",
-      "pic": "/img/service-test/hprose-0.png",
+      "pic": "img/service-test/hprose-0.png",
       "images": [
         {
-          "src": "/img/service-test/hprose-0.png",
+          "src": "img/service-test/hprose-0.png",
           "alt": "Hprose服务"
         },
         {
-          "src": "/img/service-test/swagger-0.png",
+          "src": "img/service-test/swagger-0.png",
           "alt": "Swagger WebAPI服务"
         }
       ]
