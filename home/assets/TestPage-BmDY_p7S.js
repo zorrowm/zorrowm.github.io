@@ -1,1 +1,0 @@
-import{Tt as e,ft as t,lt as n}from"./vendor-CR5EJZQ5.js";import{o as r}from"./index-CHFlVZqP.js";var i={},a={class:`pageContent`};function o(r,i){return e(),t(`div`,a,[...i[0]||=[n(`h1`,null,`这是一个测试页面`,-1)]])}var s=r(i,[[`render`,o]]);export{s as default};
