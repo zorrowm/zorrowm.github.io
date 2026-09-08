@@ -1,0 +1,1 @@
+import{Ct as e,Dt as t,Vt as n}from"./vendor-Co745fyx.js";var r=t({__name:`MapproxyWidget`,setup(t){return console.log(`加载了地图代理空对象`),(t,r)=>(n(),e(`div`))}});export{r as default};

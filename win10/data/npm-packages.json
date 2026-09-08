@@ -1,0 +1,24 @@
+{
+  "title": "NPM · JS 开源库成果汇总",
+  "subtitle": "面向 GIS 可视化、地图开发与地理数据处理的前端工具集",
+  "profile": "zorrowm",
+  "tags": ["GIS", "TypeScript", "Vue3", "OpenLayers", "Cesium"],
+  "packages": [
+    { "name": "xframelib", "version": "1.1.6", "description": "Vue 3 + Widget + TypeScript 前端通用框架与组件库", "tags": ["Vue3", "TypeScript"], "link": "https://www.npmjs.com/package/xframelib" },
+    { "name": "xgis-ol", "version": "0.4.5", "description": "基于 OpenLayers 的二维 GIS 业务开发库", "tags": ["OpenLayers", "GIS"], "link": "https://www.npmjs.com/package/xgis-ol" },
+    { "name": "xgis-leaflet", "version": "0.0.8", "description": "基于 Leaflet 的轻量二维地图开发库", "tags": ["Leaflet", "GIS"], "link": "https://www.npmjs.com/package/xgis-leaflet" },
+    { "name": "xgis-plot", "version": "0.0.4", "description": "基于 OpenLayers 的动态标绘与编辑库", "tags": ["OpenLayers", "Plot"], "link": "https://www.npmjs.com/package/xgis-plot" },
+    { "name": "capacitor-plugin-nodejs", "version": "0.0.1", "description": "在 Capacitor 应用中运行 Node.js 能力的插件", "tags": ["Capacitor", "Node.js"], "link": "https://www.npmjs.com/package/capacitor-plugin-nodejs" },
+    { "name": "xgis-cesium", "version": "0.4.7", "description": "基于 Cesium 与 TypeScript 的三维 GIS 业务库", "tags": ["Cesium", "3D GIS"], "link": "https://www.npmjs.com/package/xgis-cesium" },
+    { "name": "xgis-data2d", "version": "0.0.4", "description": "地理矢量数据导入导出与格式转换工具", "tags": ["Data", "GIS"], "link": "https://www.npmjs.com/package/xgis-data2d" },
+    { "name": "xgis-cesium-mars3d", "version": "0.0.3", "description": "基于 Mars3D-Cesium 封装的三维 GIS 业务库", "tags": ["Mars3D", "Cesium"], "link": "https://www.npmjs.com/package/xgis-cesium-mars3d" },
+    { "name": "vite-plugin-xgis-cesium", "version": "0.0.6", "description": "Cesium 工程化构建与资源配置插件", "tags": ["Vite", "Cesium"], "link": "https://www.npmjs.com/package/vite-plugin-xgis-cesium" },
+    { "name": "vite-plugin-xframelib", "version": "0.0.6", "description": "xframelib 的 Vite 工程化配置插件", "tags": ["Vite", "xframelib"], "link": "https://www.npmjs.com/package/vite-plugin-xframelib" },
+    { "name": "cordova-plugin-xgis-geolocation", "version": "0.0.4", "description": "Cordova GNSS 与地理定位能力插件", "tags": ["Cordova", "GNSS"], "link": "https://www.npmjs.com/package/cordova-plugin-xgis-geolocation" },
+    { "name": "xframelib-taro", "version": "0.1.9", "description": "面向 Taro 的 xframelib 适配工具", "tags": ["Taro", "xframelib"], "link": "https://www.npmjs.com/package/xframelib-taro" },
+    { "name": "xbase-wasm", "version": "0.0.2", "description": "前端 WASM 基础能力与工具封装", "tags": ["WASM", "TypeScript"], "link": "https://www.npmjs.com/package/xbase-wasm" },
+    { "name": "xgis-bdgrid", "version": "0.1.3", "description": "百度地图网格与地理数据辅助工具", "tags": ["GIS", "Grid"], "link": "https://www.npmjs.com/package/xgis-bdgrid" },
+    { "name": "litewindow", "version": "0.0.4", "description": "轻量级 Web 窗口管理组件", "tags": ["Vue3", "Window"], "link": "https://www.npmjs.com/package/litewindow" },
+    { "name": "xgis-label3d", "version": "0.0.5", "description": "三维场景标签与标注组件", "tags": ["Cesium", "3D"], "link": "https://www.npmjs.com/package/xgis-label3d" }
+  ]
+}
