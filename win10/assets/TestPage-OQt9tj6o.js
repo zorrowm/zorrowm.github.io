@@ -1,0 +1,1 @@
+import{Ct as e,Vt as t,bt as n}from"./vendor-DwBGx00s.js";import{a as r}from"./index-DinwuTeB.js";var i={},a={class:`pageContent`};function o(r,i){return t(),e(`div`,a,[...i[0]||=[n(`h1`,null,`这是一个测试页面`,-1)]])}var s=r(i,[[`render`,o]]);export{s as default};
