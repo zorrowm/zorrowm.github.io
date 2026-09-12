@@ -1,0 +1,281 @@
+[
+  {
+    "from_node_id": "DANINGHE_1",
+    "to_node_id": "DANINGHE_2",
+    "lng": 109.6252946,
+    "lat": 31.4024486,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "DANINGHE_2",
+    "to_node_id": "MAIN_6",
+    "lng": 109.8929,
+    "lat": 31.0706,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "JIUWANXI_1",
+    "to_node_id": "JIUWANXI_2",
+    "lng": 110.7638094,
+    "lat": 30.7482976,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "MAIN_1",
+    "to_node_id": "MAIN_2",
+    "lng": 106.6015244,
+    "lat": 29.6268105,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "MEIXIHE_1",
+    "to_node_id": "MAIN_5",
+    "lng": 109.5363,
+    "lat": 31.0435,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "MODAOXI_1",
+    "to_node_id": "MODAOXI_2",
+    "lng": 108.6167749,
+    "lat": 30.7414109,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "MUDONGHE_1",
+    "to_node_id": "MAIN_2",
+    "lng": 106.8336,
+    "lat": 29.5843,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "QIJIANG_1",
+    "to_node_id": "QIJIANG_2",
+    "lng": 106.4622894,
+    "lat": 29.1090678,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "QUXIHE_1",
+    "to_node_id": "QUXIHE_2",
+    "lng": 107.7967786,
+    "lat": 30.2381086,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "QUXIHE_2",
+    "to_node_id": "MAIN_3",
+    "lng": 107.4939,
+    "lat": 29.9015,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "TANGHE_1",
+    "to_node_id": "TANGHE_2",
+    "lng": 106.1462659,
+    "lat": 28.8787341,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "TANGHE_2",
+    "to_node_id": "MAIN_1",
+    "lng": 105.9942,
+    "lat": 29.0623,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "XIANGXIHE_1",
+    "to_node_id": "XIANGXIHE_2",
+    "lng": 110.7333333,
+    "lat": 31.2533333,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "XIANGXIHE_2",
+    "to_node_id": "MAIN_7",
+    "lng": 110.7554,
+    "lat": 30.9624,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "XIAOJIANG_1",
+    "to_node_id": "XIAOJIANG_2",
+    "lng": 108.5090926,
+    "lat": 31.3357073,
+    "source": "auto",
+    "confidence": "medium",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "XIAOJIANG_2",
+    "to_node_id": "MAIN_4",
+    "lng": 108.6558,
+    "lat": 30.9503,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "BIHE_1",
+    "to_node_id": "MAIN_1",
+    "lng": 106.1463,
+    "lat": 29.2234,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "DAIXI_1",
+    "to_node_id": "MAIN_5",
+    "lng": 109.6246,
+    "lat": 31.0082,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "JIUWANXI_2",
+    "to_node_id": "MAIN_7",
+    "lng": 110.8415,
+    "lat": 30.8887,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "LONGHE_1",
+    "to_node_id": "MAIN_3",
+    "lng": 107.7304,
+    "lat": 29.8958,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "TANGXIHE_1",
+    "to_node_id": "MAIN_4",
+    "lng": 108.9054,
+    "lat": 30.9552,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "YANDUHE_1",
+    "to_node_id": "MAIN_6",
+    "lng": 110.3245,
+    "lat": 31.0523,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "YULINHE_1",
+    "to_node_id": "MAIN_2",
+    "lng": 106.8855,
+    "lat": 29.6602,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "LONGXIHE_1",
+    "to_node_id": "MAIN_2",
+    "lng": 107.0835271,
+    "lat": 29.8134109,
+    "source": "auto",
+    "confidence": "low",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "MAIN_3",
+    "to_node_id": "MAIN_4",
+    "lng": 108.4183,
+    "lat": 30.7545,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "MODAOXI_2",
+    "to_node_id": "MAIN_4",
+    "lng": 108.9386,
+    "lat": 30.9421,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "QIJIANG_2",
+    "to_node_id": "MAIN_1",
+    "lng": 106.3803,
+    "lat": 29.2883,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "QINGGANGHE_1",
+    "to_node_id": "MAIN_6",
+    "lng": 110.626,
+    "lat": 30.9986,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "CHANGTANHE_1",
+    "to_node_id": "MAIN_4",
+    "lng": 109.0977,
+    "lat": 30.9503,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "JIALINGJIANG_1",
+    "to_node_id": "MAIN_1",
+    "lng": 106.5794,
+    "lat": 29.5743,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  },
+  {
+    "from_node_id": "WUJIANG_1",
+    "to_node_id": "MAIN_2",
+    "lng": 107.398,
+    "lat": 29.722,
+    "source": "manual",
+    "confidence": "manual",
+    "is_active": 1
+  }
+]
