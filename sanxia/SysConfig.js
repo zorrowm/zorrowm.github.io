@@ -63,12 +63,6 @@ const SysConfig = {
   },
   //#endregion
 
-
-  //#region ******** API服务路径
-  APIPath: {
-    SignalR: '/chathub'
-  },
-  //#endregion
   //111.0105,30.8205,3000
   MapExtent:[104.36, 28.218, 114.07, 31.83], // [west, south, east, north]
   //#region **********用于控制功能是否启用

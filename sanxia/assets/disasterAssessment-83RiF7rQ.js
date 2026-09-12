@@ -1,0 +1,1 @@
+import{Wn as e,rr as t}from"./vendor-BPAdxqQk.js";import{f as n}from"./index-Dj0bdtYl.js";var r={};function i(n,r){return t(),e(`div`,null,` 防洪演示页面 `)}var a=n(r,[[`render`,i]]);export{a as default};
