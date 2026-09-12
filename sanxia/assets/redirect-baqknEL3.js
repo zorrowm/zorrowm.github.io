@@ -1,0 +1,1 @@
+import{Jn as e,Qn as t,dn as n,un as r}from"./vendor-BPAdxqQk.js";var i=e({name:`Redirect`,setup(e){let i=r(),a=n();return t(()=>{let{params:e,query:t}=i,{path:n}=e;a.replace({path:`/`+(Array.isArray(n)?n.join(`/`):n),query:t})}),()=>`<q-space/>`}});export{i as default};

@@ -1,0 +1,1 @@
+import{gr as e,hn as t}from"./vendor-BPAdxqQk.js";var n=t(`locale`,()=>{let t=e(`zhCn`);function n(e){t.value=e}return{locale:t,changeLocale:n}},{persist:{paths:[`locale`]}});export{n as t};

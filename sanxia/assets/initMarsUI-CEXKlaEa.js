@@ -1,0 +1,1 @@
+import{N as e,Wt as t,j as n}from"./vendor-BPAdxqQk.js";var r=t(({app:t})=>{e(t),n(`dark`)});export{r as default};

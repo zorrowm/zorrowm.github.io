@@ -1,0 +1,1 @@
+var e={ImageCaptured:`DronePatrol_ImageCaptured`};export{e as t};

@@ -1,0 +1,1 @@
+import{Wt as e}from"./vendor-BPAdxqQk.js";import{a as t}from"./xframe-exp-6dDdvuAK.js";function n(e){t(e)}var r=e(({app:e})=>{n(e)});export{r as default};
