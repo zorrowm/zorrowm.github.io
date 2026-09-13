@@ -1,0 +1,1 @@
+import{$n as e,er as t}from"./vendor-BuZVg3VU.js";import{k as n}from"./xframe-exp-uScUJHSi.js";function r(r,i){e(()=>{if(r.onMounted){let e=n.Mars3dMap;r.onMounted(e,i)}}),t(()=>{r.onUnmounted&&r.onUnmounted()})}export{r as t};

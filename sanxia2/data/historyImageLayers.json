@@ -1,0 +1,62 @@
+{
+  "platform": "天地图·湖北",
+  "homepage": "https://hubei.tianditu.gov.cn/imagemap",
+  "map_approval_no": "GS（2025）1508号-甲测资字11110974；鄂S（2024）006号",
+  "service_type": "ArcGIS REST MapServer 切片影像服务",
+  "tile_template": "{z}/{y}/{x}",
+  "tile_size": 256,
+  "min_zoom": 0,
+  "max_zoom": 18,
+  "historical_image_services": [
+    {
+      "year": 2015,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2015/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2015/MapServer/tile/{z}/{y}/{x}"
+    },
+    {
+      "year": 2017,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2017/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2017/MapServer/tile/{z}/{y}/{x}"
+    },
+    {
+      "year": 2018,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2018/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2018/MapServer/tile/{z}/{y}/{x}"
+    },
+    {
+      "year": 2019,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2019/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2019/MapServer/tile/{z}/{y}/{x}"
+    },
+    {
+      "year": 2020,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2020/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2020/MapServer/tile/{z}/{y}/{x}"
+    },
+    {
+      "year": 2021,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2021/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2021/MapServer/tile/{z}/{y}/{x}"
+    },
+    {
+      "year": 2022,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2022/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2022/MapServer/tile/{z}/{y}/{x}"
+    },
+    {
+      "year": 2023,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2023/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2023/MapServer/tile/{z}/{y}/{x}"
+    },
+    {
+      "year": 2024,
+      "service_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2024/MapServer",
+      "tile_url": "https://hubei.tianditu.gov.cn/arcgis/rest/services/IMG_2024/MapServer/tile/{z}/{y}/{x}"
+    }
+  ],
+  "note": [
+    "调用服务需要在天地图湖北平台申请API Key，部分网络环境存在访问限制",
+    "部分年份影像仅覆盖湖北主要市县，非全省全域覆盖",
+    "审图号使用：对外出图、产品发布必须标注对应审图号 GS（2025）1508号、鄂S（2024）006号"
+  ]
+}

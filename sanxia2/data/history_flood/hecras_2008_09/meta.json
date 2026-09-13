@@ -1,0 +1,66 @@
+{
+    "event_id": "hecras_2008_09",
+    "name": "2008年9月洪水（HEC-RAS模拟）",
+    "time_start": "2008-09-21T00:30:00",
+    "time_end": "2008-09-21T06:00:00",
+    "dt_seconds": 1800,
+    "source": "HEC-RAS 6.x 二维水动力模型",
+    "description": "三峡凤凰山站附近峡江段，上游流量过程模拟",
+    "tif_base_url": "/static/history_flood/hecras_2008_09",
+    "bbox_wgs84": [
+        110.963143,
+        30.806426,
+        111.018802,
+        30.868743
+    ],
+    "frames": [
+        {
+            "time": "00:30",
+            "depth_png": "png/Depth__21SEP2008_00_30_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "01:00",
+            "depth_png": "png/Depth__21SEP2008_01_00_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "01:30",
+            "depth_png": "png/Depth__21SEP2008_01_30_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "02:00",
+            "depth_png": "png/Depth__21SEP2008_02_00_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "02:30",
+            "depth_png": "png/Depth__21SEP2008_02_30_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "03:00",
+            "depth_png": "png/Depth__21SEP2008_03_00_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "03:30",
+            "depth_png": "png/Depth__21SEP2008_03_30_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "04:00",
+            "depth_png": "png/Depth__21SEP2008_04_00_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "04:30",
+            "depth_png": "png/Depth__21SEP2008_04_30_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "05:00",
+            "depth_png": "png/Depth__21SEP2008_05_00_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "05:30",
+            "depth_png": "png/Depth__21SEP2008_05_30_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        },
+        {
+            "time": "06:00",
+            "depth_png": "png/Depth__21SEP2008_06_00_00__Terrain__1__dem_sanxia_cgcs2000.png"
+        }
+    ]
+}

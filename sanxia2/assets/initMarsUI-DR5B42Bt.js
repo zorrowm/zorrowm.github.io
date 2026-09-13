@@ -1,0 +1,1 @@
+import{Gt as e,M as t,P as n}from"./vendor-BuZVg3VU.js";var r=e(({app:e})=>{n(e),t(`dark`)});export{r as default};

@@ -1,0 +1,1 @@
+import{Gt as e}from"./vendor-BuZVg3VU.js";import{a as t}from"./xframe-exp-uScUJHSi.js";function n(e){t(e)}var r=e(({app:e})=>{n(e)});export{r as default};
