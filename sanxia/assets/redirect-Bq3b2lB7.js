@@ -1,0 +1,1 @@
+import{$n as e,Yn as t,dn as n,fn as r}from"./vendor-BuZVg3VU.js";var i=t({name:`Redirect`,setup(t){let i=n(),a=r();return e(()=>{let{params:e,query:t}=i,{path:n}=e;a.replace({path:`/`+(Array.isArray(n)?n.join(`/`):n),query:t})}),()=>`<q-space/>`}});export{i as default};
