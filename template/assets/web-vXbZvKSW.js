@@ -1,0 +1,1 @@
+import{n as e}from"./capacitor-exp-DMyu0Rb5.js";export{e as DeviceWeb};

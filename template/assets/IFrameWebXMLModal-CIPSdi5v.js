@@ -1,0 +1,3 @@
+import{B as e,R as t,h as n,vt as r,w as i,y as a,yt as o}from"./litewindow-exp-CuLSh8Nm.js";import{t as s}from"./utils-CdL4QhQ5.js";var c=i({name:`IFrameWebXMLModal`,__name:`IFrameWebXMLModal`,props:{data:String},setup(i){let c=i,l=n(()=>c.data),u=n(()=>`height:${document.body.clientHeight}px;width:${document.body.clientWidth-10}px;overflow:auto`);return t(()=>{s.value=!1}),(t,n)=>(e(),a(`pre`,{style:r(u.value)},`
+    `+o(l.value)+`
+  `,5))}});export{c as t};

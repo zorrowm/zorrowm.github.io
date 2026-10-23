@@ -1,0 +1,1 @@
+import{B as e,w as t,y as n}from"./litewindow-exp-CuLSh8Nm.js";var r=t({__name:`MapproxyWidget`,setup(t){return console.log(`加载了地图代理空对象00000000`),(t,r)=>(e(),n(`div`))}});export{r as default};

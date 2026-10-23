@@ -1,0 +1,1 @@
+import{ct as e}from"./litewindow-exp-CuLSh8Nm.js";import{J as t}from"./xframe-exp-D4DAeJPg.js";function n(e){for(let t in e)return e[t]}function r(e,n){a.value=!0,t({modalID:`IFrameWebModal`,rowData:e,extraData:{title:n??`预览`}})}function i(e){a.value=!0,t({modalID:`IFrameWebXMLModal`,extraData:{title:`浏览XML元数据`},rowData:e})}var a=e(!1);export{i,n,r,a as t};

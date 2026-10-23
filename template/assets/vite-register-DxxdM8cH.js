@@ -1,0 +1,1 @@
+import{tn as e}from"./vendor-DKvr6yBw.js";export{e as default};

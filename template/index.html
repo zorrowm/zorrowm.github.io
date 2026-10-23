@@ -1,49 +1,89 @@
 <!doctype html><html><head>
-  <link rel="stylesheet" href="cesium/Widgets/widgets.css">
-  <script src="cesium/Cesium.js"></script>
+  <script>window['CESIUM_BASE_URL'] = 'xgis-cesium/'</script>
 <title>vue-widget-quasar-clivite-template</title>
     <meta charset="utf-8" />
-    <meta name="description" content="2024-12-19,a vue widget quasar-cli vite  project" />
+    <meta name="description" content="2025-10-05,a vue widget quasar-cli vite  project" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta
       name="viewport"
       content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width"
     />
-    <link rel="icon" type="image/ico" href="./favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="./css/common.css" />
-    <script src="./SysConfig.js"></script>
-    <!-- <script src="/js/geolocation.min.js"></script> -->
-    <script type="text/javascript" include="geolocation,CesiumOfflineCache,turf" src="./js/include-web.js"></script>
-       <script type="module" crossorigin src="./assets/index-DylLUN-r.js"></script>
-       <link rel="modulepreload" crossorigin href="./assets/monaco-editor-exp-BNK_u0iZ.js">
-       <link rel="modulepreload" crossorigin href="./assets/@vue-exp-CzdoyapG.js">
-       <link rel="modulepreload" crossorigin href="./assets/lottie-web-exp-CIY4INm7.js">
-       <link rel="modulepreload" crossorigin href="./assets/vendor-CSzZZ-de.js">
-       <link rel="modulepreload" crossorigin href="./assets/quasar-exp-B7YDMHDE.js">
-       <link rel="modulepreload" crossorigin href="./assets/axios-exp-C7rfqWEd.js">
-       <link rel="modulepreload" crossorigin href="./assets/@iconify/vue-exp-BLEeEXwl.js">
-       <link rel="modulepreload" crossorigin href="./assets/xframelib-exp-uSJ3EBow.js">
-       <link rel="modulepreload" crossorigin href="./assets/xgis-cesium-exp-Cbv1lISI.js">
-       <link rel="modulepreload" crossorigin href="./assets/vue-router-exp-B23Vo4Jw.js">
-       <link rel="stylesheet" crossorigin href="./assets/monaco-editor-exp-B7uS4J0T.css">
-       <link rel="stylesheet" crossorigin href="./assets/vendor-BGDqWjJk.css">
-       <link rel="stylesheet" crossorigin href="./assets/quasar-exp-wdFvCToT.css">
-       <link rel="stylesheet" crossorigin href="./assets/xframelib-exp-254NBRTd.css">
-       <link rel="stylesheet" crossorigin href="./assets/xgis-cesium-exp-BpJXcbkZ.css">
-       <link rel="stylesheet" crossorigin href="./assets/index-C-qRGThU.css">
-     </head><body>
+
+    <!-- 1、异步加载JS -->
+    <script async fetchpriority="high" src="SysConfig.js?t=1792725244152"></script>
+    <script async src="js/geolocation.min.js"></script>
+    <!-- 同步 -->
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <!-- 2、异步加载CSS:非重要的后期才使用，公用css部分 -->
+    <link
+      rel="preload"
+      as="style"
+      type="text/css"
+      fetchpriority="low"
+      href="css/quasar-table.css"
+    />
+    <!-- ── Favicons & Manifest ── -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="icons/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="icons/favicon-16x16.png"
+    />
+    <link rel="icon" type="image/ico" sizes="any" href="favicon.ico" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- ── Fonts (self-hosted) ── -->
+    <link
+      rel="preload"
+      href="fonts/PangMenZhengDao.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="img/wallpaper-lqip.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+      <script type="module" crossorigin src="./assets/index-B0UxdCWf.js"></script>
+      <link rel="modulepreload" crossorigin href="./assets/litewindow-exp-CuLSh8Nm.js">
+      <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-C0FnF6B9.js">
+      <link rel="modulepreload" crossorigin href="./assets/@zenfs-exp-MeQBWbRH.js">
+      <link rel="modulepreload" crossorigin href="./assets/Cesium-cFXkltsB-C0QAqGQs.js">
+      <link rel="modulepreload" crossorigin href="./assets/vendor-DKvr6yBw.js">
+      <link rel="modulepreload" crossorigin href="./assets/signalr-exp-BIg6suWf.js">
+      <link rel="modulepreload" crossorigin href="./assets/xframe-exp-D4DAeJPg.js">
+      <link rel="modulepreload" crossorigin href="./assets/events-Cf1xm7ve.js">
+      <link rel="modulepreload" crossorigin href="./assets/WidgetsEvent-DS-Jo5hb.js">
+      <link rel="modulepreload" crossorigin href="./assets/_plugin-vue_export-helper-BDNMzG2s.js">
+      <link rel="modulepreload" crossorigin href="./assets/utils-CdL4QhQ5.js">
+      <link rel="modulepreload" crossorigin href="./assets/capacitor-exp-DMyu0Rb5.js">
+      <link rel="modulepreload" crossorigin href="./assets/widgetMenuSetting-BrQVtyij.js">
+      <link rel="modulepreload" crossorigin href="./assets/stores-CLH0ur3D.js">
+      <link rel="stylesheet" crossorigin href="./assets/style-FJxQsTbW.css">
+    </head><body>
     <div id="apploading" class="app-loading">
       <div class="app-loading-wrap">
         <div id="logo-part">
-          <img src="./img/logo.png" alt="Logo" id="waitLogo" />
-          <img src="./img/spinner.svg" alt="" id="waitSpinner" />
+          <img src="img/logo.png" alt="Logo" id="waitLogo" />
+          <img src="img/spinner.svg" alt="" id="waitSpinner" />
         </div>
-        <div class="app-loading-title">
-          <script>
-            document.writeln(document.title);
-          </script>
-        </div>
+        <div class="app-loading-title"> vue-widget-quasar-clivite-template </div>
         <div id="app-loading-info">正在加载……</div>
       </div>
     </div>

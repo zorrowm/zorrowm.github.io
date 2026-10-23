@@ -1,0 +1,1 @@
+import{B as e,L as t,S as n,ct as r,gt as i,w as a,y as o}from"./litewindow-exp-CuLSh8Nm.js";import{it as s}from"./xframe-exp-D4DAeJPg.js";import{l as c}from"./xgisol-exp-B-YE7k9J.js";var l=a({__name:`DrawToolBarWidget`,setup(a){let l=r();return t(()=>{s.XMap&&(l.value=s.XMap)}),(t,r)=>(e(),o(`div`,null,[n(i(c),{xmap:l.value},null,8,[`xmap`])]))}});export{l as default};

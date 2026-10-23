@@ -20,7 +20,6 @@ widget
 
 - 20240719
   升级xframelib后，能简化LayoutContainer的初始化
-  
 
 - 20240607
   增加引入comlink库；
@@ -32,7 +31,6 @@ widget
   增加PopoverPanel组件；
   升级依赖库
   更新public下cesium文件夹文件版本
-  
 - 20240529
   增加ImageViewer组件；
   增加vite-plugin-webworker-service插件支持线程；

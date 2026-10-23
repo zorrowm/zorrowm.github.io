@@ -1,0 +1,1 @@
+import{$t as e,kn as t}from"./vendor-DKvr6yBw.js";import{m as n}from"./xframe-exp-D4DAeJPg.js";function r(t){n(t),t.use(e,{error:`img/image-404.png`})}var i=t(({app:e})=>{r(e)});export{i as default};

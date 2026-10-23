@@ -1,0 +1,1 @@
+import{B as e,w as t,y as n,yt as r}from"./litewindow-exp-CuLSh8Nm.js";var i={style:{color:`#f00`}},a=t({__name:`testQuery`,props:{id:{type:Number,default:0}},setup(t){return(a,o)=>(e(),n(`div`,i,` 该页面是测试获取路由参数:`+r(t.id),1))}});export{a as default};

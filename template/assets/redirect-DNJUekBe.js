@@ -1,0 +1,1 @@
+import{M as e,w as t}from"./litewindow-exp-CuLSh8Nm.js";import{Dn as n,On as r}from"./vendor-DKvr6yBw.js";var i=t({name:`Redirect`,setup(t){let i=n(),a=r();return e(()=>{let{params:e,query:t}=i,{path:n}=e;a.replace({path:`/`+(Array.isArray(n)?n.join(`/`):n),query:t})}),()=>`<q-space/>`}});export{i as default};

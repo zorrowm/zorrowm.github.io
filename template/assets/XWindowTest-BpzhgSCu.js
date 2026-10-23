@@ -1,0 +1,1 @@
+import{B as e,S as t,X as n,_ as r,w as i}from"./litewindow-exp-CuLSh8Nm.js";import{t as a}from"./IframeDIV-BGDleK6r.js";import{t as o}from"./BaseContent-zPSaAjvP.js";var s=`/#/examples/xwindow`,c=i({__name:`XWindowTest`,setup(i){return(i,c)=>(e(),r(o,null,{default:n(()=>[t(a,{src:s})]),_:1}))}});export{c as default};

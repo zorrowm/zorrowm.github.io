@@ -1,0 +1,1 @@
+import{B as e,G as t,Z as n,x as r,y as i}from"./litewindow-exp-CuLSh8Nm.js";import{t as a}from"./_plugin-vue_export-helper-BDNMzG2s.js";var o={};function s(a,o){let s=t(`media`);return n((e(),i(`div`,null,[...o[0]||=[r(` 时空影像云平台 `,-1)]])),[[s,`text-h2.gt.lg text-h4.md text-h6.sm test.sm`]])}var c=a(o,[[`render`,s],[`__scopeId`,`data-v-cdd5611c`]]);export{c as default};

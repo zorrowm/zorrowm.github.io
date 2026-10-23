@@ -1,0 +1,1 @@
+function e(t,n){let r;for(let i of t)if(i.path===n){r=i;break}else if(i.children){let t=e(i.children,n);if(t){r=t;break}}return r}export{e as t};

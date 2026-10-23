@@ -1,0 +1,1 @@
+import{B as e,S as t,ct as n,w as r,y as i}from"./litewindow-exp-CuLSh8Nm.js";import{t as a}from"./PDFViewer-B0zQBO04.js";var o={class:`fit`},s=r({__name:`index`,setup(r){let s=n(`/SampleData/test.pdf`);return(n,r)=>(e(),i(`div`,o,[t(a,{pdfSrc:s.value},null,8,[`pdfSrc`])]))}});export{s as default};
