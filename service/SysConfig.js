@@ -11,17 +11,12 @@ const SysConfig = {
     /**是否是能访问互联网，还是内网部署应用*/
     IsInternet: true,
     LockTime: 3600, //1小时
-    IsNoLogin: true, //无需登录页面,true时不登录
     GrayMode: false //是否启用网站暗灰模式，悼念日，默认为false
   },
   //#endregion
 
   //#region ********后台服务地址配置
   ServiceURL: {
-    /**
-     * 用户登录（统一用户登录）
-     */
-     LoginAuthURL: 'http://user.ysgis.com',
     /**
      * 文件管理服务地址（统一文件管理：后台）
      */
@@ -43,55 +38,12 @@ const SysConfig = {
      * 默认HproseAPI的服务地址
      */
     DefaultHproseAPI: '' //http://192.168.1.109:1002/ImageAdmin
-
-    //*********其他Hprose或API服务***********/
-    // //数据管理
-    // DataHproseAPI: 'http://192.168.1.109:1003/DataManage',
-    // //数据集管理
-    // DatasetHproseAPI: 'http://192.168.1.109:1001/DataSource',
-    // //父级网站地址
-    // ParentWebsiteURL: 'http://localhost:3001'
-
-    //统一登录界面
-    // UILoginURL: 'http://192.168.1.5:180#/userlogin'
   },
   //#endregion
 
-  //#region ********地图配置（天地图KEY）
-  /**
-   * 地图Key
-   */
-  MapKeys: {
-    /**
-     * 天地图服务的授权Key
-     */
-    TDTKey: '5d27dc75ca0c3bdf34f657ffe1e9881d',
-    /**
-     * MapboxKey
-     * pk.eyJ1IjoiemdlbyIsImEiOiJja3E2MGE2NmIxbm45Mm5vNHpnOWZlZ3BlIn0.lDaMkti77XPv0_so0J9apQ
-     */
-    MapboxKey:
-      'pk.eyJ1IjoiY2hyaXNuaW5nIiwiYSI6ImNrZzk3dmNveTA2cGUycXAyNXJ3bWNsOHMifQ._4oFj3iqj5yWWvbuONDYnw',
-    /**
-     * Cesium Key
-     */
-    CesiumKey:
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzZjdkOGRkYi1hYzIxLTQ4MDMtYjZiMC0zODg5YjI2ZTRlZjIiLCJpZCI6MjgyLCJzY29wZXMiOlsiYXNsIiwiYXNyIiwiYXN3IiwiZ2MiXSwiaWF0IjoxNTYyMDEyNTIyfQ.aVsGtowVeK_5C25G5-WCK7bZHyfXUl_zQ5Ud7TKsq0U'
-    /**
-     * Google地图Key
-     */
-    // GoogleKe?: string;
-  },
-  //#endregion
-
-  //#region ******** API服务路径
-  APIPath: {
-    //获取系统用户权限 *必须的
-    GET_AUTH_ROLE_RIGHT: '/api/Check/GetAuthorizationFunc'
-  }
-  //#endregion
 };
 //其他可扩展执行的JS代码
+globalThis.SysConfig = SysConfig;
 //默认设置网站Title
 document.title = SysConfig.UI.SiteTitle;
 //设置样式

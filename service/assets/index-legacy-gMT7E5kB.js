@@ -1,0 +1,1 @@
+System.register(["./xframelib-exp-legacy-BxHqKmOT.js"],function(e,s){"use strict";var t;return{setters:[function(e){t=e.o}],execute:function(){e({E:function(e){t.EventBus.emit(s.SatusMessage,e)},O:function(e){t.EventBus.on(s.SatusMessage,e)}});var s={SatusMessage:"statusmessage"}}}});

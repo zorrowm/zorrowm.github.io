@@ -1,0 +1,1 @@
+import{o as t}from"./xframelib-exp-URb-3aQt.js";const a={SatusMessage:"statusmessage"};function n(s){t.EventBus.emit(a.SatusMessage,s)}function u(s){t.EventBus.on(a.SatusMessage,s)}export{n as E,u as O};
