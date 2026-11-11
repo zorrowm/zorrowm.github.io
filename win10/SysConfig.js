@@ -26,7 +26,7 @@ const SysConfig = {
     /**
      * 图标在线服务地址（不能带"/"）https://api.iconify.design
      */
-    IconServiceURL: 'https://icon2.ysgis.com/online',
+    IconServiceURL: 'https://api.iconify.design',
     
     /**
      * Axios普通WebAPI的BaseURL
