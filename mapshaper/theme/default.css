@@ -1,0 +1,43 @@
+html {
+  /* 头部栏——Icon */
+  --header-title-icon: url("/img/农业技术.png");
+  /*头部栏—— 标题文字/标题图标 颜色 */
+  --header-title-main-color: #00957f;
+
+  /* 左侧菜单/管理端跳转-背景色 */
+  --left-menu-back-color: #00957f;
+  /* 左侧菜单/管理端跳转-文字颜色  */
+  --left-menu-text-color: #fff;
+  --left-menu-selected-backcolor: #fff;
+  /* 左侧菜单-文字选中颜色 */
+  --left-menu-text-selected-color: #00f;
+  /* 左侧菜单图标颜色*/
+  --left-menu-icon-color: #12f4d2;
+  --left-menu-icon-size: 20px;
+  --left-menu-icon-text: 14px;
+  /* 后台管理 */
+  /* 左侧二级菜单——文本颜色 */
+  --left-secondmenu-text-color: #333;
+  --left-secondmenu-text-size: 14px;
+  /* 左侧二级菜单——文本——选中颜色  */
+  --left-secondmenu-selected-color: #00957f;
+  /* 左侧二级菜单——图标颜色  */
+  --left-secondmenu-icon-color: #00957f;
+  /* 二级菜单-选中状态背景颜色 */
+  --left-secondmenu-active-color: #96dfd4;
+
+  /* 左侧菜单/用户端跳转-背景色 */
+  --left-menu-main-color: #00957f;
+
+  /* 时间条-边框/图标 颜色*/
+  --timeline-border-color: #00957f;
+
+  /* 表格表头背景颜色 */
+  --table-background-color: #96dfd4;
+  /* 表格表头文字颜色 */
+  --table-text-color: #00957f;
+  /* 表格按钮背景颜色-可触发 */
+  --table-btn-active-color: #96dfd4;
+  /* 表格按钮背景颜色-hover */
+  --table-btn-hv-color: #00957f;
+}
