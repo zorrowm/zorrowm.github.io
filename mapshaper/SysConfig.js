@@ -52,7 +52,8 @@ const SysConfig = {
     /**
      * 默认HproseAPI的服务地址http://192.168.1.120:5139/hprose
      */
-    DefaultHproseAPI: "", //https://gis-image.digsur.com/ImageAdmin
+    DefaultHproseAPI: ""
+
   }
   //#endregion
 
