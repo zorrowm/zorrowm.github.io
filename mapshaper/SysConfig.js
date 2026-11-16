@@ -6,7 +6,7 @@ const SysConfig = {
   //#region ********系统界面相关配置
   UI: {
     /*必须，系统配置标题，必须 */
-    SiteTitle: "基于Widget Quasar的开发模板2",
+    SiteTitle: "MapShaper地理数据处理平台",
     CopyRight: "Copyright ©XXXX  2022-2026",
     WebSite: "http://www.XXXX.com",
     /**是否是能访问互联网，还是内网部署应用*/
