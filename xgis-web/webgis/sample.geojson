@@ -1,0 +1,10 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    { "type": "Feature", "id": "beijing", "properties": { "名称": "北京", "类别": "城市", "人口万": 2184, "备注": "示例数据" }, "geometry": { "type": "Point", "coordinates": [116.4074, 39.9042] } },
+    { "type": "Feature", "id": "tianjin", "properties": { "名称": "天津", "类别": "城市", "人口万": 1364, "备注": null }, "geometry": { "type": "Point", "coordinates": [117.2, 39.1333] } },
+    { "type": "Feature", "id": "shijiazhuang", "properties": { "名称": "石家庄", "类别": "城市", "人口万": 1124, "备注": "示例数据" }, "geometry": { "type": "Point", "coordinates": [114.5149, 38.0428] } },
+    { "type": "Feature", "id": "route", "properties": { "名称": "城市联系线", "类别": "线路", "人口万": null, "备注": "仅作交互演示" }, "geometry": { "type": "LineString", "coordinates": [[114.5149, 38.0428], [116.4074, 39.9042], [117.2, 39.1333]] } },
+    { "type": "Feature", "id": "region", "properties": { "名称": "研究区域", "类别": "区域", "人口万": null, "备注": "示意范围，无行政含义" }, "geometry": { "type": "Polygon", "coordinates": [[[115.5, 38.7], [116.5, 38.7], [116.8, 39.5], [115.8, 39.6], [115.5, 38.7]]] } }
+  ]
+}

@@ -1,0 +1,1 @@
+import{P as e,R as t,u as n}from"./runtime-core.esm-bundler-CBUYPCM4.js";import{t as r}from"./_plugin-vue_export-helper-BDNMzG2s.js";var i={};function a(r,i){let a=t(`router-view`);return e(),n(a)}var o=r(i,[[`render`,a]]);export{o as default};

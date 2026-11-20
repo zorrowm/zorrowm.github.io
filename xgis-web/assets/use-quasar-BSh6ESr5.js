@@ -1,0 +1,1 @@
+import{S as e,v as t}from"./runtime-core.esm-bundler-CBUYPCM4.js";var n=`_q_li_`,r=`_q_fo_`,i=`_q_tabs_`;function a(){}function o(){return t()?.appContext.config.globalProperties.$q??e(`_q_`)}export{i as a,n as i,a as n,r,o as t};

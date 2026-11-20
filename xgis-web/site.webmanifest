@@ -1,0 +1,21 @@
+{
+  "name": "vue前端开发模板",
+  "short_name": "vue-widget-quasar-clivite-template",
+  "description": "基于vue和widget机制的前端开发模板.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#1a1a2e",
+  "background_color": "#0a0a14",
+  "icons": [
+    {
+      "src": "/icons/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/favicon-96x96.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}
