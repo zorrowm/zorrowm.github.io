@@ -48,34 +48,15 @@ const SysConfig = {
      * Axios普通WebAPI的BaseURL
      * 全局默认的http请求地址（一般与主hprose相同或不同）;文件上传地址
      */
-    DefaultWebAPI: "https://hunanviewmulti.gis.digsur.com",
+    DefaultWebAPI: "",
     /**
      * 默认HproseAPI的服务地址http://192.168.1.120:5139/hprose
      */
-    DefaultHproseAPI: "", //https://gis-image.digsur.com/ImageAdmin
-    //数据集管理http://192.168.1.33:1001/DataSource
-    // DatasetHproseAPI: 'http://192.168.1.47:1001/DataSource',
-
-    //渲染样式色带图片
-    DefaultStyleColorImage: "https://gis-image.digsur.com",
-    //后台瓦片服务地址
-    WMTSService: "https://gis-image.digsur.com/IMGWMTS",
-    /**
-     * 二维地图默认地址
-     */
-    Map2dStyleURL:
-      "https://msmg-main.gis.digsur.com/api/Vtpk/GetStyleJson?layerId=38d43f204c4542baa0a8a6162bc698be",
-    MultiSourceURL: "http://hunanviewmulti.gis.digsur.com"
+    DefaultHproseAPI: ""
   },
   //#endregion
 
-  //#region ******** API服务路径
-  APIPath: {
-    SignalR: "/chathub"
-  },
-  //#endregion
-
-  //#region **********用于控制功能是否启用
+ //#region **********用于控制功能是否启用
   Enables: {
     CesiumOfflineCache: true //Cesium缓存
   }
@@ -103,7 +84,7 @@ if (SysConfig.UI.Theme) {
 
 // WebGIS 业务扩展；保留模板原有键、备用项和初始化行为。
 SysConfig.WebGIS = {
-  initialView: { center: [-100, 40], zoom: 2, bearing: 0, pitch: 0 },
+  initialView: { center: [104, 35], zoom: 2.8, bearing: 0, pitch: 0 },
   basemaps: [
     { id: 'liberty', name: 'OpenFreeMap Liberty', url: 'https://tiles.openfreemap.org/styles/liberty' },
     { id: 'positron', name: 'Carto Positron', url: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json' },
