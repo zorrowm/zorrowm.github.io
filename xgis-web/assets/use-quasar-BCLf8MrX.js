@@ -1,0 +1,1 @@
+import{C as e,y as t}from"./vue-runtime-BS_ytmD0.js";var n=`_q_li_`,r=`_q_fo_`,i=`_q_tabs_`;function a(){}function o(){return t()?.appContext.config.globalProperties.$q??e(`_q_`)}export{i as a,n as i,a as n,r,o as t};

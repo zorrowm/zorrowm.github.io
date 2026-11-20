@@ -1,0 +1,1 @@
+import{x as e}from"./vue-runtime-BS_ytmD0.js";import{t}from"./create-BjC0CmuD.js";var n=t({name:`QSpace`,setup(){let t=e(`div`,{class:`q-space`});return()=>t}});export{n as t};

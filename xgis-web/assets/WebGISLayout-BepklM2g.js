@@ -1,0 +1,1 @@
+import{F as e,d as t,t as n,z as r}from"./vue-runtime-BS_ytmD0.js";var i={};function a(n,i){let a=r(`router-view`);return e(),t(a)}var o=n(i,[[`render`,a]]);export{o as default};
