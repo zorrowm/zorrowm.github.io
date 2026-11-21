@@ -1,0 +1,1 @@
+import"./rolldown-runtime-BsASzDio.js";import{$t as e,Pt as t,Rt as n}from"./vendor-Dixm7EuX.js";var r=n({__name:`MapproxyWidget`,setup(n){return console.log(`加载了地图代理空对象`),(n,r)=>(e(),t(`div`))}});export{r as default};

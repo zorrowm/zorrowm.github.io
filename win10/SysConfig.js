@@ -40,6 +40,14 @@ const SysConfig = {
   },
   //#endregion
 
+  //#region ********AI 会话后端服务配置
+  // 前端只请求 ASP.NET Core 包装服务，上游模型密钥只保存在后端。
+  AI: {
+    BackendURL: 'http://127.0.0.1:5139',
+    ChatPath: '/ai-api/chat',
+  },
+  //#endregion
+
 };
 
 //#region *********其他可扩展执行的JS代码

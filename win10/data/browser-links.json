@@ -1,0 +1,67 @@
+[
+  {
+    "name": "用户权限",
+    "icon": "mdi:user-outline",
+    "url": "https://auth.ysgis.com"
+  },
+  {
+    "name": "在线图标",
+    "icon": "simple-icons:iconify",
+    "url": "https://icon.ysgis.com"
+  },
+  {
+    "name": "在线文件系统",
+    "icon": "mdi:file-account",
+    "url": "https://fileonline.ysgis.com"
+  },
+  {
+    "name": "EPSG投影坐标",
+    "icon": "ant-design:aim-outlined",
+    "url": "https://epsg.ysgis.com"
+  },
+  {
+    "name": "API服务测试",
+    "icon": "mdi:server",
+    "url": "https://service.ysgis.com"
+  },
+  {
+    "name": "成果列表",
+    "icon": "mdi:archive-check",
+    "url": "https://list.ysgis.com"
+  },
+  {
+    "name": "二维地图",
+    "icon": "mdi:map-check-outline",
+    "url": "https://2dol.ysgis.com"
+  },
+  {
+    "name": "Mapbox地图",
+    "icon": "mdi:map-marker",
+    "url": "https://2dmapbox.ysgis.com"
+  },
+  {
+    "name": "三维地图",
+    "icon": "mdi:earth",
+    "url": "https://3d.ysgis.com"
+  },
+  {
+    "name": "GitHub-Zorrowm",
+    "icon": "mdi:github",
+    "url": "https://github.com/zorrowm"
+  },
+  {
+    "name": "FDB数据测试",
+    "icon": "mdi:flash",
+    "url": "https://fdbtest.ysgis.com/#/bigscreen"
+  },
+  {
+    "name": "维基百科",
+    "icon": "mdi:wikipedia",
+    "url": "https://www.wikipedia.org"
+  },
+  {
+    "name": "Quasar官网",
+    "icon": "mdi:alpha-a-circle",
+    "url": "https://quasar.dev"
+  }
+]
