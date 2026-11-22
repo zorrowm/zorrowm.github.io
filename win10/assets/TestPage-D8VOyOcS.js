@@ -1,1 +1,0 @@
-import"./rolldown-runtime-BsASzDio.js";import{$t as e,Pt as t,jt as n}from"./vendor-Dixm7EuX.js";import{x as r}from"./index-B1HGzJYS.js";var i={},a={class:`pageContent`};function _sfc_render(r,i){return e(),t(`div`,a,[...i[0]||=[n(`h1`,null,`这是一个测试页面`,-1)]])}var o=r(i,[[`render`,_sfc_render]]);export{o as default};
