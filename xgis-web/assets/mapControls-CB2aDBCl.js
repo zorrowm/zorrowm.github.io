@@ -1,0 +1,1 @@
+import{i as e}from"./workspace-CDkX2oLs.js";var t={navigation:!1,fullscreen:!0,compass:!0,geolocate:!1,globe:!0,scale:!0,attribution:!0,logo:!1},n=e(`webgis-map-controls`,{state:()=>({visible:{...t},mounted:Object.fromEntries(Object.keys(t).map(e=>[e,!1])),attributionRequired:!1})});export{n as t};

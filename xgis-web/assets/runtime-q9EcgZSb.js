@@ -1,1 +1,0 @@
-import{r as e}from"./rolldown-runtime-BCiCTKAo.js";import{a as t}from"./dist-Ci6himm-.js";import{t as n}from"./geojson-CNz42iY3.js";var r=e({fitData:()=>a});function i(){return t.XMap}function a(e){let t=n(e);t&&i()?.fitBounds(t,{padding:60,maxZoom:15,duration:500})}export{i as n,r,a as t};

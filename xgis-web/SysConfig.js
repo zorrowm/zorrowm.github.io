@@ -92,5 +92,12 @@ SysConfig.WebGIS = {
     { id: 'blank', name: '空白底图（离线）', url: '' }
   ],
   maxFeatures: 100000,
-  autosaveMs: 1500
+  autosaveMs: 1500,
+  terrain: null,
+  routingApi: '',
+  routingProfile: 'driving',
+  googleStreetViewKey: '',
+  mapillaryToken: '',
+  samGeoApiUrl: '',
+  geoAgent: { provider: 'openai-compatible', apiKey: '', model: '', baseUrl: '' }
 };
