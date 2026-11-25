@@ -1,0 +1,1164 @@
+{
+  "id": "2639464",
+  "name": "时空三维云平台",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1159906",
+      "name": "停止",
+      "font_class": "tingzhi",
+      "unicode": "e693",
+      "unicode_decimal": 59027
+    },
+    {
+      "icon_id": "1727451",
+      "name": "219上传、导出",
+      "font_class": "shangchuandaochu",
+      "unicode": "e8c6",
+      "unicode_decimal": 59590
+    },
+    {
+      "icon_id": "1727452",
+      "name": "218下载、导入",
+      "font_class": "xiazaidaoru",
+      "unicode": "e8c7",
+      "unicode_decimal": 59591
+    },
+    {
+      "icon_id": "954230",
+      "name": "步行",
+      "font_class": "buxing",
+      "unicode": "e64f",
+      "unicode_decimal": 58959
+    },
+    {
+      "icon_id": "1344193",
+      "name": "飞行漫游",
+      "font_class": "icon-feixingmanyou",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
+      "icon_id": "2571147",
+      "name": "卫星",
+      "font_class": "weixing",
+      "unicode": "e65c",
+      "unicode_decimal": 58972
+    },
+    {
+      "icon_id": "5961393",
+      "name": "汽车",
+      "font_class": "qiche",
+      "unicode": "ec6d",
+      "unicode_decimal": 60525
+    },
+    {
+      "icon_id": "22383583",
+      "name": "地图漫游",
+      "font_class": "ditumanyou",
+      "unicode": "edf4",
+      "unicode_decimal": 60916
+    },
+    {
+      "icon_id": "26962163",
+      "name": "node",
+      "font_class": "node",
+      "unicode": "e692",
+      "unicode_decimal": 59026
+    },
+    {
+      "icon_id": "26962162",
+      "name": "grouping",
+      "font_class": "grouping",
+      "unicode": "e691",
+      "unicode_decimal": 59025
+    },
+    {
+      "icon_id": "26587331",
+      "name": "Wind flow field",
+      "font_class": "a-Windflowfield",
+      "unicode": "e690",
+      "unicode_decimal": 59024
+    },
+    {
+      "icon_id": "26587127",
+      "name": "Forced to light",
+      "font_class": "a-Forcedtolight1",
+      "unicode": "e68f",
+      "unicode_decimal": 59023
+    },
+    {
+      "icon_id": "26586801",
+      "name": "fog",
+      "font_class": "fog1",
+      "unicode": "e68d",
+      "unicode_decimal": 59021
+    },
+    {
+      "icon_id": "26586802",
+      "name": "Full screen fog effect",
+      "font_class": "a-Fullscreenfogeffect1",
+      "unicode": "e68e",
+      "unicode_decimal": 59022
+    },
+    {
+      "icon_id": "25599424",
+      "name": "Dual display",
+      "font_class": "a-Dualdisplay",
+      "unicode": "e682",
+      "unicode_decimal": 59010
+    },
+    {
+      "icon_id": "25596244",
+      "name": "WMS",
+      "font_class": "WMS",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "25596245",
+      "name": "Historical image",
+      "font_class": "a-Historicalimage",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "25596246",
+      "name": "WMTS",
+      "font_class": "WMTS",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "25596247",
+      "name": "Lab",
+      "font_class": "Lab",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "25596248",
+      "name": "on line",
+      "font_class": "a-online",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "25596249",
+      "name": "color",
+      "font_class": "color",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "25596250",
+      "name": "Screenshot of the scene_1",
+      "font_class": "a-Screenshotofthescene_1",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "25596251",
+      "name": "Tiles debugging_1",
+      "font_class": "a-Tilesdebugging_1",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "25596252",
+      "name": "Single viewport_1",
+      "font_class": "a-Singleviewport_1",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "25596253",
+      "name": "terrain",
+      "font_class": "terrain",
+      "unicode": "e622",
+      "unicode_decimal": 58914
+    },
+    {
+      "icon_id": "25596254",
+      "name": "Tile testing_1",
+      "font_class": "a-Tiletesting_1",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    },
+    {
+      "icon_id": "25596255",
+      "name": "model structure",
+      "font_class": "a-modelstructure",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "25596256",
+      "name": "timeline_1",
+      "font_class": "timeline_1",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "25596257",
+      "name": "status bar_1",
+      "font_class": "a-statusbar_1",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "25596258",
+      "name": "plotting scale",
+      "font_class": "a-plottingscale",
+      "unicode": "e627",
+      "unicode_decimal": 58919
+    },
+    {
+      "icon_id": "25596259",
+      "name": "Navigation controls_1",
+      "font_class": "a-Navigationcontrols_1",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "25596260",
+      "name": "Layer management_3",
+      "font_class": "a-Layermanagement_3",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "25596261",
+      "name": "The mouse to pick up_1",
+      "font_class": "a-Themousetopickup_1",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    },
+    {
+      "icon_id": "25596262",
+      "name": "VR_1",
+      "font_class": "VR_1",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "25596263",
+      "name": "first person_1",
+      "font_class": "a-firstperson_1",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "25596264",
+      "name": "Right-click rotation_1",
+      "font_class": "a-Right-clickrotation_1",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "25596265",
+      "name": "default ",
+      "font_class": "default",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "25596266",
+      "name": "Binding camera_3",
+      "font_class": "a-Bindingcamera_3",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "25596267",
+      "name": "Center pivot_1",
+      "font_class": "a-Centerpivot_1",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "25596268",
+      "name": "The global rotation_1",
+      "font_class": "a-Theglobalrotation_1",
+      "unicode": "e631",
+      "unicode_decimal": 58929
+    },
+    {
+      "icon_id": "25596269",
+      "name": "custom_1",
+      "font_class": "custom_1",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "25596270",
+      "name": "china_1",
+      "font_class": "china_1",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "25596271",
+      "name": "the earth ",
+      "font_class": "a-theearth",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "25596272",
+      "name": "stockpile ",
+      "font_class": "stockpile",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "25596273",
+      "name": "ODLines",
+      "font_class": "ODLines",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "25596274",
+      "name": "Parabolic interpolation",
+      "font_class": "a-Parabolicinterpolation",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "25596275",
+      "name": "Fill the surface",
+      "font_class": "a-Fillthesurface",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "25596276",
+      "name": "retaining wall ",
+      "font_class": "a-retainingwall",
+      "unicode": "e639",
+      "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "25596277",
+      "name": "way",
+      "font_class": "way",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "25596278",
+      "name": "Stick a map yuan",
+      "font_class": "a-Stickamapyuan",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "25596279",
+      "name": "Path animation",
+      "font_class": "a-Pathanimation",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "25596280",
+      "name": "The elevation map",
+      "font_class": "a-Theelevationmap",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "25596281",
+      "name": "model_1",
+      "font_class": "model_1",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "25596282",
+      "name": "Smooth polygon",
+      "font_class": "a-Smoothpolygon",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "25596283",
+      "name": "Particles of fireworks",
+      "font_class": "a-Particlesoffireworks",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "25596284",
+      "name": "particulates",
+      "font_class": "particulates",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "25596285",
+      "name": "Monomer",
+      "font_class": "Monomer",
+      "unicode": "e642",
+      "unicode_decimal": 58946
+    },
+    {
+      "icon_id": "25596287",
+      "name": "Flat tail arrow",
+      "font_class": "a-Flattailarrow",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "25596288",
+      "name": "polygon",
+      "font_class": "polygon",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    },
+    {
+      "icon_id": "25596289",
+      "name": "double-headed arrow",
+      "font_class": "a-double-headedarrow",
+      "unicode": "e645",
+      "unicode_decimal": 58949
+    },
+    {
+      "icon_id": "25596290",
+      "name": "circle",
+      "font_class": "circle",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "25596291",
+      "name": "Flat tail arrow particle",
+      "font_class": "a-Flattailarrowparticle",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "25596292",
+      "name": "rectangle ",
+      "font_class": "rectangle",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "25596293",
+      "name": "broken line",
+      "font_class": "a-brokenline",
+      "unicode": "e649",
+      "unicode_decimal": 58953
+    },
+    {
+      "icon_id": "25596294",
+      "name": "Figure punctuation",
+      "font_class": "a-Figurepunctuation",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "25596295",
+      "name": "custom_2",
+      "font_class": "custom_2",
+      "unicode": "e64b",
+      "unicode_decimal": 58955
+    },
+    {
+      "icon_id": "25596296",
+      "name": "Lab built-in  ",
+      "font_class": "a-Labbuilt-in",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "25596297",
+      "name": "Online sharing",
+      "font_class": "a-Onlinesharing",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "25596298",
+      "name": "mosaic",
+      "font_class": "mosaic",
+      "unicode": "e64e",
+      "unicode_decimal": 58958
+    },
+    {
+      "icon_id": "25596300",
+      "name": "The lens spot yao",
+      "font_class": "a-Thelensspotyao",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "25596301",
+      "name": "night vision",
+      "font_class": "a-nightvision",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "25596302",
+      "name": "black and white",
+      "font_class": "a-blackandwhite",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "25596303",
+      "name": "luminance",
+      "font_class": "luminance",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "25596304",
+      "name": "outline",
+      "font_class": "outline",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "25596305",
+      "name": "depth of field",
+      "font_class": "a-depthoffield",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "25596306",
+      "name": "Environment to cover",
+      "font_class": "a-Environmenttocover",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "25596307",
+      "name": "floodlight",
+      "font_class": "floodlight",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "25596308",
+      "name": "shadow ",
+      "font_class": "shadow",
+      "unicode": "e658",
+      "unicode_decimal": 58968
+    },
+    {
+      "icon_id": "25596309",
+      "name": "The sky box",
+      "font_class": "a-Theskybox",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "25596310",
+      "name": "starry sky",
+      "font_class": "a-starrysky",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "25596313",
+      "name": "snow",
+      "font_class": "snow",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "25596314",
+      "name": "rain",
+      "font_class": "rain",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "25596315",
+      "name": "cloud",
+      "font_class": "cloud",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "25596316",
+      "name": "moon",
+      "font_class": "moon",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "25596317",
+      "name": "atmosphere",
+      "font_class": "atmosphere",
+      "unicode": "e661",
+      "unicode_decimal": 58977
+    },
+    {
+      "icon_id": "25596318",
+      "name": "sun",
+      "font_class": "sun",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "25596319",
+      "name": "eliminate",
+      "font_class": "eliminate",
+      "unicode": "e663",
+      "unicode_decimal": 58979
+    },
+    {
+      "icon_id": "25596320",
+      "name": "volume ",
+      "font_class": "volume",
+      "unicode": "e664",
+      "unicode_decimal": 58980
+    },
+    {
+      "icon_id": "25596321",
+      "name": "Circular sighting",
+      "font_class": "a-Circularsighting",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "25596322",
+      "name": "intervisibility ",
+      "font_class": "intervisibility",
+      "unicode": "e666",
+      "unicode_decimal": 58982
+    },
+    {
+      "icon_id": "25596323",
+      "name": "azimuth",
+      "font_class": "azimuth",
+      "unicode": "e667",
+      "unicode_decimal": 58983
+    },
+    {
+      "icon_id": "25596324",
+      "name": "The facade area",
+      "font_class": "a-Thefacadearea",
+      "unicode": "e668",
+      "unicode_decimal": 58984
+    },
+    {
+      "icon_id": "25596325",
+      "name": "profile",
+      "font_class": "profile",
+      "unicode": "e669",
+      "unicode_decimal": 58985
+    },
+    {
+      "icon_id": "25596326",
+      "name": "area",
+      "font_class": "area",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
+    },
+    {
+      "icon_id": "25596327",
+      "name": "altitude",
+      "font_class": "altitude",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "25596328",
+      "name": "Stick to distance",
+      "font_class": "a-Sticktodistance",
+      "unicode": "e66c",
+      "unicode_decimal": 58988
+    },
+    {
+      "icon_id": "25596329",
+      "name": "distance",
+      "font_class": "distance",
+      "unicode": "e66d",
+      "unicode_decimal": 58989
+    },
+    {
+      "icon_id": "25596330",
+      "name": "Point position",
+      "font_class": "a-Pointposition",
+      "unicode": "e66e",
+      "unicode_decimal": 58990
+    },
+    {
+      "icon_id": "25596331",
+      "name": "potholing ",
+      "font_class": "potholing",
+      "unicode": "e66f",
+      "unicode_decimal": 58991
+    },
+    {
+      "icon_id": "25596332",
+      "name": "model",
+      "font_class": "model1",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "25596333",
+      "name": "Visual valve",
+      "font_class": "a-Visualvalve",
+      "unicode": "e671",
+      "unicode_decimal": 58993
+    },
+    {
+      "icon_id": "25596334",
+      "name": "sectioning",
+      "font_class": "sectioning",
+      "unicode": "e672",
+      "unicode_decimal": 58994
+    },
+    {
+      "icon_id": "25596335",
+      "name": "Video fusion",
+      "font_class": "a-Videofusion",
+      "unicode": "e673",
+      "unicode_decimal": 58995
+    },
+    {
+      "icon_id": "25596336",
+      "name": "planish",
+      "font_class": "planish",
+      "unicode": "e674",
+      "unicode_decimal": 58996
+    },
+    {
+      "icon_id": "25596337",
+      "name": "The surface of transparent",
+      "font_class": "a-Thesurfaceoftransparent",
+      "unicode": "e675",
+      "unicode_decimal": 58997
+    },
+    {
+      "icon_id": "25596338",
+      "name": "surface",
+      "font_class": "surface",
+      "unicode": "e676",
+      "unicode_decimal": 58998
+    },
+    {
+      "icon_id": "25596339",
+      "name": "Underground mode",
+      "font_class": "a-Undergroundmode",
+      "unicode": "e677",
+      "unicode_decimal": 58999
+    },
+    {
+      "icon_id": "25596340",
+      "name": "triangulation network",
+      "font_class": "a-triangulationnetwork",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "25596341",
+      "name": "depth measurement ",
+      "font_class": "a-depthmeasurement",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "25596343",
+      "name": "Terrain illumination",
+      "font_class": "a-Terrainillumination",
+      "unicode": "e67a",
+      "unicode_decimal": 59002
+    },
+    {
+      "icon_id": "25596344",
+      "name": "Terrain cutting",
+      "font_class": "a-Terraincutting",
+      "unicode": "e67b",
+      "unicode_decimal": 59003
+    },
+    {
+      "icon_id": "25596345",
+      "name": "exposure",
+      "font_class": "exposure",
+      "unicode": "e67c",
+      "unicode_decimal": 59004
+    },
+    {
+      "icon_id": "25596346",
+      "name": "contour line",
+      "font_class": "a-contourline",
+      "unicode": "e67d",
+      "unicode_decimal": 59005
+    },
+    {
+      "icon_id": "25596347",
+      "name": "slope",
+      "font_class": "slope",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    },
+    {
+      "icon_id": "25596348",
+      "name": "elevation",
+      "font_class": "elevation",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "25596349",
+      "name": "Debugging package",
+      "font_class": "a-Debuggingpackage",
+      "unicode": "e680",
+      "unicode_decimal": 59008
+    },
+    {
+      "icon_id": "25596350",
+      "name": "skiplod",
+      "font_class": "skiplod",
+      "unicode": "e681",
+      "unicode_decimal": 59009
+    },
+    {
+      "icon_id": "25596352",
+      "name": "Sense of science and technology",
+      "font_class": "a-Senseofscienceandtechnology",
+      "unicode": "e683",
+      "unicode_decimal": 59011
+    },
+    {
+      "icon_id": "25596353",
+      "name": "viewport ",
+      "font_class": "viewport",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "25596354",
+      "name": "spin",
+      "font_class": "spin",
+      "unicode": "e685",
+      "unicode_decimal": 59013
+    },
+    {
+      "icon_id": "25596355",
+      "name": "move",
+      "font_class": "move",
+      "unicode": "e686",
+      "unicode_decimal": 59014
+    },
+    {
+      "icon_id": "25596356",
+      "name": "style",
+      "font_class": "style",
+      "unicode": "e687",
+      "unicode_decimal": 59015
+    },
+    {
+      "icon_id": "25596357",
+      "name": "Classification of the terrain",
+      "font_class": "a-Classificationoftheterrain",
+      "unicode": "e688",
+      "unicode_decimal": 59016
+    },
+    {
+      "icon_id": "25596358",
+      "name": "Classification of tiles",
+      "font_class": "a-Classificationoftiles",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "25596359",
+      "name": "The instance model",
+      "font_class": "a-Theinstancemodel",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "25596360",
+      "name": "viewport",
+      "font_class": "viewport1",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "25596361",
+      "name": "Arc Gis",
+      "font_class": "a-ArcGis",
+      "unicode": "e68c",
+      "unicode_decimal": 59020
+    },
+    {
+      "icon_id": "23352876",
+      "name": "shrink",
+      "font_class": "shrink",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "25363111",
+      "name": "FOV",
+      "font_class": "FOV",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "25360659",
+      "name": "Center pivot",
+      "font_class": "a-Centerpivot",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "25360660",
+      "name": "Right-click rotation",
+      "font_class": "a-Right-clickrotation",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "25360654",
+      "name": "The mouse to pick up",
+      "font_class": "a-Themousetopickup",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "25360655",
+      "name": "first person",
+      "font_class": "a-firstperson",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "25360656",
+      "name": "The global rotation",
+      "font_class": "a-Theglobalrotation",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "8473651",
+      "name": "map",
+      "font_class": "map1",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "21666283",
+      "name": "chucun",
+      "font_class": "chucun",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "14538960",
+      "name": "VR_filled",
+      "font_class": "VR_filled",
+      "unicode": "e6d1",
+      "unicode_decimal": 59089
+    },
+    {
+      "icon_id": "25345915",
+      "name": "model",
+      "font_class": "model",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "25320882",
+      "name": "quit",
+      "font_class": "quit",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "19991772",
+      "name": "View-Outlined",
+      "font_class": "View-Outlined",
+      "unicode": "e700",
+      "unicode_decimal": 59136
+    },
+    {
+      "icon_id": "19991841",
+      "name": "Help-Outlined",
+      "font_class": "Help-Outlined",
+      "unicode": "e6ce",
+      "unicode_decimal": 59086
+    },
+    {
+      "icon_id": "19991783",
+      "name": "Arrows vertical-Outlined",
+      "font_class": "Arrowsvertical-Outlined",
+      "unicode": "e79c",
+      "unicode_decimal": 59292
+    },
+    {
+      "icon_id": "19991897",
+      "name": "Copy-2-Outlined",
+      "font_class": "Copy-2-Outlined",
+      "unicode": "e6e1",
+      "unicode_decimal": 59105
+    },
+    {
+      "icon_id": "19991720",
+      "name": "Search-Filled",
+      "font_class": "Search-Filled",
+      "unicode": "e771",
+      "unicode_decimal": 59249
+    },
+    {
+      "icon_id": "19991708",
+      "name": "Caret sort-Filled",
+      "font_class": "Caretsort-Filled",
+      "unicode": "e765",
+      "unicode_decimal": 59237
+    },
+    {
+      "icon_id": "19991809",
+      "name": "Edit-Outlined",
+      "font_class": "Edit-Outlined",
+      "unicode": "e6c6",
+      "unicode_decimal": 59078
+    },
+    {
+      "icon_id": "19991852",
+      "name": "Add-Outlined",
+      "font_class": "Add-Outlined",
+      "unicode": "e6f6",
+      "unicode_decimal": 59126
+    },
+    {
+      "icon_id": "19991844",
+      "name": "Trash can-Outlined",
+      "font_class": "Trashcan-Outlined",
+      "unicode": "e6d0",
+      "unicode_decimal": 59088
+    },
+    {
+      "icon_id": "22704863",
+      "name": "calendar",
+      "font_class": "calendar",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "22697998",
+      "name": "Tile service",
+      "font_class": "a-Tileservice1",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "22697626",
+      "name": "Operation log",
+      "font_class": "a-Operationlog",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "22697110",
+      "name": "Tilt data",
+      "font_class": "a-Tiltdata",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "22697111",
+      "name": "Resource services",
+      "font_class": "a-Resourceservices",
+      "unicode": "e608",
+      "unicode_decimal": 58888
+    },
+    {
+      "icon_id": "22697112",
+      "name": "lod",
+      "font_class": "lod",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "22697113",
+      "name": "Scene service",
+      "font_class": "a-Sceneservice",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "19991892",
+      "name": "Home-Outlined",
+      "font_class": "Home-Outlined",
+      "unicode": "e807",
+      "unicode_decimal": 59399
+    },
+    {
+      "icon_id": "19991854",
+      "name": "Chevron down-Outlined",
+      "font_class": "Chevrondown-Outlined",
+      "unicode": "e6e6",
+      "unicode_decimal": 59110
+    },
+    {
+      "icon_id": "19991888",
+      "name": "Chevron up-Outlined",
+      "font_class": "Chevronup-Outlined",
+      "unicode": "e6e8",
+      "unicode_decimal": 59112
+    },
+    {
+      "icon_id": "22544968",
+      "name": "BIM",
+      "font_class": "BIM",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "22544969",
+      "name": "General model",
+      "font_class": "a-Generalmodel",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "22544970",
+      "name": "Image slice",
+      "font_class": "a-Imageslice",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "22544971",
+      "name": "Point cloud slice",
+      "font_class": "a-Pointcloudslice",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "22544972",
+      "name": "Terrain slice",
+      "font_class": "a-Terrainslice",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "22544973",
+      "name": "Tilt model",
+      "font_class": "a-Tiltmodel",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "22544974",
+      "name": "Vector slice",
+      "font_class": "a-Vectorslice",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}
