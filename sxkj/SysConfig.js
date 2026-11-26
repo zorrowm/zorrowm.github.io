@@ -47,12 +47,12 @@ const SysConfig = {
     resource: {
       name: '系统成果',
       path: '/demo/resource',
-      config: 'config/menuConfig_sxkj.js'
+      config: '../config/menuConfig_sxkj.js'
     },
     online: {
       name: '在线工具',
       path: '/demo/online',
-      config: 'config/menuConfig_online.js'
+      config: '../config/menuConfig_online.js'
     }
   }
   //#endregion
